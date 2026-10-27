@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Dashboard | MEDIXEN Healthcare</title>
+  <title>Client Portal | MEDIXEN Healthcare</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,17 +14,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <link rel="stylesheet" href="root.css" />
-  <link rel="stylesheet" href="admin.css" />
+  <link rel="stylesheet" href="client.css" />
 </head>
 <body>
 
   <!-- Mobile Drawer Overlay -->
-  <div class="dash-overlay" id="dashOverlay"></div>
+  <div class="dash-overlay" id="clientOverlay"></div>
 
   <div class="dash-layout">
     
-    <!-- ==================== LEFT SIDEBAR (DARK NAVY) ==================== -->
-    <aside class="dash-sidebar" id="dashSidebar">
+    <!-- ==================== ICE BLUE SIDEBAR NAVIGATION ==================== -->
+    <aside class="client-sidebar" id="clientSidebar">
       
       <!-- Brand & Mobile Close -->
       <div class="sidebar-header">
@@ -32,53 +32,59 @@
           <span class="logo-icon"><i class="fa-solid fa-notes-medical"></i></span>
           <span class="logo-text">MEDIXEN</span>
         </a>
-        <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close Sidebar">
+        <button class="sidebar-close-btn" id="clientSidebarClose" aria-label="Close Sidebar">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
 
-      <!-- Navigation Menu -->
+      <!-- Navigation Links -->
       <nav class="sidebar-nav">
-        <span class="sidebar-label">Management</span>
+        <span class="sidebar-label">Facility Portal</span>
         <ul class="sidebar-menu">
           <li>
             <a href="#overview" class="dash-nav-link active" data-tab="overview">
-              <i class="fa-solid fa-chart-pie"></i>
-              <span>Overview</span>
+              <i class="fa-solid fa-gauge-high"></i>
+              <span>Dashboard Overview</span>
             </a>
           </li>
           <li>
-            <a href="#inventory" class="dash-nav-link" data-tab="inventory">
-              <i class="fa-solid fa-boxes-stacked"></i>
-              <span>Equipment Depot</span>
+            <a href="#equipment" class="dash-nav-link" data-tab="equipment">
+              <i class="fa-solid fa-laptop-medical"></i>
+              <span>My Equipment &amp; Assets</span>
             </a>
           </li>
           <li>
             <a href="#orders" class="dash-nav-link" data-tab="orders">
-              <i class="fa-solid fa-truck-ramp-box"></i>
-              <span>Hospital Orders</span>
+              <i class="fa-solid fa-truck-fast"></i>
+              <span>Orders &amp; Shipments</span>
             </a>
           </li>
           <li>
-            <a href="#accounts" class="dash-nav-link" data-tab="accounts">
-              <i class="fa-solid fa-hospital-user"></i>
-              <span>Client Accounts</span>
+            <a href="#service" class="dash-nav-link" data-tab="service">
+              <i class="fa-solid fa-user-doctor"></i>
+              <span>Service &amp; Calibration</span>
+            </a>
+          </li>
+          <li>
+            <a href="#facility" class="dash-nav-link" data-tab="facility">
+              <i class="fa-solid fa-hospital"></i>
+              <span>Facility Profile &amp; Billing</span>
             </a>
           </li>
         </ul>
 
-        <span class="sidebar-label">Administration</span>
+        <span class="sidebar-label">Direct Support</span>
         <ul class="sidebar-menu">
           <li>
-            <a href="#settings" class="dash-nav-link" data-tab="settings">
-              <i class="fa-solid fa-sliders"></i>
-              <span>System Settings</span>
+            <a href="error.html" class="dash-nav-link">
+              <i class="fa-solid fa-headset"></i>
+              <span>Biomedical Hotline</span>
             </a>
           </li>
           <li>
             <a href="error.html" class="dash-nav-link">
-              <i class="fa-solid fa-shield-halved"></i>
-              <span>Audit Logs</span>
+              <i class="fa-solid fa-file-circle-check"></i>
+              <span>ISO Compliance Docs</span>
             </a>
           </li>
         </ul>
@@ -87,11 +93,11 @@
       <!-- Sidebar User Profile Footer -->
       <div class="sidebar-user-footer">
         <div class="user-avatar-wrap">
-          <i class="fa-solid fa-user-shield"></i>
+          <i class="fa-solid fa-user-nurse"></i>
         </div>
         <div class="user-details">
-          <strong class="user-role-title">Store Administrator</strong>
-          <span class="user-email-text dynamic-user-email">admin@medixen.com</span>
+          <strong class="user-role-title">Clinical Care Client</strong>
+          <span class="user-email-text dynamic-user-email">client@hospital.com</span>
         </div>
         <a href="index.html" class="logout-btn" title="Sign Out">
           <i class="fa-solid fa-arrow-right-from-bracket"></i>
@@ -100,124 +106,127 @@
 
     </aside>
 
-    <!-- ==================== RIGHT CONTENT CANVAS (ICE BLUE) ==================== -->
+    <!-- ==================== MAIN CONTENT AREA ==================== -->
     <main class="dash-main">
       
-      <!-- Topbar Header -->
+      <!-- Top Navbar -->
       <header class="dash-topbar">
         <div class="topbar-left">
-          <button class="dash-hamburger-btn" id="dashHamburgerBtn" aria-label="Toggle Menu">
+          <button class="dash-hamburger-btn" id="clientHamburgerBtn" aria-label="Toggle Menu">
             <span class="hbar line-1"></span>
             <span class="hbar line-2"></span>
             <span class="hbar line-3"></span>
           </button>
           <div class="topbar-greeting">
             <h1 class="topbar-title" id="pageTitle">Facility Overview</h1>
-            <p class="topbar-sub">Authenticated Session: <strong class="dynamic-user-email">admin@medixen.com</strong></p>
+            <p class="topbar-sub">Active Portal Session: <strong class="dynamic-user-email">client@hospital.com</strong></p>
           </div>
         </div>
 
         <div class="topbar-right">
-          <a href="error.html" class="topbar-action-icon" aria-label="Notifications">
+          <a href="error.html" class="topbar-action-icon" aria-label="Alerts">
             <i class="fa-solid fa-bell"></i>
-            <span class="notif-badge">3</span>
+            <span class="notif-badge">2</span>
           </a>
           <a href="error.html" class="btn btn-primary topbar-cta-btn">
-            <i class="fa-solid fa-plus"></i>
-            <span>Add Equipment</span>
+            <i class="fa-solid fa-cart-plus"></i>
+            <span>Order Supplies</span>
           </a>
         </div>
       </header>
 
-      <!-- Dynamic Tab Panels -->
+      <!-- Dynamic Tab Content Sections -->
       <div class="dash-content-body">
         
         <!-- ==================== TAB 1: OVERVIEW ==================== -->
         <section class="dash-tab-content active" id="tab-overview">
           
+          <!-- Key Metric Cards -->
           <div class="metric-cards-grid">
             <div class="metric-card">
               <div class="metric-meta">
-                <span class="metric-title">Active Depots</span>
-                <span class="metric-val">12,480</span>
-                <span class="metric-change positive"><i class="fa-solid fa-arrow-up"></i> +14% this month</span>
+                <span class="metric-title">Active Devices In Use</span>
+                <span class="metric-val">34</span>
+                <span class="metric-change positive"><i class="fa-solid fa-shield-check"></i> 100% Calibrated</span>
               </div>
-              <div class="metric-icon-box bg-teal"><i class="fa-solid fa-boxes-packing"></i></div>
+              <div class="metric-icon-box bg-teal"><i class="fa-solid fa-heart-pulse"></i></div>
             </div>
 
             <div class="metric-card">
               <div class="metric-meta">
-                <span class="metric-title">Hospital Clients</span>
-                <span class="metric-val">854</span>
-                <span class="metric-change positive"><i class="fa-solid fa-arrow-up"></i> +8 new verified</span>
+                <span class="metric-title">Incoming Shipments</span>
+                <span class="metric-val">02</span>
+                <span class="metric-change positive"><i class="fa-solid fa-truck-ramp-box"></i> Expected in 24H</span>
               </div>
-              <div class="metric-icon-box bg-blue"><i class="fa-solid fa-hospital"></i></div>
+              <div class="metric-icon-box bg-blue"><i class="fa-solid fa-box-open"></i></div>
             </div>
 
             <div class="metric-card">
               <div class="metric-meta">
-                <span class="metric-title">Transit SLA (48H)</span>
-                <span class="metric-val">99.4%</span>
-                <span class="metric-change positive"><i class="fa-solid fa-circle-check"></i> On schedule</span>
+                <span class="metric-title">Open Service Tickets</span>
+                <span class="metric-val">01</span>
+                <span class="metric-change neutral"><i class="fa-solid fa-clock"></i> Technician En Route</span>
               </div>
-              <div class="metric-icon-box bg-navy"><i class="fa-solid fa-truck-fast"></i></div>
+              <div class="metric-icon-box bg-amber"><i class="fa-solid fa-wrench"></i></div>
             </div>
 
             <div class="metric-card">
               <div class="metric-meta">
-                <span class="metric-title">Pending Calibrations</span>
-                <span class="metric-val">18</span>
-                <span class="metric-change neutral"><i class="fa-solid fa-clock"></i> Bio-engineers assigned</span>
+                <span class="metric-title">Annual Warranty Tier</span>
+                <span class="metric-val">Gold SLA</span>
+                <span class="metric-change positive"><i class="fa-solid fa-circle-check"></i> Valid thru 2028</span>
               </div>
-              <div class="metric-icon-box bg-amber"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+              <div class="metric-icon-box bg-navy"><i class="fa-solid fa-award"></i></div>
             </div>
           </div>
 
+          <!-- Active Maintenance Alert Box -->
+          <div class="dash-alert-strip">
+            <div class="alert-icon"><i class="fa-solid fa-circle-info"></i></div>
+            <div class="alert-text">
+              <strong>Routine Sensor Recalibration Scheduled:</strong> Assigned to Bio-Engineer Marcus Vance for Thursday at 10:00 AM.
+            </div>
+            <a href="error.html" class="btn btn-outline btn-sm">Reschedule</a>
+          </div>
+
+          <!-- Quick Orders Table -->
           <div class="dash-panel-card">
             <div class="panel-card-head">
               <div>
-                <h3 class="panel-card-title">Recent Equipment Deployments</h3>
-                <p class="panel-card-desc">Real-time status of clinical hardware dispatched this week.</p>
+                <h3 class="panel-card-title">Recent Equipment Requisitions</h3>
+                <p class="panel-card-desc">Orders dispatched to your primary facility receiving dock.</p>
               </div>
-              <a href="error.html" class="btn btn-outline btn-sm">View All Orders</a>
+              <a href="error.html" class="btn btn-outline btn-sm">View Full History</a>
             </div>
 
             <div class="table-responsive">
               <table class="dash-table">
                 <thead>
                   <tr>
-                    <th>Order Ref</th>
-                    <th>Facility / Client</th>
-                    <th>Equipment Type</th>
-                    <th>Delivery SLA</th>
-                    <th>Status</th>
+                    <th>Requisition ID</th>
+                    <th>Equipment Description</th>
+                    <th>Location / Department</th>
+                    <th>Delivery Status</th>
+                    <th>Certificate</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td><strong>#MED-9402</strong></td>
-                    <td>St. Jude General Hospital</td>
-                    <td>Multi-Parameter Telemetry (x4)</td>
-                    <td>48-Hour Air Freight</td>
+                    <td><strong>#REQ-8021</strong></td>
+                    <td>10L High-Purity Oxygen Concentrator</td>
+                    <td>Pulmonology Wing (Floor 3)</td>
                     <td><span class="status-pill status-success">Delivered</span></td>
-                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-eye"></i></a></td>
+                    <td><span class="cert-tag"><i class="fa-solid fa-file-pdf"></i> ISO 13485</span></td>
+                    <td><a href="error.html" class="table-link-btn" title="Inspect"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></td>
                   </tr>
                   <tr>
-                    <td><strong>#MED-9403</strong></td>
-                    <td>Metro Health Clinic</td>
-                    <td>Digital Oxygen Concentrator (10L)</td>
-                    <td>Standard Dedicated</td>
+                    <td><strong>#REQ-8022</strong></td>
+                    <td>Multi-Parameter Telemetry Monitor (x2)</td>
+                    <td>Intensive Care Unit (ICU)</td>
                     <td><span class="status-pill status-warning">In Transit</span></td>
-                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-eye"></i></a></td>
-                  </tr>
-                  <tr>
-                    <td><strong>#MED-9404</strong></td>
-                    <td>Apex Surgical Center</td>
-                    <td>Electric ICU 5-Function Bed (x2)</td>
-                    <td>Heavy Medical Cargo</td>
-                    <td><span class="status-pill status-info">Pre-Inspection</span></td>
-                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-eye"></i></a></td>
+                    <td><span class="cert-tag"><i class="fa-solid fa-file-pdf"></i> QA Pass</span></td>
+                    <td><a href="error.html" class="table-link-btn" title="Inspect"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></td>
                   </tr>
                 </tbody>
               </table>
@@ -226,217 +235,311 @@
 
         </section>
 
-        <!-- ==================== TAB 2: INVENTORY & DEPOT ==================== -->
-        <section class="dash-tab-content" id="tab-inventory">
+        <!-- ==================== TAB 2: MY EQUIPMENT & ASSETS ==================== -->
+        <section class="dash-tab-content" id="tab-equipment">
+          
           <div class="dash-panel-card">
             <div class="panel-card-head">
               <div>
-                <h3 class="panel-card-title">Equipment Catalog &amp; Storage</h3>
-                <p class="panel-card-desc">Manage warehouse serial tracking and ISO calibration certificates.</p>
+                <h3 class="panel-card-title">Installed Clinical Equipment Inventory</h3>
+                <p class="panel-card-desc">Track active device serial numbers, battery health, and warranty deadlines.</p>
               </div>
               <div class="head-actions">
-                <a href="error.html" class="btn btn-outline btn-sm"><i class="fa-solid fa-file-export"></i> Export Report</a>
-                <a href="error.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> Add New Unit</a>
+                <a href="error.html" class="btn btn-outline btn-sm"><i class="fa-solid fa-download"></i> Export Asset List</a>
+                <a href="error.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> Register New Device</a>
               </div>
             </div>
-            
+
             <div class="table-responsive">
               <table class="dash-table">
                 <thead>
                   <tr>
-                    <th>Serial No</th>
-                    <th>Item Name</th>
-                    <th>Category</th>
-                    <th>Stock Qty</th>
-                    <th>Calibration Expiry</th>
+                    <th>Device Serial</th>
+                    <th>Model &amp; Category</th>
+                    <th>Assigned Ward</th>
+                    <th>Installation Date</th>
+                    <th>Warranty Period</th>
+                    <th>Health Check</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td><code>SN-902-ECG</code></td>
-                    <td>Multi-Parameter ICU Monitor</td>
-                    <td>Patient Monitoring</td>
-                    <td>42 Units</td>
-                    <td>Oct 2027</td>
-                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-pen"></i></a></td>
+                    <td><code>SN-ICU-8821</code></td>
+                    <td><strong>Multi-Parameter ICU Monitor</strong><br><small class="text-muted">Telemetry &amp; SpO2</small></td>
+                    <td>ICU Bed 04</td>
+                    <td>14 Jan 2026</td>
+                    <td><span class="status-pill status-success">38 Months Left</span></td>
+                    <td><span class="health-badge good"><i class="fa-solid fa-check"></i> Optimal</span></td>
+                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-wrench"></i></a></td>
                   </tr>
                   <tr>
-                    <td><code>SN-441-OXY</code></td>
-                    <td>Clinical Oxygen Concentrator 10L</td>
-                    <td>Respiratory</td>
-                    <td>18 Units</td>
-                    <td>Dec 2027</td>
-                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-pen"></i></a></td>
+                    <td><code>SN-RES-4019</code></td>
+                    <td><strong>10L Medical Oxygen Unit</strong><br><small class="text-muted">High Purity Continuous</small></td>
+                    <td>Respiratory Unit 2</td>
+                    <td>03 Feb 2026</td>
+                    <td><span class="status-pill status-success">24 Months Left</span></td>
+                    <td><span class="health-badge good"><i class="fa-solid fa-check"></i> Optimal</span></td>
+                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-wrench"></i></a></td>
                   </tr>
                   <tr>
-                    <td><code>SN-118-BED</code></td>
-                    <td>Electric 5-Function ICU Bed</td>
-                    <td>Hospital Furniture</td>
-                    <td>65 Units</td>
-                    <td>Jan 2028</td>
-                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-pen"></i></a></td>
+                    <td><code>SN-SUR-1044</code></td>
+                    <td><strong>Electronic 5-Function ICU Bed</strong><br><small class="text-muted">Motorized Actuator</small></td>
+                    <td>Post-Op Recovery</td>
+                    <td>22 Nov 2025</td>
+                    <td><span class="status-pill status-warning">Calibration Due</span></td>
+                    <td><span class="health-badge warning"><i class="fa-solid fa-triangle-exclamation"></i> Inspection Due</span></td>
+                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-wrench"></i></a></td>
                   </tr>
                   <tr>
-                    <td><code>SN-772-THR</code></td>
-                    <td>Infrared Non-Contact Thermometer</td>
-                    <td>Diagnostics</td>
-                    <td>140 Units</td>
-                    <td>Factory Calibrated</td>
-                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-pen"></i></a></td>
+                    <td><code>SN-MOB-9011</code></td>
+                    <td><strong>Aluminum Ergonomic Wheelchair</strong><br><small class="text-muted">Rehab Mobility</small></td>
+                    <td>Patient Transit Dock</td>
+                    <td>10 Aug 2025</td>
+                    <td><span class="status-pill status-success">12 Months Left</span></td>
+                    <td><span class="health-badge good"><i class="fa-solid fa-check"></i> Optimal</span></td>
+                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-wrench"></i></a></td>
                   </tr>
                 </tbody>
               </table>
             </div>
+
+            <!-- Asset Highlights Grid -->
+            <div class="content-sub-grid" style="margin-top: 2rem;">
+              <div class="info-block-box">
+                <div class="box-icon"><i class="fa-solid fa-shield-virus"></i></div>
+                <div>
+                  <strong>Anti-Microbial Coating Compliant</strong>
+                  <p class="text-muted">All active furniture finishes meet ISO hospital sterilization standards.</p>
+                </div>
+              </div>
+              <div class="info-block-box">
+                <div class="box-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                <div>
+                  <strong>24/7 Remote Telemetry Logs</strong>
+                  <p class="text-muted">Vital parameters sync directly with your on-premise monitoring server.</p>
+                </div>
+              </div>
+            </div>
           </div>
+
         </section>
 
-        <!-- ==================== TAB 3: HOSPITAL ORDERS ==================== -->
+        <!-- ==================== TAB 3: ORDERS & SHIPMENTS ==================== -->
         <section class="dash-tab-content" id="tab-orders">
+          
           <div class="dash-panel-card">
             <div class="panel-card-head">
               <div>
-                <h3 class="panel-card-title">Dispatch Logistics &amp; Active Manifest</h3>
-                <p class="panel-card-desc">Tracking clinical hardware transit routes and cold-chain compliance.</p>
+                <h3 class="panel-card-title">Procurement Manifest &amp; Live Tracking</h3>
+                <p class="panel-card-desc">Real-time GPS status of cold-chain and heavy medical hardware shipments.</p>
               </div>
-              <a href="error.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-filter"></i> Filter Manifest</a>
+              <a href="error.html" class="btn btn-outline btn-sm"><i class="fa-solid fa-receipt"></i> Download Invoices</a>
             </div>
 
-            <div class="table-responsive">
+            <!-- Live Tracking Stepper Card -->
+            <div class="tracking-timeline-card">
+              <div class="tracking-header">
+                <div>
+                  <span class="tracking-tag">Air Express 48H</span>
+                  <h4>Shipment Track: #MED-EXP-9402</h4>
+                </div>
+                <div class="tracking-eta">
+                  <strong>Estimated Delivery:</strong> Tomorrow at 2:00 PM
+                </div>
+              </div>
+
+              <!-- 4 Step Progress Bar -->
+              <div class="stepper-row">
+                <div class="step-item completed">
+                  <div class="step-circle"><i class="fa-solid fa-check"></i></div>
+                  <span class="step-title">Order Confirmed</span>
+                  <span class="step-time">Oct 26, 09:00 AM</span>
+                </div>
+                <div class="step-item completed">
+                  <div class="step-circle"><i class="fa-solid fa-check"></i></div>
+                  <span class="step-title">Depot Calibration</span>
+                  <span class="step-time">Oct 26, 03:30 PM</span>
+                </div>
+                <div class="step-item active">
+                  <div class="step-circle"><i class="fa-solid fa-truck-fast"></i></div>
+                  <span class="step-title">In Dedicated Transit</span>
+                  <span class="step-time">En Route (Cold-Chain)</span>
+                </div>
+                <div class="step-item">
+                  <div class="step-circle"><i class="fa-solid fa-hospital"></i></div>
+                  <span class="step-title">Facility Sign-Off</span>
+                  <span class="step-time">Pending Inspection</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dispatches List -->
+            <div class="table-responsive" style="margin-top: 1.5rem;">
               <table class="dash-table">
                 <thead>
                   <tr>
-                    <th>Waybill ID</th>
-                    <th>Recipient Facility</th>
-                    <th>Freight Specification</th>
-                    <th>Carrier Partner</th>
+                    <th>Tracking ID</th>
+                    <th>Consignment Details</th>
+                    <th>Logistics Courier</th>
+                    <th>Freight Type</th>
                     <th>Status</th>
-                    <th>Waybill Document</th>
+                    <th>Manifest</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td><strong>#WB-55910</strong></td>
-                    <td>St. Jude General Hospital</td>
-                    <td>48H Climate Controlled Express</td>
-                    <td>Medixen Dedicated</td>
+                    <td><strong>#TRK-449102</strong></td>
+                    <td>Multi-Parameter ECG Monitor + Cable Packs</td>
+                    <td>Medixen Dedicated Direct</td>
+                    <td>Climate Controlled</td>
                     <td><span class="status-pill status-info">Out for Delivery</span></td>
-                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-file-pdf"></i></a></td>
+                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-file-invoice"></i></a></td>
                   </tr>
                   <tr>
-                    <td><strong>#WB-55908</strong></td>
-                    <td>CareBridge Health Systems</td>
-                    <td>Standard Heavy Freight (Tail-Lift)</td>
-                    <td>National Medical Cargo</td>
-                    <td><span class="status-pill status-warning">In Transit</span></td>
-                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-file-pdf"></i></a></td>
-                  </tr>
-                  <tr>
-                    <td><strong>#WB-55890</strong></td>
-                    <td>Apex Surgical Center</td>
-                    <td>Priority Air Freight</td>
-                    <td>Medixen Air Fleet</td>
-                    <td><span class="status-pill status-success">Completed</span></td>
-                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-file-pdf"></i></a></td>
+                    <td><strong>#TRK-449088</strong></td>
+                    <td>Surgical Stainless Tool Trays (Bulk 20)</td>
+                    <td>National Medical Logistics</td>
+                    <td>Standard Secure</td>
+                    <td><span class="status-pill status-success">Signed &amp; Received</span></td>
+                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-file-invoice"></i></a></td>
                   </tr>
                 </tbody>
               </table>
             </div>
+
           </div>
+
         </section>
 
-        <!-- ==================== TAB 4: CLIENT ACCOUNTS ==================== -->
-        <section class="dash-tab-content" id="tab-accounts">
+        <!-- ==================== TAB 4: SERVICE & CALIBRATION ==================== -->
+        <section class="dash-tab-content" id="tab-service">
+          
           <div class="dash-panel-card">
             <div class="panel-card-head">
               <div>
-                <h3 class="panel-card-title">Verified Hospital &amp; Healthcare Accounts</h3>
-                <p class="panel-card-desc">Facility licenses, SLA tier memberships, and assigned bio-engineers.</p>
+                <h3 class="panel-card-title">Biomedical Engineering &amp; Service Desk</h3>
+                <p class="panel-card-desc">Request on-site maintenance, annual calibration certificates, and emergency engineer dispatch.</p>
               </div>
-              <a href="error.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-user-plus"></i> Verify New Hospital</a>
+              <a href="error.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-user-gear"></i> Book Urgent Service</a>
             </div>
 
-            <div class="table-responsive">
+            <div class="service-cards-row">
+              <div class="service-stat-box">
+                <span class="s-label">Assigned Bio-Engineer</span>
+                <strong class="s-val">Marcus Vance, BME</strong>
+                <span class="s-sub"><i class="fa-solid fa-phone"></i> Direct Ext: 4402</span>
+              </div>
+              <div class="service-stat-box">
+                <span class="s-label">Emergency SLA Guarantee</span>
+                <strong class="s-val">&lt; 4 Hours Response</strong>
+                <span class="s-sub"><i class="fa-solid fa-shield-halved"></i> 24/7 Priority Channel</span>
+              </div>
+              <div class="service-stat-box">
+                <span class="s-label">Upcoming Factory Audit</span>
+                <strong class="s-val">November 15, 2026</strong>
+                <span class="s-sub"><i class="fa-solid fa-calendar-check"></i> Re-Certification Ready</span>
+              </div>
+            </div>
+
+            <!-- Service Tickets Table -->
+            <div class="table-responsive" style="margin-top: 1.5rem;">
               <table class="dash-table">
                 <thead>
                   <tr>
-                    <th>Facility License</th>
-                    <th>Hospital Organization</th>
-                    <th>SLA Tier</th>
-                    <th>Credit Threshold</th>
-                    <th>Account Status</th>
-                    <th>Action</th>
+                    <th>Ticket ID</th>
+                    <th>Equipment Involved</th>
+                    <th>Issue Reported</th>
+                    <th>Priority</th>
+                    <th>Engineer Status</th>
+                    <th>Resolution Log</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td><code>REG-NY-902</code></td>
-                    <td>St. Jude General Hospital</td>
-                    <td><span class="status-pill status-success">Gold SLA</span></td>
-                    <td>$150,000 (Net 60)</td>
-                    <td><span class="status-pill status-success">Active</span></td>
-                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                    <td><strong>#TCK-1092</strong></td>
+                    <td>Oxygen Concentrator (SN-RES-4019)</td>
+                    <td>Routine 1,000-Hour Molecular Sieve Check</td>
+                    <td><span class="status-pill status-info">Routine</span></td>
+                    <td><span class="status-pill status-warning">Engineer Assigned</span></td>
+                    <td><a href="error.html" class="btn btn-outline btn-sm">View Notes</a></td>
                   </tr>
                   <tr>
-                    <td><code>REG-CA-411</code></td>
-                    <td>Metro Health Clinic Network</td>
-                    <td><span class="status-pill status-info">Silver SLA</span></td>
-                    <td>$75,000 (Net 30)</td>
-                    <td><span class="status-pill status-success">Active</span></td>
-                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                  </tr>
-                  <tr>
-                    <td><code>REG-TX-782</code></td>
-                    <td>Apex Emergency Trauma Unit</td>
-                    <td><span class="status-pill status-success">Gold SLA</span></td>
-                    <td>$200,000 (Net 90)</td>
-                    <td><span class="status-pill status-success">Active</span></td>
-                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                    <td><strong>#TCK-1088</strong></td>
+                    <td>ICU Patient Monitor (SN-ICU-8821)</td>
+                    <td>Lead II ECG Cable Sensitivity Calibration</td>
+                    <td><span class="status-pill status-success">Low</span></td>
+                    <td><span class="status-pill status-success">Completed &amp; Signed</span></td>
+                    <td><a href="error.html" class="btn btn-outline btn-sm">Download Cert</a></td>
                   </tr>
                 </tbody>
               </table>
             </div>
+
           </div>
+
         </section>
 
-        <!-- ==================== TAB 5: SYSTEM SETTINGS ==================== -->
-        <section class="dash-tab-content" id="tab-settings">
+        <!-- ==================== TAB 5: FACILITY PROFILE & BILLING ==================== -->
+        <section class="dash-tab-content" id="tab-facility">
+          
           <div class="dash-panel-card">
             <div class="panel-card-head">
               <div>
-                <h3 class="panel-card-title">Store &amp; System Preferences</h3>
-                <p class="panel-card-desc">Configure automatic warehouse allocation, alerts, and administrator credentials.</p>
+                <h3 class="panel-card-title">Hospital Facility Profile &amp; Billing Tier</h3>
+                <p class="panel-card-desc">Review enterprise procurement credit limits, delivery addresses, and hospital licenses.</p>
               </div>
-              <a href="error.html" class="btn btn-primary btn-sm">Save Preferences</a>
+              <a href="error.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-pen-to-square"></i> Edit Details</a>
             </div>
 
-            <div class="settings-form-grid">
-              <div class="setting-item">
-                <span class="setting-label">Administrator Account Email</span>
-                <strong class="setting-val dynamic-user-email">admin@medixen.com</strong>
-                <small class="text-muted">Synchronized across secure administrative sessions.</small>
+            <div class="profile-details-grid">
+              
+              <div class="profile-meta-item">
+                <span class="meta-label">Facility Organization Name</span>
+                <strong class="meta-value">St. Jude Regional Healthcare Center</strong>
               </div>
-              <div class="setting-item">
-                <span class="setting-label">Automatic Dispatch Threshold</span>
-                <strong class="setting-val">Orders below $25,000 auto-cleared</strong>
-                <small class="text-muted">High-value surgical units require dual-signoff.</small>
+
+              <div class="profile-meta-item">
+                <span class="meta-label">Primary Receiving Address</span>
+                <strong class="meta-value">Dock 4B, 742 Innovation Blvd, Medical District</strong>
               </div>
-              <div class="setting-item">
-                <span class="setting-label">Calibration Alert Schedule</span>
-                <strong class="setting-val">30 Days Prior To Expiry</strong>
-                <small class="text-muted">Alerts trigger automated biomedical work orders.</small>
+
+              <div class="profile-meta-item">
+                <span class="meta-label">Authorized Account Email</span>
+                <strong class="meta-value dynamic-user-email">client@hospital.com</strong>
               </div>
-              <div class="setting-item">
-                <span class="setting-label">Logistics Tracking Hook</span>
-                <strong class="setting-val">48H SLA API Integrated</strong>
-                <small class="text-muted">Real-time webhook notifications dispatched to client portals.</small>
+
+              <div class="profile-meta-item">
+                <span class="meta-label">Biomedical Procurement License</span>
+                <strong class="meta-value">REG-HOSP-2026-NY-902</strong>
               </div>
+
+              <div class="profile-meta-item">
+                <span class="meta-label">Contracted Credit Threshold</span>
+                <strong class="meta-value">$150,000.00 (Net 60 Days)</strong>
+              </div>
+
+              <div class="profile-meta-item">
+                <span class="meta-label">Designated Account Executive</span>
+                <strong class="meta-value">Rachel Adams (Medixen Corporate)</strong>
+              </div>
+
             </div>
 
-            <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(18, 181, 166, 0.2);">
-              <a href="error.html" class="btn btn-secondary">Open Security &amp; Audit Logs</a>
+            <!-- Contract Documents Row -->
+            <div class="contract-strip" style="margin-top: 2rem;">
+              <div class="contract-info">
+                <i class="fa-solid fa-file-contract"></i>
+                <div>
+                  <strong>Master Equipment Supply &amp; Maintenance Agreement</strong>
+                  <p class="text-muted">Includes 5-Year replacement warranty and 4-hour clinical emergency SLA.</p>
+                </div>
+              </div>
+              <a href="error.html" class="btn btn-secondary btn-sm">Download Master PDF</a>
             </div>
+
           </div>
+
         </section>
 
       </div>
@@ -444,57 +547,57 @@
 
   </div>
 
-  <!-- GSAP CDN -->
+  <!-- GSAP Core CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script>
 
 document.addEventListener("DOMContentLoaded", () => {
   /* ==============================================================
-     1. EXTRACT & RENDER AUTHENTICATED LOGIN EMAIL
+     1. EXTRACT & RENDER AUTHENTICATED CLIENT EMAIL
   ============================================================== */
   function getAuthenticatedEmail() {
-    // 1. Check URL query parameters (e.g., admin.html?email=dr.sarah@hospital.com)
+    // 1. Check URL query parameters (e.g., client-dashboard.html?email=dr.sarah@hospital.com)
     const urlParams = new URLSearchParams(window.location.search);
     const emailParam = urlParams.get("email");
     if (emailParam && emailParam.trim() !== "") {
-      localStorage.setItem("medixen_admin_email", emailParam.trim());
+      localStorage.setItem("medixen_client_email", emailParam.trim());
       return emailParam.trim();
     }
 
-    // 2. Check LocalStorage from previous login page submission
-    const storedEmail = localStorage.getItem("medixen_admin_email");
+    // 2. Check LocalStorage
+    const storedEmail = localStorage.getItem("medixen_client_email");
     if (storedEmail && storedEmail.trim() !== "") {
       return storedEmail.trim();
     }
 
     // 3. Fallback default
-    return "admin@medixen.com";
+    return "client@hospital.com";
   }
 
-  const activeEmail = getAuthenticatedEmail();
+  const clientEmail = getAuthenticatedEmail();
 
-  // Populate dynamic email text elements
+  // Populate dynamic email elements
   document.querySelectorAll(".dynamic-user-email").forEach((el) => {
-    el.textContent = activeEmail;
+    el.textContent = clientEmail;
   });
 
   /* ==============================================================
      2. HAMBURGER & MOBILE DRAWER FUNCTIONALITIES
   ============================================================== */
-  const dashSidebar = document.getElementById("dashSidebar");
-  const dashOverlay = document.getElementById("dashOverlay");
-  const dashHamburgerBtn = document.getElementById("dashHamburgerBtn");
-  const sidebarCloseBtn = document.getElementById("sidebarCloseBtn");
+  const clientSidebar = document.getElementById("clientSidebar");
+  const clientOverlay = document.getElementById("clientOverlay");
+  const clientHamburgerBtn = document.getElementById("clientHamburgerBtn");
+  const clientSidebarClose = document.getElementById("clientSidebarClose");
   let isSidebarOpen = false;
 
   function openSidebar() {
     isSidebarOpen = true;
-    document.body.classList.add("no-scroll"); // Background scroll lock
-    dashOverlay.classList.add("active");
-    dashSidebar.classList.add("open");
+    document.body.classList.add("no-scroll"); // Prevent background scroll on mobile
+    clientOverlay.classList.add("active");
+    clientSidebar.classList.add("open");
 
-    // Staggered slide entrance on mobile
-    if (window.innerWidth <= 768 && typeof gsap !== "undefined") {
+    // Smooth entrance GSAP stagger on mobile links
+    if (window.innerWidth <= 768) {
       gsap.fromTo(
         ".sidebar-menu li",
         { x: -20, opacity: 0 },
@@ -505,32 +608,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function closeSidebar() {
     isSidebarOpen = false;
-    document.body.classList.remove("no-scroll"); // Restore background scrolling
-    dashOverlay.classList.remove("active");
-    dashSidebar.classList.remove("open");
+    document.body.classList.remove("no-scroll"); // Restore scrolling
+    clientOverlay.classList.remove("active");
+    clientSidebar.classList.remove("open");
   }
 
-  if (dashHamburgerBtn) {
-    dashHamburgerBtn.addEventListener("click", () => {
-      if (!isSidebarOpen) openSidebar();
-      else closeSidebar();
-    });
-  }
+  clientHamburgerBtn.addEventListener("click", () => {
+    if (!isSidebarOpen) openSidebar();
+    else closeSidebar();
+  });
 
-  if (sidebarCloseBtn) {
-    sidebarCloseBtn.addEventListener("click", closeSidebar);
-  }
-
-  if (dashOverlay) {
-    dashOverlay.addEventListener("click", closeSidebar);
-  }
+  clientSidebarClose.addEventListener("click", closeSidebar);
+  clientOverlay.addEventListener("click", closeSidebar);
 
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && isSidebarOpen) closeSidebar();
   });
 
   /* ==============================================================
-     3. TAB SWITCHING: DISPLAY RELEVANT CONTENT ON ANCHOR CLICK
+     3. TAB SWITCHING: DISPLAY CONTENT ON ANCHOR CLICK
   ============================================================== */
   const navLinks = document.querySelectorAll(".dash-nav-link[data-tab]");
   const tabPanels = document.querySelectorAll(".dash-tab-content");
@@ -538,10 +634,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const titleMap = {
     overview: "Facility Overview",
-    inventory: "Equipment Depot & Inventory",
-    orders: "Hospital Dispatches & Orders",
-    accounts: "Healthcare Network Accounts",
-    settings: "System Preferences"
+    equipment: "My Installed Equipment & Assets",
+    orders: "Procurement Orders & Shipments",
+    service: "Biomedical Service & Calibration",
+    facility: "Facility Profile & Billing Tier"
   };
 
   function switchTab(tabKey) {
@@ -554,19 +650,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // 2. Switch panel views with smooth GSAP transition
+    // 2. Switch panel views with a smooth GSAP fade & slide
     tabPanels.forEach((panel) => {
       if (panel.id === `tab-${tabKey}`) {
         panel.classList.add("active");
-        if (typeof gsap !== "undefined") {
-          gsap.fromTo(
-            panel,
-            { opacity: 0, y: 15 },
-            { opacity: 1, y: 0, duration: 0.4, ease: "power2.out", clearProps: "all" }
-          );
-        } else {
-          panel.style.opacity = "1";
-        }
+        gsap.fromTo(
+          panel,
+          { opacity: 0, y: 15 },
+          { opacity: 1, y: 0, duration: 0.4, ease: "power2.out", clearProps: "all" }
+        );
       } else {
         panel.classList.remove("active");
       }
@@ -584,7 +676,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const tabKey = link.getAttribute("data-tab");
       switchTab(tabKey);
 
-      // Close mobile drawer after selection
+      // Close mobile drawer if open
       if (window.innerWidth <= 768 && isSidebarOpen) {
         closeSidebar();
       }
@@ -594,7 +686,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ==============================================================
      4. REDIRECT NON-TAB BUTTONS & ANCHORS TO ERROR.HTML
   ============================================================== */
-  document.querySelectorAll("button:not([data-tab]):not(#dashHamburgerBtn):not(#sidebarCloseBtn)").forEach((btn) => {
+  document.querySelectorAll("button:not([data-tab]):not(#clientHamburgerBtn):not(#clientSidebarClose)").forEach((btn) => {
     btn.addEventListener("click", () => {
       window.location.href = "error.html";
     });

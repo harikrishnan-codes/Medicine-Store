@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Dashboard | MEDIXEN Healthcare</title>
+  <title>Admin Portal | MEDIXEN Healthcare</title>
 
-  <!-- Google Font -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -19,12 +19,12 @@
 <body>
 
   <!-- Mobile Drawer Overlay -->
-  <div class="dash-overlay" id="dashOverlay"></div>
+  <div class="dash-overlay" id="adminOverlay"></div>
 
   <div class="dash-layout">
     
-    <!-- ==================== SIDEBAR NAVIGATION ==================== -->
-    <aside class="dash-sidebar" id="dashSidebar">
+    <!-- ==================== ICE BLUE SIDEBAR NAVIGATION ==================== -->
+    <aside class="admin-sidebar" id="adminSidebar">
       
       <!-- Brand & Mobile Close -->
       <div class="sidebar-header">
@@ -32,19 +32,19 @@
           <span class="logo-icon"><i class="fa-solid fa-notes-medical"></i></span>
           <span class="logo-text">MEDIXEN</span>
         </a>
-        <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close Sidebar">
+        <button class="sidebar-close-btn" id="adminSidebarClose" aria-label="Close Sidebar">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
 
       <!-- Navigation Links -->
       <nav class="sidebar-nav">
-        <span class="sidebar-label">Management</span>
+        <span class="sidebar-label">Management Depot</span>
         <ul class="sidebar-menu">
           <li>
             <a href="#overview" class="dash-nav-link active" data-tab="overview">
-              <i class="fa-solid fa-chart-pie"></i>
-              <span>Overview</span>
+              <i class="fa-solid fa-gauge-high"></i>
+              <span>Dashboard Overview</span>
             </a>
           </li>
           <li>
@@ -65,20 +65,26 @@
               <span>Client Accounts</span>
             </a>
           </li>
-        </ul>
-
-        <span class="sidebar-label">Administration</span>
-        <ul class="sidebar-menu">
           <li>
             <a href="#settings" class="dash-nav-link" data-tab="settings">
               <i class="fa-solid fa-sliders"></i>
               <span>System Settings</span>
             </a>
           </li>
+        </ul>
+
+        <span class="sidebar-label">Security &amp; Compliance</span>
+        <ul class="sidebar-menu">
           <li>
             <a href="error.html" class="dash-nav-link">
               <i class="fa-solid fa-shield-halved"></i>
-              <span>Audit Logs</span>
+              <span>Biomedical Audit Logs</span>
+            </a>
+          </li>
+          <li>
+            <a href="error.html" class="dash-nav-link">
+              <i class="fa-solid fa-file-circle-check"></i>
+              <span>ISO 13485 Repositories</span>
             </a>
           </li>
         </ul>
@@ -106,19 +112,19 @@
       <!-- Top Navbar -->
       <header class="dash-topbar">
         <div class="topbar-left">
-          <button class="dash-hamburger-btn" id="dashHamburgerBtn" aria-label="Toggle Menu">
+          <button class="dash-hamburger-btn" id="adminHamburgerBtn" aria-label="Toggle Menu">
             <span class="hbar line-1"></span>
             <span class="hbar line-2"></span>
             <span class="hbar line-3"></span>
           </button>
           <div class="topbar-greeting">
             <h1 class="topbar-title" id="pageTitle">Facility Overview</h1>
-            <p class="topbar-sub">Authenticated as <strong class="dynamic-user-email">admin@medixen.com</strong></p>
+            <p class="topbar-sub">Active Admin Session: <strong class="dynamic-user-email">admin@medixen.com</strong></p>
           </div>
         </div>
 
         <div class="topbar-right">
-          <a href="error.html" class="topbar-action-icon" aria-label="Notifications">
+          <a href="error.html" class="topbar-action-icon" aria-label="Alerts">
             <i class="fa-solid fa-bell"></i>
             <span class="notif-badge">3</span>
           </a>
@@ -132,14 +138,14 @@
       <!-- Dynamic Tab Content Sections -->
       <div class="dash-content-body">
         
-        <!-- 1. OVERVIEW VIEW (Active Default) -->
+        <!-- ==================== TAB 1: OVERVIEW ==================== -->
         <section class="dash-tab-content active" id="tab-overview">
           
-          <!-- Key Metrics -->
+          <!-- Key Metric Cards -->
           <div class="metric-cards-grid">
             <div class="metric-card">
               <div class="metric-meta">
-                <span class="metric-title">Active Depots</span>
+                <span class="metric-title">Active Depots Stock</span>
                 <span class="metric-val">12,480</span>
                 <span class="metric-change positive"><i class="fa-solid fa-arrow-up"></i> +14% this month</span>
               </div>
@@ -168,20 +174,29 @@
               <div class="metric-meta">
                 <span class="metric-title">Pending Calibrations</span>
                 <span class="metric-val">18</span>
-                <span class="metric-change neutral"><i class="fa-solid fa-clock"></i> Bio-engineers assigned</span>
+                <span class="metric-change neutral"><i class="fa-solid fa-clock"></i> Bio-engineers active</span>
               </div>
               <div class="metric-icon-box bg-amber"><i class="fa-solid fa-screwdriver-wrench"></i></div>
             </div>
           </div>
 
-          <!-- Recent Orders Table -->
+          <!-- Active Warehouse Dispatch Alert Strip -->
+          <div class="dash-alert-strip">
+            <div class="alert-icon"><i class="fa-solid fa-truck-medical"></i></div>
+            <div class="alert-text">
+              <strong>Emergency Dispatch Request Cleared:</strong> 4x High-Acuity ICU Telemetry Monitors prioritized for St. Jude Regional Hospital.
+            </div>
+            <a href="error.html" class="btn btn-outline btn-sm">Inspect Flight SLA</a>
+          </div>
+
+          <!-- Quick Orders Table -->
           <div class="dash-panel-card">
             <div class="panel-card-head">
               <div>
                 <h3 class="panel-card-title">Recent Equipment Deployments</h3>
                 <p class="panel-card-desc">Real-time status of clinical hardware dispatched this week.</p>
               </div>
-              <a href="error.html" class="btn btn-outline btn-sm">View All Orders</a>
+              <a href="error.html" class="btn btn-outline btn-sm">View Full Manifest</a>
             </div>
 
             <div class="table-responsive">
@@ -192,6 +207,7 @@
                     <th>Facility / Client</th>
                     <th>Equipment Type</th>
                     <th>Delivery SLA</th>
+                    <th>Certificate</th>
                     <th>Status</th>
                     <th>Action</th>
                   </tr>
@@ -202,24 +218,27 @@
                     <td>St. Jude General Hospital</td>
                     <td>Multi-Parameter Telemetry (x4)</td>
                     <td>48-Hour Air Freight</td>
+                    <td><span class="cert-tag"><i class="fa-solid fa-file-pdf"></i> ISO 13485</span></td>
                     <td><span class="status-pill status-success">Delivered</span></td>
-                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-eye"></i></a></td>
+                    <td><a href="error.html" class="table-link-btn" title="Inspect"><i class="fa-solid fa-eye"></i></a></td>
                   </tr>
                   <tr>
                     <td><strong>#MED-9403</strong></td>
                     <td>Metro Health Clinic</td>
                     <td>Digital Oxygen Concentrator (10L)</td>
                     <td>Standard Dedicated</td>
+                    <td><span class="cert-tag"><i class="fa-solid fa-file-pdf"></i> QA Pass</span></td>
                     <td><span class="status-pill status-warning">In Transit</span></td>
-                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-eye"></i></a></td>
+                    <td><a href="error.html" class="table-link-btn" title="Inspect"><i class="fa-solid fa-eye"></i></a></td>
                   </tr>
                   <tr>
                     <td><strong>#MED-9404</strong></td>
                     <td>Apex Surgical Center</td>
                     <td>Electric ICU 5-Function Bed (x2)</td>
                     <td>Heavy Medical Cargo</td>
+                    <td><span class="cert-tag"><i class="fa-solid fa-file-pdf"></i> CE Standard</span></td>
                     <td><span class="status-pill status-info">Pre-Inspection</span></td>
-                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-eye"></i></a></td>
+                    <td><a href="error.html" class="table-link-btn" title="Inspect"><i class="fa-solid fa-eye"></i></a></td>
                   </tr>
                 </tbody>
               </table>
@@ -228,25 +247,30 @@
 
         </section>
 
-        <!-- 2. INVENTORY & EQUIPMENT VIEW -->
+        <!-- ==================== TAB 2: EQUIPMENT DEPOT & INVENTORY ==================== -->
         <section class="dash-tab-content" id="tab-inventory">
+          
           <div class="dash-panel-card">
             <div class="panel-card-head">
               <div>
-                <h3 class="panel-card-title">Equipment Catalog &amp; Storage</h3>
-                <p class="panel-card-desc">Manage warehouse serial tracking and ISO calibration certificates.</p>
+                <h3 class="panel-card-title">Central Depot Hardware Inventory</h3>
+                <p class="panel-card-desc">Audit stock counts, storage conditions, and biomedical factory serials.</p>
               </div>
-              <a href="error.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-file-export"></i> Export Report</a>
+              <div class="head-actions">
+                <a href="error.html" class="btn btn-outline btn-sm"><i class="fa-solid fa-download"></i> Export Inventory</a>
+                <a href="error.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> Add New Unit</a>
+              </div>
             </div>
-            
+
             <div class="table-responsive">
               <table class="dash-table">
                 <thead>
                   <tr>
-                    <th>Serial No</th>
-                    <th>Item Name</th>
+                    <th>Serial Number</th>
+                    <th>Equipment Model &amp; Specs</th>
                     <th>Category</th>
-                    <th>Stock Qty</th>
+                    <th>Storage Condition</th>
+                    <th>Depot Stock</th>
                     <th>Calibration Expiry</th>
                     <th>Action</th>
                   </tr>
@@ -254,80 +278,300 @@
                 <tbody>
                   <tr>
                     <td><code>SN-902-ECG</code></td>
-                    <td>Multi-Parameter ICU Monitor</td>
+                    <td><strong>Multi-Parameter ICU Monitor</strong><br><small class="text-muted">12.1" Screen &amp; Telemetry</small></td>
                     <td>Patient Monitoring</td>
-                    <td>42 Units</td>
+                    <td>Climate Cleanroom A</td>
+                    <td><span class="status-pill status-success">42 Units Available</span></td>
                     <td>Oct 2027</td>
                     <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-pen"></i></a></td>
                   </tr>
                   <tr>
                     <td><code>SN-441-OXY</code></td>
-                    <td>Clinical Oxygen Concentrator 10L</td>
-                    <td>Respiratory</td>
-                    <td>18 Units</td>
+                    <td><strong>Clinical Oxygen Concentrator 10L</strong><br><small class="text-muted">High Purity Continuous</small></td>
+                    <td>Respiratory Care</td>
+                    <td>Dry Depot Zone 2</td>
+                    <td><span class="status-pill status-warning">18 Units (Low Stock)</span></td>
                     <td>Dec 2027</td>
                     <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-pen"></i></a></td>
                   </tr>
                   <tr>
                     <td><code>SN-118-BED</code></td>
-                    <td>Electric 5-Function ICU Bed</td>
+                    <td><strong>Electric 5-Function ICU Bed</strong><br><small class="text-muted">Motorized Heavy Duty</small></td>
                     <td>Hospital Furniture</td>
-                    <td>65 Units</td>
+                    <td>Warehouse Bay 4</td>
+                    <td><span class="status-pill status-success">65 Units Available</span></td>
                     <td>Jan 2028</td>
+                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-pen"></i></a></td>
+                  </tr>
+                  <tr>
+                    <td><code>SN-772-THR</code></td>
+                    <td><strong>Infrared Digital Thermometer</strong><br><small class="text-muted">Non-Contact Sensor</small></td>
+                    <td>Diagnostic Essentials</td>
+                    <td>Sterile Shelf 12</td>
+                    <td><span class="status-pill status-success">140 Units Available</span></td>
+                    <td>Calibrated</td>
                     <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-pen"></i></a></td>
                   </tr>
                 </tbody>
               </table>
             </div>
+
+            <!-- Depot Highlights Grid -->
+            <div class="content-sub-grid" style="margin-top: 2rem;">
+              <div class="info-block-box">
+                <div class="box-icon"><i class="fa-solid fa-warehouse"></i></div>
+                <div>
+                  <strong>Centralized Medical Storage Compliance</strong>
+                  <p class="text-muted">All active hardware zones maintained under strict humidity and particulate controls.</p>
+                </div>
+              </div>
+              <div class="info-block-box">
+                <div class="box-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div>
+                  <strong>Factory Batch QA Traceability</strong>
+                  <p class="text-muted">Serial tracking records directly sync with international hospital regulatory portals.</p>
+                </div>
+              </div>
+            </div>
           </div>
+
         </section>
 
-        <!-- 3. ORDERS VIEW -->
+        <!-- ==================== TAB 3: HOSPITAL ORDERS & SHIPMENTS ==================== -->
         <section class="dash-tab-content" id="tab-orders">
+          
           <div class="dash-panel-card">
             <div class="panel-card-head">
               <div>
-                <h3 class="panel-card-title">Dispatch Logistics &amp; Orders</h3>
-                <p class="panel-card-desc">Tracking active clinical equipment transit routes.</p>
+                <h3 class="panel-card-title">Procurement Manifest &amp; Live Tracking</h3>
+                <p class="panel-card-desc">Real-time status of cold-chain and express medical freight routes.</p>
               </div>
-              <a href="error.html" class="btn btn-outline btn-sm">Filter Manifest</a>
+              <a href="error.html" class="btn btn-outline btn-sm"><i class="fa-solid fa-receipt"></i> Export Waybills</a>
             </div>
-            <p class="text-muted" style="padding: 1rem 0;">Showing 3 active dispatches. All shipments are temperature and vibration monitored.</p>
-            <a href="error.html" class="btn btn-primary btn-sm">View Full Manifest On Error Page</a>
+
+            <!-- Live Tracking Stepper Card -->
+            <div class="tracking-timeline-card">
+              <div class="tracking-header">
+                <div>
+                  <span class="tracking-tag">Air Express 48H</span>
+                  <h4>Active Route Manifest: #MED-EXP-9402</h4>
+                </div>
+                <div class="tracking-eta">
+                  <strong>Estimated Facility Arrival:</strong> Tomorrow at 2:00 PM
+                </div>
+              </div>
+
+              <!-- 4 Step Progress Bar -->
+              <div class="stepper-row">
+                <div class="step-item completed">
+                  <div class="step-circle"><i class="fa-solid fa-check"></i></div>
+                  <span class="step-title">Order Confirmed</span>
+                  <span class="step-time">Oct 26, 09:00 AM</span>
+                </div>
+                <div class="step-item completed">
+                  <div class="step-circle"><i class="fa-solid fa-check"></i></div>
+                  <span class="step-title">Depot Calibration</span>
+                  <span class="step-time">Oct 26, 03:30 PM</span>
+                </div>
+                <div class="step-item active">
+                  <div class="step-circle"><i class="fa-solid fa-truck-fast"></i></div>
+                  <span class="step-title">Dedicated Air Transit</span>
+                  <span class="step-time">En Route (Cold-Chain)</span>
+                </div>
+                <div class="step-item">
+                  <div class="step-circle"><i class="fa-solid fa-hospital"></i></div>
+                  <span class="step-title">Hospital Handover</span>
+                  <span class="step-time">Pending Inspection</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Orders Manifest List -->
+            <div class="table-responsive" style="margin-top: 1.5rem;">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Tracking ID</th>
+                    <th>Destination Facility</th>
+                    <th>Consignment Details</th>
+                    <th>Logistics Partner</th>
+                    <th>Status</th>
+                    <th>Manifest</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>#TRK-449102</strong></td>
+                    <td>St. Jude General Hospital</td>
+                    <td>Multi-Parameter ECG Monitor + Cable Packs</td>
+                    <td>Medixen Dedicated Direct</td>
+                    <td><span class="status-pill status-info">Out for Delivery</span></td>
+                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-file-invoice"></i></a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>#TRK-449088</strong></td>
+                    <td>CareBridge Health Systems</td>
+                    <td>Surgical Stainless Tool Trays (Bulk 20)</td>
+                    <td>National Medical Logistics</td>
+                    <td><span class="status-pill status-success">Signed &amp; Received</span></td>
+                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-file-invoice"></i></a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>#TRK-449074</strong></td>
+                    <td>Metro Health Clinic</td>
+                    <td>Clinical Oxygen Concentrators (x5)</td>
+                    <td>Express Cargo Wing</td>
+                    <td><span class="status-pill status-warning">In Transit</span></td>
+                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-file-invoice"></i></a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
           </div>
+
         </section>
 
-        <!-- 4. ACCOUNTS VIEW -->
+        <!-- ==================== TAB 4: CLIENT ACCOUNTS ==================== -->
         <section class="dash-tab-content" id="tab-accounts">
+          
           <div class="dash-panel-card">
             <div class="panel-card-head">
               <div>
-                <h3 class="panel-card-title">Hospital &amp; Healthcare Networks</h3>
-                <p class="panel-card-desc">Verified procurement tier accounts and billing compliance.</p>
+                <h3 class="panel-card-title">Hospital &amp; Healthcare Network Accounts</h3>
+                <p class="panel-card-desc">Review enterprise procurement credit limits, delivery addresses, and hospital licenses.</p>
               </div>
-              <a href="error.html" class="btn btn-primary btn-sm">Verify New Hospital</a>
+              <a href="error.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-user-plus"></i> Verify New Hospital</a>
             </div>
-            <p class="text-muted" style="padding: 1rem 0;">Client accounts linked with direct SLA response protocols.</p>
-            <a href="error.html" class="btn btn-outline btn-sm">Manage Accounts On Error Page</a>
+
+            <div class="service-cards-row">
+              <div class="service-stat-box">
+                <span class="s-label">Active Gold Tier Clients</span>
+                <strong class="s-val">482 Networks</strong>
+                <span class="s-sub"><i class="fa-solid fa-shield-halved"></i> 24/7 Rapid SLA Active</span>
+              </div>
+              <div class="service-stat-box">
+                <span class="s-label">Emergency Bio-Engineers</span>
+                <strong class="s-val">28 On Call</strong>
+                <span class="s-sub"><i class="fa-solid fa-phone"></i> Priority Response Team</span>
+              </div>
+              <div class="service-stat-box">
+                <span class="s-label">Facility Re-Audits</span>
+                <strong class="s-val">100% Passed</strong>
+                <span class="s-sub"><i class="fa-solid fa-calendar-check"></i> Standard Compliant</span>
+              </div>
+            </div>
+
+            <!-- Client Accounts Table -->
+            <div class="table-responsive" style="margin-top: 1.5rem;">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Facility License</th>
+                    <th>Hospital Organization</th>
+                    <th>SLA Tier</th>
+                    <th>Credit Threshold</th>
+                    <th>Assigned Engineer</th>
+                    <th>Account Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>REG-NY-902</code></td>
+                    <td>St. Jude General Hospital</td>
+                    <td><span class="status-pill status-success">Gold SLA</span></td>
+                    <td>$150,000 (Net 60)</td>
+                    <td>Marcus Vance, BME</td>
+                    <td><span class="status-pill status-success">Active</span></td>
+                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                  </tr>
+                  <tr>
+                    <td><code>REG-CA-411</code></td>
+                    <td>Metro Health Clinic Network</td>
+                    <td><span class="status-pill status-info">Silver SLA</span></td>
+                    <td>$75,000 (Net 30)</td>
+                    <td>Elena Rostova, BME</td>
+                    <td><span class="status-pill status-success">Active</span></td>
+                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                  </tr>
+                  <tr>
+                    <td><code>REG-TX-782</code></td>
+                    <td>Apex Emergency Trauma Unit</td>
+                    <td><span class="status-pill status-success">Gold SLA</span></td>
+                    <td>$200,000 (Net 90)</td>
+                    <td>Sarah Jenkins, MD</td>
+                    <td><span class="status-pill status-success">Active</span></td>
+                    <td><a href="error.html" class="table-link-btn"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
           </div>
+
         </section>
 
-        <!-- 5. SETTINGS VIEW -->
+        <!-- ==================== TAB 5: SYSTEM SETTINGS ==================== -->
         <section class="dash-tab-content" id="tab-settings">
+          
           <div class="dash-panel-card">
             <div class="panel-card-head">
               <div>
-                <h3 class="panel-card-title">Store &amp; Dispatch Preferences</h3>
-                <p class="panel-card-desc">Configure automatic warehouse allocation and alert triggers.</p>
+                <h3 class="panel-card-title">Store &amp; System Preferences</h3>
+                <p class="panel-card-desc">Configure automatic warehouse allocation, alerts, and administrator credentials.</p>
               </div>
-              <a href="error.html" class="btn btn-primary btn-sm">Save Changes</a>
+              <a href="error.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-check"></i> Save Preferences</a>
             </div>
-            <div style="padding: 1.5rem 0;">
-              <p>Current logged session: <strong class="dynamic-user-email">admin@medixen.com</strong></p>
-              <br>
-              <a href="error.html" class="btn btn-secondary">Open Security &amp; Permissions</a>
+
+            <div class="profile-details-grid">
+              
+              <div class="profile-meta-item">
+                <span class="meta-label">Administrator Account Email</span>
+                <strong class="meta-value dynamic-user-email">admin@medixen.com</strong>
+              </div>
+
+              <div class="profile-meta-item">
+                <span class="meta-label">Automatic Dispatch Threshold</span>
+                <strong class="meta-value">Orders under $25,000 auto-cleared</strong>
+              </div>
+
+              <div class="profile-meta-item">
+                <span class="meta-label">Calibration Alert Schedule</span>
+                <strong class="meta-value">30 Days Prior To Expiry</strong>
+              </div>
+
+              <div class="profile-meta-item">
+                <span class="meta-label">Logistics Tracking Hook</span>
+                <strong class="meta-value">48H SLA Dedicated Carrier API</strong>
+              </div>
+
+              <div class="profile-meta-item">
+                <span class="meta-label">Security Role Tier</span>
+                <strong class="meta-value">Full Depot SuperAdmin</strong>
+              </div>
+
+              <div class="profile-meta-item">
+                <span class="meta-label">Session Encryption Level</span>
+                <strong class="meta-value">256-bit HIPAA / ISO Compliant</strong>
+              </div>
+
             </div>
+
+            <!-- Security Documents Strip -->
+            <div class="contract-strip" style="margin-top: 2rem;">
+              <div class="contract-info">
+                <i class="fa-solid fa-shield-virus"></i>
+                <div>
+                  <strong>Enterprise Biomedical System Integrity Policy</strong>
+                  <p class="text-muted">Master database logs are continuously archived to secure cloud cold-storage.</p>
+                </div>
+              </div>
+              <a href="error.html" class="btn btn-secondary btn-sm">Download Audit Report</a>
+            </div>
+
           </div>
+
         </section>
 
       </div>
@@ -335,7 +579,7 @@
 
   </div>
 
-  <!-- GSAP Core CDN -->
+  <!-- GSAP CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script>
 
@@ -344,16 +588,16 @@ document.addEventListener("DOMContentLoaded", () => {
      1. EXTRACT & RENDER AUTHENTICATED LOGIN EMAIL
   ============================================================== */
   function getAuthenticatedEmail() {
-    // 1. Check URL query parameters (e.g., admin.html?email=dr.sarah@hospital.com)
+    // 1. Check URL query parameters (e.g., admin.html?email=admin@medixen.com)
     const urlParams = new URLSearchParams(window.location.search);
     const emailParam = urlParams.get("email");
     if (emailParam && emailParam.trim() !== "") {
-      localStorage.setItem("medixen_user_email", emailParam.trim());
+      localStorage.setItem("medixen_admin_email", emailParam.trim());
       return emailParam.trim();
     }
 
-    // 2. Check LocalStorage from previous login page submission
-    const storedEmail = localStorage.getItem("medixen_user_email");
+    // 2. Check LocalStorage
+    const storedEmail = localStorage.getItem("medixen_admin_email");
     if (storedEmail && storedEmail.trim() !== "") {
       return storedEmail.trim();
     }
@@ -364,7 +608,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const activeEmail = getAuthenticatedEmail();
 
-  // Populate dynamic email elements
+  // Populate dynamic email text elements
   document.querySelectorAll(".dynamic-user-email").forEach((el) => {
     el.textContent = activeEmail;
   });
@@ -372,20 +616,20 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ==============================================================
      2. HAMBURGER & MOBILE DRAWER FUNCTIONALITIES
   ============================================================== */
-  const dashSidebar = document.getElementById("dashSidebar");
-  const dashOverlay = document.getElementById("dashOverlay");
-  const dashHamburgerBtn = document.getElementById("dashHamburgerBtn");
-  const sidebarCloseBtn = document.getElementById("sidebarCloseBtn");
+  const adminSidebar = document.getElementById("adminSidebar");
+  const adminOverlay = document.getElementById("adminOverlay");
+  const adminHamburgerBtn = document.getElementById("adminHamburgerBtn");
+  const adminSidebarClose = document.getElementById("adminSidebarClose");
   let isSidebarOpen = false;
 
   function openSidebar() {
     isSidebarOpen = true;
-    document.body.classList.add("no-scroll"); // Lock background scroll on mobile
-    dashOverlay.classList.add("active");
-    dashSidebar.classList.add("open");
+    document.body.classList.add("no-scroll"); // Background scroll lock
+    adminOverlay.classList.add("active");
+    adminSidebar.classList.add("open");
 
-    // Smooth entrance GSAP stagger on mobile links
-    if (window.innerWidth <= 768) {
+    // Staggered slide entrance on mobile
+    if (window.innerWidth <= 768 && typeof gsap !== "undefined") {
       gsap.fromTo(
         ".sidebar-menu li",
         { x: -20, opacity: 0 },
@@ -396,18 +640,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function closeSidebar() {
     isSidebarOpen = false;
-    document.body.classList.remove("no-scroll"); // Restore scrolling
-    dashOverlay.classList.remove("active");
-    dashSidebar.classList.remove("open");
+    document.body.classList.remove("no-scroll"); // Restore background scrolling
+    adminOverlay.classList.remove("active");
+    adminSidebar.classList.remove("open");
   }
 
-  dashHamburgerBtn.addEventListener("click", () => {
-    if (!isSidebarOpen) openSidebar();
-    else closeSidebar();
-  });
+  if (adminHamburgerBtn) {
+    adminHamburgerBtn.addEventListener("click", () => {
+      if (!isSidebarOpen) openSidebar();
+      else closeSidebar();
+    });
+  }
 
-  sidebarCloseBtn.addEventListener("click", closeSidebar);
-  dashOverlay.addEventListener("click", closeSidebar);
+  if (adminSidebarClose) {
+    adminSidebarClose.addEventListener("click", closeSidebar);
+  }
+
+  if (adminOverlay) {
+    adminOverlay.addEventListener("click", closeSidebar);
+  }
 
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && isSidebarOpen) closeSidebar();
@@ -438,15 +689,19 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // 2. Switch panel views with a smooth GSAP fade & slide
+    // 2. Switch panel views with smooth GSAP transition
     tabPanels.forEach((panel) => {
       if (panel.id === `tab-${tabKey}`) {
         panel.classList.add("active");
-        gsap.fromTo(
-          panel,
-          { opacity: 0, y: 15 },
-          { opacity: 1, y: 0, duration: 0.4, ease: "power2.out", clearProps: "all" }
-        );
+        if (typeof gsap !== "undefined") {
+          gsap.fromTo(
+            panel,
+            { opacity: 0, y: 15 },
+            { opacity: 1, y: 0, duration: 0.4, ease: "power2.out", clearProps: "all" }
+          );
+        } else {
+          panel.style.opacity = "1";
+        }
       } else {
         panel.classList.remove("active");
       }
@@ -464,7 +719,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const tabKey = link.getAttribute("data-tab");
       switchTab(tabKey);
 
-      // Close mobile drawer if open
+      // Close mobile drawer after selection
       if (window.innerWidth <= 768 && isSidebarOpen) {
         closeSidebar();
       }
@@ -474,8 +729,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ==============================================================
      4. REDIRECT NON-TAB BUTTONS & ANCHORS TO ERROR.HTML
   ============================================================== */
-  // Any button or anchor that doesn't have data-tab or aren't home links
-  document.querySelectorAll("button:not([data-tab]):not(#dashHamburgerBtn):not(#sidebarCloseBtn)").forEach((btn) => {
+  document.querySelectorAll("button:not([data-tab]):not(#adminHamburgerBtn):not(#adminSidebarClose)").forEach((btn) => {
     btn.addEventListener("click", () => {
       window.location.href = "error.html";
     });
@@ -483,6 +737,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
   </script>
+
 
 
 </body>
