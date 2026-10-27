@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medical Equipment Store</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <link rel="icon" href="./assets/logo.webp" />
+    <link rel="stylesheet" href="root.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="is-loading">
+
+    <!-- ==================== PRELOADER ==================== -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-pulse-box">
+                <div class="pulse-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                <svg class="ecg-svg" viewBox="0 0 300 100" fill="none">
+                    <path class="ecg-path" d="M0,50 L70,50 L85,20 L100,80 L115,30 L130,65 L145,50 L300,50" />
+                </svg>
+            </div>
+            <div class="preloader-brand">STACKLY</div>
+            <div class="preloader-status">Preparing medical equipment catalog...</div>
+        </div>
+    </div>
+
+    <!-- ==================== HEADER NAVBAR ==================== -->
+    <header class="site-header" id="header">
+        <div class="container header-container">
+            <!-- Logo -->
+            <a href="index.html" class="brand-logo">
+                <img src="./assets/logo 12.webp" alt="logo" width="150px" height="50px">
+            </a>
+
+            <!-- Desktop Navigation Menu -->
+            <nav class="desktop-nav" aria-label="Main Navigation">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="shop.html" class="nav-link">Shop</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Right Header Actions -->
+            <div class="header-actions">
+                <button class="icon-btn search-toggle" aria-label="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <div class="header-auth-btns">
+                    <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+                    <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+                </div>
+
+                <!-- Hamburger Button -->
+                <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="bar line-1"></span>
+                    <span class="bar line-2"></span>
+                    <span class="bar line-3"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Overlay -->
+    <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+
+    <!-- Mobile Drawer Menu -->
+    <aside class="mobile-drawer" id="mobileDrawer">
+        <div class="mobile-drawer-header">
+            <a href="index.html" class="brand-logo">
+                <img src="./assets/logo 12.webp" alt="logo" width="150px" height="50px">
+            </a>
+            <button class="close-drawer-btn" id="closeDrawerBtn" aria-label="Close menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- Scrollable middle list area -->
+        <div class="mobile-drawer-body">
+            <nav class="mobile-nav">
+                <ul class="mobile-nav-list">
+                    <li><a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li><a href="about.html" class="mobile-nav-link"><i class="fa-solid fa-circle-info"></i> About</a>
+                    </li>
+                    <li><a href="services.html" class="mobile-nav-link"><i class="fa-solid fa-stethoscope"></i>
+                            Services</a></li>
+                    <li><a href="shop.html" class="mobile-nav-link"><i class="fa-solid fa-store"></i> Shop</a></li>
+                    <li><a href="contact.html" class="mobile-nav-link"><i class="fa-solid fa-envelope"></i> Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Fixed/Pinned Login & Sign Up Actions -->
+        <div class="mobile-drawer-footer">
+            <a href="login.html" class="btn btn-secondary w-full">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i> Login
+            </a>
+            <a href="signup.html" class="btn btn-primary w-full">
+                <i class="fa-solid fa-user-plus"></i> Sign Up
+            </a>
+        </div>
+    </aside>
+
+
+
+
+
+
+
+    <!-- ==================== HERO SECTION (IMAGE 2 UI/UX) ==================== -->
+    <section class="hero-section" id="home">
+        <div class="container hero-container">
+
+            <!-- Left Column: Content & Live Typewriter -->
+            <div class="hero-content">
+                <span class="hero-eyebrow">Medical Equipment Store</span>
+
+                <h1 class="hero-title">
+                    ADVANCED MEDICAL EQUIPMENT.<br>
+                    <span class="hero-highlight">BETTER </span>
+                    <span class="typewriter-text" id="typewriterText"></span>
+                    <span class="typewriter-cursor">|</span>
+                </h1>
+
+                <p class="hero-description">
+                    Precision-engineered clinical diagnostic systems, hospital infrastructure, and certified care
+                    devices delivered with turnkey operational compliance.
+                </p>
+
+                <!-- Buttons: Fully Bulletproof Visibility -->
+                <div class="hero-actions">
+                    <a href="shop.html" class="hero-btn hero-btn-primary">
+                        <span>Explore Equipment</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="contact.html" class="hero-btn hero-btn-outline">
+                        <span>Request Bulk Quote</span>
+                    </a>
+                </div>
+
+                <!-- Trust Badges Bar (Matches Image 2) -->
+                <div class="hero-trust-row">
+                    <div class="trust-badge">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Compliant</span>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        <span>Fast Delivery</span>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fa-solid fa-award"></i>
+                        <span>Warranty</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Layered Composition from Image 2 -->
+            <div class="hero-visual">
+                <div class="hero-visual-grid">
+
+                    <!-- Left Side: Auto-Changing Vertical Doctor/Operating Card -->
+                    <div class="doctor-photo-card">
+                        <div class="doctor-slider-viewport">
+                            <div class="doc-slide active">
+                                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=700&q=80"
+                                    alt="Doctor in surgery" class="doc-img">
+                            </div>
+                            <div class="doc-slide">
+                                <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=700&q=80"
+                                    alt="Specialist using clinical gear" class="doc-img">
+                            </div>
+                            <div class="doc-slide">
+                                <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=700&q=80"
+                                    alt="ICU equipment care" class="doc-img">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Side: 2 Stacked Stat Cards -->
+                    <div class="doctor-stats-stack">
+                        <!-- 48H Card -->
+                        <div class="stat-mini-card">
+                            <div class="stat-icon"><i class="fa-solid fa-truck"></i></div>
+                            <div class="stat-meta">
+                                <span class="stat-num">48H</span>
+                                <span class="stat-label">Fast delivery</span>
+                            </div>
+                        </div>
+
+                        <!-- ISO Card -->
+                        <div class="stat-mini-card">
+                            <div class="stat-icon iso-icon"><i class="fa-solid fa-certificate"></i></div>
+                            <div class="stat-meta">
+                                <span class="stat-num">ISO 13485</span>
+                                <span class="stat-label">Certified store</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Spanning Pill Card (Clinical Specialist On Call) -->
+                    <div class="clinical-specialist-card">
+                        <div class="specialist-avatar">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <div class="specialist-info">
+                            <strong>Clinical specialist on call</strong>
+                            <span>Quick advice on fit &amp; regulatory</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <!-- ==================== STATS METRICS RIBBON ==================== -->
+    <section class="stats-ribbon" id="stats">
+        <div class="container stats-container">
+
+            <!-- Stat Item 1 -->
+            <div class="stat-item">
+                <div class="stat-number-wrapper">
+                    <span class="stat-counter" data-target="12000">0</span>
+                    <span class="stat-suffix">+</span>
+                </div>
+                <p class="stat-label">Products in stock & ready</p>
+            </div>
+
+            <!-- Stat Item 2 -->
+            <div class="stat-item">
+                <div class="stat-number-wrapper">
+                    <span class="stat-counter" data-target="850">0</span>
+                    <span class="stat-suffix">+</span>
+                </div>
+                <p class="stat-label">Verified hospital accounts</p>
+            </div>
+
+            <!-- Stat Item 3 -->
+            <div class="stat-item">
+                <div class="stat-number-wrapper">
+                    <span class="stat-counter" data-target="15">0</span>
+                    <span class="stat-suffix">+</span>
+                </div>
+                <p class="stat-label">Years technical service</p>
+            </div>
+
+            <!-- Stat Item 4 -->
+            <div class="stat-item">
+                <div class="stat-number-wrapper">
+                    <span class="stat-counter" data-target="40">0</span>
+                    <span class="stat-suffix">+</span>
+                </div>
+                <p class="stat-label">Distributor territories</p>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <!-- ==================== CATEGORIES SECTION ==================== -->
+<section class="facility-categories section-padding" id="categories">
+  <div class="container">
+    
+    <!-- Section Heading Header -->
+    <div class="section-head-wrapper category-reveal">
+      <span class="eyebrow-tag">Facility Infrastructure</span>
+      <h2 class="section-heading">EVERYTHING YOUR FACILITY NEEDS.</h2>
+      <p class="section-subtext">
+        Equipping clinics, multi-specialty hospitals, and care networks with certified instrumentation and ongoing maintenance support.
+      </p>
+    </div>
+
+    <!-- 8-Card Grid (Image 2 UI/UX) -->
+    <div class="category-grid">
+      
+      <!-- Card 01: Diagnostics -->
+      <a href="error.html" class="category-card category-reveal">
+        <div class="card-num-box">
+          <span class="card-index">01</span>
+        </div>
+        <div class="card-main-info">
+          <div class="card-title-row">
+            <h3 class="category-name">DIAGNOSTICS</h3>
+            <span class="category-arrow-btn" aria-hidden="true">
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </div>
+          <p class="category-desc">Precision analyzers, digital imaging, and rapid point-of-care test sets.</p>
+          <div class="category-hover-reveal">
+            <span class="hover-badge"><i class="fa-solid fa-check"></i> 142 Products In Stock</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 02: Mobility Aids -->
+      <a href="error.html" class="category-card category-reveal">
+        <div class="card-num-box">
+          <span class="card-index">02</span>
+        </div>
+        <div class="card-main-info">
+          <div class="card-title-row">
+            <h3 class="category-name">MOBILITY AIDS</h3>
+            <span class="category-arrow-btn" aria-hidden="true">
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </div>
+          <p class="category-desc">Motorized and folding wheelchairs, walking frames, and physical rehab systems.</p>
+          <div class="category-hover-reveal">
+            <span class="hover-badge"><i class="fa-solid fa-check"></i> Ergonomic &amp; Certified</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 03: Surgical -->
+      <a href="error.html" class="category-card category-reveal">
+        <div class="card-num-box">
+          <span class="card-index">03</span>
+        </div>
+        <div class="card-main-info">
+          <div class="card-title-row">
+            <h3 class="category-name">SURGICAL</h3>
+            <span class="category-arrow-btn" aria-hidden="true">
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </div>
+          <p class="category-desc">Autoclaves, surgical tools, shadowless operating lights, and electrosurgery units.</p>
+          <div class="category-hover-reveal">
+            <span class="hover-badge"><i class="fa-solid fa-check"></i> High Precision Grade</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 04: Respiratory -->
+      <a href="error.html" class="category-card category-reveal">
+        <div class="card-num-box">
+          <span class="card-index">04</span>
+        </div>
+        <div class="card-main-info">
+          <div class="card-title-row">
+            <h3 class="category-name">RESPIRATORY</h3>
+            <span class="category-arrow-btn" aria-hidden="true">
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </div>
+          <p class="category-desc">Clinical oxygen concentrators, hospital ventilators, BiPAP, and CPAP therapies.</p>
+          <div class="category-hover-reveal">
+            <span class="hover-badge"><i class="fa-solid fa-check"></i> Continuous Flow Certified</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 05: Patient Monitoring -->
+      <a href="error.html" class="category-card category-reveal">
+        <div class="card-num-box">
+          <span class="card-index">05</span>
+        </div>
+        <div class="card-main-info">
+          <div class="card-title-row">
+            <h3 class="category-name">PATIENT MONITORING</h3>
+            <span class="category-arrow-btn" aria-hidden="true">
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </div>
+          <p class="category-desc">Multi-parameter telemetry monitors, pulse oximetry, and wireless ICU monitors.</p>
+          <div class="category-hover-reveal">
+            <span class="hover-badge"><i class="fa-solid fa-check"></i> Real-time Telemetry</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 06: Home Care -->
+      <a href="error.html" class="category-card category-reveal">
+        <div class="card-num-box">
+          <span class="card-index">06</span>
+        </div>
+        <div class="card-main-info">
+          <div class="card-title-row">
+            <h3 class="category-name">HOME CARE</h3>
+            <span class="category-arrow-btn" aria-hidden="true">
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </div>
+          <p class="category-desc">Post-operative beds, suction machines, and portable clinical diagnostic kits.</p>
+          <div class="category-hover-reveal">
+            <span class="hover-badge"><i class="fa-solid fa-check"></i> Patient-friendly Design</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 07: Hospital Furniture -->
+      <a href="error.html" class="category-card category-reveal">
+        <div class="card-num-box">
+          <span class="card-index">07</span>
+        </div>
+        <div class="card-main-info">
+          <div class="card-title-row">
+            <h3 class="category-name">HOSPITAL FURNITURE</h3>
+            <span class="category-arrow-btn" aria-hidden="true">
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </div>
+          <p class="category-desc">Electric ICU beds, examination tables, medical medication carts, and IV stands.</p>
+          <div class="category-hover-reveal">
+            <span class="hover-badge"><i class="fa-solid fa-check"></i> Heavy-Duty Anti-Microbial</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 08: Consumables -->
+      <a href="error.html" class="category-card category-reveal">
+        <div class="card-num-box">
+          <span class="card-index">08</span>
+        </div>
+        <div class="card-main-info">
+          <div class="card-title-row">
+            <h3 class="category-name">CONSUMABLES</h3>
+            <span class="category-arrow-btn" aria-hidden="true">
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </div>
+          <p class="category-desc">Sterile catheters, syringes, personal protective gowns, surgical gloves, and masks.</p>
+          <div class="category-hover-reveal">
+            <span class="hover-badge"><i class="fa-solid fa-check"></i> Bulk Ready Shipment</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ==================== FEATURED BENTO SHOWCASE ==================== -->
+<section class="featured-bento section-padding" id="shop">
+  <div class="container">
+    
+    <!-- Section Header -->
+    <div class="section-head-wrapper bento-reveal">
+      <span class="eyebrow-tag">Certified Inventory</span>
+      <h2 class="section-heading">TRUSTED EQUIPMENT, READY TO SHIP.</h2>
+      <p class="section-subtext">
+        Factory-calibrated clinical instrumentation inspected for instant deployment across intensive care and outpatient facilities.
+      </p>
+    </div>
+
+    <!-- Bento Grid Layout -->
+    <div class="bento-grid">
+      
+      <!-- Left Spotlight Card: Multi-Parameter ECG Monitor -->
+      <div class="bento-card bento-spotlight bento-reveal">
+        <div class="spotlight-badge">
+          <span class="live-dot"></span>
+          <span>Telemetry Active</span>
+        </div>
+
+        <div class="spotlight-visual">
+          <div class="ecg-glow-aura"></div>
+          <!-- Animated ECG Waveform -->
+          <img src="./assets/img 8.webp" alt="logo" width="350px" height="150px">
+        </div>
+
+        <div class="spotlight-details">
+          <span class="spotlight-tag">Hospital Grade Monitor</span>
+          <h3 class="spotlight-title">MULTI-PARAMETER PATIENT MONITOR</h3>
+          <p class="spotlight-desc">12.1" Display with ECG, SpO2, NIBP, TEMP, and real-time arrhythmia detection.</p>
+          
+          <div class="spotlight-footer">
+            <div class="spotlight-price">
+              <span class="price-label">Starting From</span>
+              <span class="price-val">$2,450.00</span>
+            </div>
+            <a href="error.html" class="btn btn-secondary spotlight-btn">
+              <span>View Specs</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right 4-Product Grid -->
+      <div class="bento-products-grid">
+        
+        <!-- Product 1: Digital Thermometer -->
+        <div class="bento-card product-card bento-reveal">
+          <div class="product-visual">
+            <div class="product-glow"></div>
+            <div class="product-icon-wrap">
+              <i class="fa-solid fa-temperature-half"></i>
+            </div>
+            <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=500&q=80" alt="Clinical Infrared Thermometer" class="product-img">
+            <span class="shipping-tag"><i class="fa-solid fa-bolt"></i> In Stock</span>
+          </div>
+
+          <div class="product-meta">
+            <h4 class="product-name">Digital Thermometer</h4>
+            <span class="product-spec">Non-contact Infrared Sensor</span>
+            <div class="product-bottom-row">
+              <span class="product-price">$45.00</span>
+              <a href="error.html" class="quick-view-btn" aria-label="Quick View">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2: Oxygen Concentrator -->
+        <div class="bento-card product-card bento-reveal">
+          <div class="product-visual">
+            <div class="product-glow"></div>
+            <div class="product-icon-wrap">
+              <i class="fa-solid fa-wind"></i>
+            </div>
+            <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=500&q=80" alt="Oxygen Concentrator Unit" class="product-img">
+            <span class="shipping-tag"><i class="fa-solid fa-bolt"></i> In Stock</span>
+          </div>
+
+          <div class="product-meta">
+            <h4 class="product-name">Oxygen Concentrator</h4>
+            <span class="product-spec">10L High Purity Output</span>
+            <div class="product-bottom-row">
+              <span class="product-price">$890.00</span>
+              <a href="error.html" class="quick-view-btn" aria-label="Quick View">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3: ICU Bed -->
+        <div class="bento-card product-card bento-reveal">
+          <div class="product-visual">
+            <div class="product-glow"></div>
+            <div class="product-icon-wrap">
+              <i class="fa-solid fa-bed-pulse"></i>
+            </div>
+            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=500&q=80" alt="Electric Hospital Bed" class="product-img">
+            <span class="shipping-tag"><i class="fa-solid fa-bolt"></i> In Stock</span>
+          </div>
+
+          <div class="product-meta">
+            <h4 class="product-name">Electronic ICU Bed</h4>
+            <span class="product-spec">5-Function Motorized Control</span>
+            <div class="product-bottom-row">
+              <span class="product-price">$1,620.00</span>
+              <a href="error.html" class="quick-view-btn" aria-label="Quick View">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4: Folding Wheelchair -->
+        <div class="bento-card product-card bento-reveal">
+          <div class="product-visual">
+            <div class="product-glow"></div>
+            <div class="product-icon-wrap">
+              <i class="fa-solid fa-wheelchair"></i>
+            </div>
+            <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=500&q=80" alt="Ergonomic Wheelchair" class="product-img">
+            <span class="shipping-tag"><i class="fa-solid fa-bolt"></i> In Stock</span>
+          </div>
+
+          <div class="product-meta">
+            <h4 class="product-name">Ergonomic Wheelchair</h4>
+            <span class="product-spec">Lightweight Aluminum Alloy</span>
+            <div class="product-bottom-row">
+              <span class="product-price">$310.00</span>
+              <a href="error.html" class="quick-view-btn" aria-label="Quick View">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ==================== QUALITY VERIFICATION SECTION ==================== -->
+<section class="quality-verify section-padding" id="quality">
+  <div class="container quality-container">
+    
+    <!-- Left Column: Title & CTA -->
+    <div class="quality-content quality-reveal">
+      <span class="eyebrow-tag">Operational Standards</span>
+      <h2 class="section-heading">QUALITY YOU CAN VERIFY.</h2>
+      <p class="section-subtext">
+        Every diagnostic machine, surgical kit, and patient monitor undergoes rigorous multi-point validation before leaving our depot. We stand behind every serial number we deliver.
+      </p>
+
+      <div class="quality-actions">
+        <a href="error.html" class="btn btn-primary quality-btn">
+          <span>View Compliance Protocols</span>
+          <i class="fa-solid fa-file-shield"></i>
+        </a>
+      </div>
+
+      <!-- Live Trust Footnote -->
+      <div class="quality-footnote">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>100% Traceable serial numbers with factory calibration reports.</span>
+      </div>
+    </div>
+
+    <!-- Right Column: 5 Interactive Checklist Rows -->
+    <div class="quality-list">
+      
+      <!-- Item 1: Quality Certified -->
+      <div class="quality-card quality-reveal">
+        <div class="quality-icon-wrap">
+          <i class="fa-solid fa-stamp"></i>
+        </div>
+        <div class="quality-card-body">
+          <div class="quality-card-head">
+            <h3 class="quality-card-title">QUALITY CERTIFIED</h3>
+            <span class="quality-status-tag">ISO 13485 &amp; CE</span>
+          </div>
+          <p class="quality-card-desc">Manufactured in ISO-certified cleanroom environments matching international biomedical standards.</p>
+        </div>
+        <div class="quality-card-arrow" aria-hidden="true">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </div>
+
+      <!-- Item 2: Expert Guidance -->
+      <div class="quality-card quality-reveal">
+        <div class="quality-icon-wrap">
+          <i class="fa-solid fa-user-doctor"></i>
+        </div>
+        <div class="quality-card-body">
+          <div class="quality-card-head">
+            <h3 class="quality-card-title">EXPERT GUIDANCE</h3>
+            <span class="quality-status-tag">Bio-Engineers</span>
+          </div>
+          <p class="quality-card-desc">Consultation with certified bio-medical specialists to ensure perfect facility equipment fit.</p>
+        </div>
+        <div class="quality-card-arrow" aria-hidden="true">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </div>
+
+      <!-- Item 3: After-Sales Service -->
+      <div class="quality-card quality-reveal">
+        <div class="quality-icon-wrap">
+          <i class="fa-solid fa-screwdriver-wrench"></i>
+        </div>
+        <div class="quality-card-body">
+          <div class="quality-card-head">
+            <h3 class="quality-card-title">AFTER-SALES SERVICE</h3>
+            <span class="quality-status-tag">Annual Maintenance</span>
+          </div>
+          <p class="quality-card-desc">Comprehensive preventative maintenance schedules and authentic OEM spare parts replacement.</p>
+        </div>
+        <div class="quality-card-arrow" aria-hidden="true">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </div>
+
+      <!-- Item 4: Reliable Delivery -->
+      <div class="quality-card quality-reveal">
+        <div class="quality-icon-wrap">
+          <i class="fa-solid fa-truck-ramp-box"></i>
+        </div>
+        <div class="quality-card-body">
+          <div class="quality-card-head">
+            <h3 class="quality-card-title">RELIABLE DELIVERY</h3>
+            <span class="quality-status-tag">Secure Transit</span>
+          </div>
+          <p class="quality-card-desc">Shock-monitored, temperature-regulated handling tailored specifically for sensitive clinical gear.</p>
+        </div>
+        <div class="quality-card-arrow" aria-hidden="true">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </div>
+
+      <!-- Item 5: Installation & Training -->
+      <div class="quality-card quality-reveal">
+        <div class="quality-icon-wrap">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <div class="quality-card-body">
+          <div class="quality-card-head">
+            <h3 class="quality-card-title">INSTALLATION &amp; TRAINING</h3>
+            <span class="quality-status-tag">On-Site Handover</span>
+          </div>
+          <p class="quality-card-desc">Complete on-premise installation, clinical calibration testing, and nurse/technician operation training.</p>
+        </div>
+        <div class="quality-card-arrow" aria-hidden="true">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ==================== PROMO DEAL BANNER ==================== -->
+<section class="deal-section section-padding" id="deals">
+  <div class="container">
+    
+    <div class="deal-banner promo-reveal">
+      <div class="deal-glow-aura" aria-hidden="true"></div>
+
+      <!-- Left Column: Details -->
+      <div class="deal-content">
+        <span class="deal-badge">
+          <i class="fa-solid fa-fire-flame-curved"></i> Special Facility Bundle
+        </span>
+        <h2 class="deal-title">CLINIC STARTER BUNDLE</h2>
+        <div class="deal-discount-tag">
+          <i class="fa-solid fa-tag"></i>
+          <span>Save 20% On Complete Clinic Setup</span>
+        </div>
+        <p class="deal-desc">
+          Complete turnkey package including diagnostic set, patient vitals monitor, manual examination couch, and emergency resuscitation gear.
+        </p>
+      </div>
+
+      <!-- Right Column: Live Countdown & CTA -->
+      <div class="deal-action-box">
+        <div class="countdown-timer" id="countdownTimer">
+          
+          <div class="time-block">
+            <span class="time-num" id="cdDays">09</span>
+            <span class="time-unit">Days</span>
+          </div>
+          <span class="time-divider">:</span>
+
+          <div class="time-block">
+            <span class="time-num" id="cdHours">04</span>
+            <span class="time-unit">Hours</span>
+          </div>
+          <span class="time-divider">:</span>
+
+          <div class="time-block">
+            <span class="time-num" id="cdMins">06</span>
+            <span class="time-unit">Mins</span>
+          </div>
+          <span class="time-divider">:</span>
+
+          <div class="time-block">
+            <span class="time-num" id="cdSecs">54</span>
+            <span class="time-unit">Secs</span>
+          </div>
+
+        </div>
+
+        <div class="deal-btn-wrap">
+          <a href="error.html" class="btn btn-primary deal-cta-btn">
+            <span>Claim Starter Bundle</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ==================== FACILITY SOLUTIONS SECTION ==================== -->
+<section class="facility-solutions section-padding" id="solutions">
+  <div class="container">
+    
+    <!-- Section Heading -->
+    <div class="section-head-wrapper solution-reveal">
+      <span class="eyebrow-tag">Tailored Architecture</span>
+      <h2 class="section-heading">BUILT AROUND HOW YOU DELIVER CARE.</h2>
+      <p class="section-subtext">
+        Select your facility tier to view pre-configured medical supply pathways, certified installation packages, and compliant technical SLAs.
+      </p>
+    </div>
+
+    <!-- Interactive 2-Column Showcase -->
+    <div class="solutions-grid">
+      
+      <!-- Left Column: Interactive Nav List -->
+      <div class="solution-nav-list solution-reveal">
+        
+        <!-- Tab 1: Hospital -->
+        <button type="button" class="solution-tab-btn active" data-target="hospital">
+          <span class="tab-label">Hospital</span>
+          <span class="tab-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+        </button>
+
+        <!-- Tab 2: Clinic -->
+        <button type="button" class="solution-tab-btn" data-target="clinic">
+          <span class="tab-label">Clinic</span>
+          <span class="tab-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+        </button>
+
+        <!-- Tab 3: Home Care -->
+        <button type="button" class="solution-tab-btn" data-target="homecare">
+          <span class="tab-label">Home Care</span>
+          <span class="tab-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+        </button>
+
+        <!-- Tab 4: Diagnostic Center -->
+        <button type="button" class="solution-tab-btn" data-target="diagnostics">
+          <span class="tab-label">Diagnostic Center</span>
+          <span class="tab-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+        </button>
+
+      </div>
+
+      <!-- Right Column: Dynamic Preview Container -->
+      <div class="solution-display-card solution-reveal">
+        <div class="solution-display-wrapper">
+          
+          <!-- Panel 1: Hospital (Active by default) -->
+          <div class="solution-panel active" id="panel-hospital">
+            <div class="panel-main">
+              <span class="panel-tier-badge">Tier 1 Infrastructure</span>
+              <h3 class="panel-title">Hospital</h3>
+              <p class="panel-subtitle">Comprehensive suites for ICU, OR, and multi-ward patient care.</p>
+              
+              <ul class="panel-checklist">
+                <li><i class="fa-solid fa-circle-check"></i> High-acuity ICU &amp; multi-lead telemetry integration</li>
+                <li><i class="fa-solid fa-circle-check"></i> Shadowless LED surgical lights &amp; electrosurgical suites</li>
+                <li><i class="fa-solid fa-circle-check"></i> 24/7 dedicated biomedical rapid-dispatch SLA</li>
+              </ul>
+
+              <div class="panel-cta">
+                <a href="error.html" class="btn btn-primary solution-action-btn">
+                  <span>Explore Hospital Outfitting</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="panel-icon-graphic">
+              <i class="fa-solid fa-hospital"></i>
+            </div>
+          </div>
+
+          <!-- Panel 2: Clinic -->
+          <div class="solution-panel" id="panel-clinic">
+            <div class="panel-main">
+              <span class="panel-tier-badge">Outpatient Specialist</span>
+              <h3 class="panel-title">Clinic</h3>
+              <p class="panel-subtitle">Turnkey packages for general practice, dental, and outpatient examination.</p>
+              
+              <ul class="panel-checklist">
+                <li><i class="fa-solid fa-circle-check"></i> Compact wall-mounted diagnostic stations</li>
+                <li><i class="fa-solid fa-circle-check"></i> Automated sterilization autoclaves &amp; tray packages</li>
+                <li><i class="fa-solid fa-circle-check"></i> Low-maintenance preventive calibration coverage</li>
+              </ul>
+
+              <div class="panel-cta">
+                <a href="error.html" class="btn btn-primary solution-action-btn">
+                  <span>Explore Clinic Bundles</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="panel-icon-graphic">
+              <i class="fa-solid fa-house-medical"></i>
+            </div>
+          </div>
+
+          <!-- Panel 3: Home Care -->
+          <div class="solution-panel" id="panel-homecare">
+            <div class="panel-main">
+              <span class="panel-tier-badge">Post-Acute &amp; Assisted</span>
+              <h3 class="panel-title">Home Care</h3>
+              <p class="panel-subtitle">Safe, patient-friendly mobility and respiratory gear for residential recovery.</p>
+              
+              <ul class="panel-checklist">
+                <li><i class="fa-solid fa-circle-check"></i> Ultra-quiet clinical oxygen concentrators (5L / 10L)</li>
+                <li><i class="fa-solid fa-circle-check"></i> Fully electric 3-function home healthcare beds</li>
+                <li><i class="fa-solid fa-circle-check"></i> Direct patient doorstep delivery &amp; caregiver demo</li>
+              </ul>
+
+              <div class="panel-cta">
+                <a href="error.html" class="btn btn-primary solution-action-btn">
+                  <span>Explore Home Solutions</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="panel-icon-graphic">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+          </div>
+
+          <!-- Panel 4: Diagnostic Center -->
+          <div class="solution-panel" id="panel-diagnostics">
+            <div class="panel-main">
+              <span class="panel-tier-badge">Clinical Laboratory</span>
+              <h3 class="panel-title">Diagnostic Center</h3>
+              <p class="panel-subtitle">High-throughput analyzers, radiology support, and cold-chain sample logistics.</p>
+              
+              <ul class="panel-checklist">
+                <li><i class="fa-solid fa-circle-check"></i> Multi-channel automated hematology &amp; biochemistry systems</li>
+                <li><i class="fa-solid fa-circle-check"></i> Digital point-of-care ultrasound scanners</li>
+                <li><i class="fa-solid fa-circle-check"></i> ISO 15189 compliance audit documentation</li>
+              </ul>
+
+              <div class="panel-cta">
+                <a href="error.html" class="btn btn-primary solution-action-btn">
+                  <span>Explore Lab Technology</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="panel-icon-graphic">
+              <i class="fa-solid fa-microscope"></i>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ==================== TESTIMONIALS SECTION ==================== -->
+<section class="testimonial-section section-padding" id="testimonials">
+  <div class="container">
+    
+    <!-- Section Header -->
+    <div class="section-head-wrapper text-center testimonial-reveal">
+      <span class="eyebrow-tag">Verified Clinical Trust</span>
+      <h2 class="section-heading">WHAT HEALTHCARE LEADERS SAY.</h2>
+      <p class="section-subtext">
+        Trusted by over 850 hospital networks, outpatient surgical suites, and specialized clinics across the country.
+      </p>
+    </div>
+
+    <!-- Main Testimonial Card Container -->
+    <div class="testimonial-card-container testimonial-reveal">
+      
+      <!-- Big Decorative Background Quote -->
+      <div class="quote-watermark" aria-hidden="true">
+        <i class="fa-solid fa-quote-right"></i>
+      </div>
+
+      <!-- Testimonial Slides Track -->
+      <div class="testimonial-track" id="testimonialTrack">
+        
+        <!-- Slide 1 -->
+        <div class="testimonial-slide active">
+          <div class="testimonial-rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+
+          <blockquote class="testimonial-quote">
+            "Clear specs, honest advice, and equipment that arrived exactly when promised. Their turnkey ICU setup allowed our multi-specialty wing to achieve compliance weeks ahead of schedule."
+          </blockquote>
+
+          <div class="testimonial-author">
+            <div class="author-avatar-wrap">
+              <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=300&q=80" alt="Dr. Sarah Jenkins" class="author-avatar">
+              <span class="author-badge"><i class="fa-solid fa-check"></i></span>
+            </div>
+            <div class="author-meta">
+              <strong class="author-name">Dr. Sarah Jenkins, MD</strong>
+              <span class="author-role">Chief Medical Officer &bull; St. Jude Regional Hospital</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="testimonial-slide">
+          <div class="testimonial-rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+
+          <blockquote class="testimonial-quote">
+            "The reliability of their patient telemetry monitors and emergency resuscitation kits has set a new benchmark for our emergency department. First-class customer calibration support."
+          </blockquote>
+
+          <div class="testimonial-author">
+            <div class="author-avatar-wrap">
+              <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=300&q=80" alt="Dr. Marcus Vance" class="author-avatar">
+              <span class="author-badge"><i class="fa-solid fa-check"></i></span>
+            </div>
+            <div class="author-meta">
+              <strong class="author-name">Dr. Marcus Vance</strong>
+              <span class="author-role">Director of Emergency Medicine &bull; Apex Trauma Center</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="testimonial-slide">
+          <div class="testimonial-rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+
+          <blockquote class="testimonial-quote">
+            "As biomedical engineers, we inspect every diagnostic device meticulously. Medixen’s factory calibration documentation and ISO traceable reports make regulatory audits effortless."
+          </blockquote>
+
+          <div class="testimonial-author">
+            <div class="author-avatar-wrap">
+              <img src="https://images.unsplash.com/photo-1594824813583-e18e87d25e0e?auto=format&fit=crop&w=300&q=80" alt="Elena Rostova" class="author-avatar">
+              <span class="author-badge"><i class="fa-solid fa-check"></i></span>
+            </div>
+            <div class="author-meta">
+              <strong class="author-name">Elena Rostova, BME</strong>
+              <span class="author-role">Lead Biomedical Specialist &bull; Metro Diagnostic Network</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="testimonial-slide">
+          <div class="testimonial-rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+
+          <blockquote class="testimonial-quote">
+            "Procuring oxygen concentrators and motorized beds for post-surgical care was seamless. Their expedited 48-hour delivery helped our transition team deliver uninterrupted care."
+          </blockquote>
+
+          <div class="testimonial-author">
+            <div class="author-avatar-wrap">
+              <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&q=80" alt="Dr. Ananya Roy" class="author-avatar">
+              <span class="author-badge"><i class="fa-solid fa-check"></i></span>
+            </div>
+            <div class="author-meta">
+              <strong class="author-name">Dr. Ananya Roy</strong>
+              <span class="author-role">Head of Post-Acute Care &bull; CareBridge Health Systems</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Carousel Pagination Dots -->
+      <div class="testimonial-dots" id="testimonialDots">
+        <button class="t-dot active" aria-label="Go to testimonial 1" data-index="0"></button>
+        <button class="t-dot" aria-label="Go to testimonial 2" data-index="1"></button>
+        <button class="t-dot" aria-label="Go to testimonial 3" data-index="2"></button>
+        <button class="t-dot" aria-label="Go to testimonial 4" data-index="3"></button>
+      </div>
+
+      <!-- Trust Action Footer Inside Card -->
+      <div class="testimonial-cta-row">
+        <a href="error.html" class="btn btn-outline t-explore-btn">
+          <span>Read All Case Studies</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<!-- ==================== FINAL CTA CONVERSION SECTION ==================== -->
+<section class="final-cta-section" id="get-started">
+  <div class="container">
+    <div class="final-cta-card final-cta-reveal">
+      
+      <!-- Ambient Decorative Radial Glows -->
+      <div class="cta-ambient-glow glow-left" aria-hidden="true"></div>
+      <div class="cta-ambient-glow glow-right" aria-hidden="true"></div>
+
+      <!-- Center Content -->
+      <div class="final-cta-content">
+        <span class="cta-eyebrow">
+          <i class="fa-solid fa-bolt-lightning"></i> Fast-Track Facility Procurement
+        </span>
+
+        <h2 class="final-cta-title">
+          Ready To Modernize Your <br>
+          <span class="cta-gradient-text">Clinical Equipment Infrastructure?</span>
+        </h2>
+
+        <p class="final-cta-desc">
+          Speak with our certified biomedical engineering team today. Get volume pricing, turnkey installation schedules, and customized compliance assurance for your hospital or practice.
+        </p>
+
+        <!-- CTA Action Buttons -->
+        <div class="final-cta-actions">
+          <a href="error.html" class="btn btn-primary cta-btn-main">
+            <span>Request Full Facility Quote</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="error.html" class="btn btn-secondary cta-btn-secondary">
+            <i class="fa-solid fa-headset"></i>
+            <span>Speak With a Specialist</span>
+          </a>
+        </div>
+
+        <!-- Trust Mini Badges -->
+        <div class="final-cta-trust">
+          <div class="cta-trust-item">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>ISO 13485 Certified Depot</span>
+          </div>
+          <div class="cta-trust-item">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <span>2-Hour Rapid Quote Turnaround</span>
+          </div>
+          <div class="cta-trust-item">
+            <i class="fa-solid fa-truck-fast"></i>
+            <span>Nationwide Express Logistics</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+    <!-- ==================== FOOTER SECTION ==================== -->
+    <footer class="site-footer" id="siteFooter">
+        <div class="container footer-container">
+
+            <!-- Brand & Socials -->
+            <div class="footer-col footer-col-brand">
+                <a href="index.html" class="footer-logo">
+                    <img src="./assets/logo 23.webp" alt="logo" width="150px" height="50px">
+                </a>
+                <p class="footer-bio">
+                    Premium medical equipment and supplies for hospitals, clinics, and home healthcare.
+                </p>
+                <div class="footer-socials">
+                    <a href="error.html" class="social-link" aria-label="LinkedIn"><i
+                            class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="error.html" class="social-link" aria-label="Twitter"><i
+                            class="fa-brands fa-x-twitter"></i></a>
+                    <a href="error.html" class="social-link" aria-label="Facebook"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="error.html" class="social-link" aria-label="YouTube"><i
+                            class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-col">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-nav-list">
+                    <li><a href="index.html" class="footer-nav-link">Home</a></li>
+                    <li><a href="about.html" class="footer-nav-link">About Us</a></li>
+                    <li><a href="services.html" class="footer-nav-link">Services</a></li>
+                    <li><a href="shop.html" class="footer-nav-link">Shop</a></li>
+                    <li><a href="contact.html" class="footer-nav-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Categories -->
+            <div class="footer-col">
+                <h4 class="footer-heading">Categories</h4>
+                <ul class="footer-links-list">
+                    <li><a href="shop.html">Diagnostics</a></li>
+                    <li><a href="shop.html">Surgical Units</a></li>
+                    <li><a href="shop.html">Patient Monitor</a></li>
+                    <li><a href="shop.html">Hospital Beds</a></li>
+                    <li><a href="shop.html">Consumables</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-col">
+                <h4 class="footer-heading">Contact Us</h4>
+                <ul class="footer-contact-list">
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>450 Innovation Parkway, Healthcare Hub, NY 10001</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+1 (800) 456-7890</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>support@medixen.com</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p class="copyright">&copy; 2026 MEDIXEN Healthcare. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="error.html">Privacy Policy</a>
+                    <span>&bull;</span>
+                    <a href="error.html">Terms of Service</a>
+                </div>
+            </div>
+            <div class="footer-watermark" aria-hidden="true">STACKLY</div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
