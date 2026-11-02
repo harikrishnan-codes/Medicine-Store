@@ -1,0 +1,455 @@
+/* ==========================================================================
+   STACKLY MEDIXEN - STANDALONE SIGNUP STYLES
+   Zero Horizontal Overflow Guaranteed
+   ========================================================================== */
+
+/* 1. Global Reset & Overflow Prevention */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: #12b5a6;
+  --color-dark-navy: #15263f;
+  --color-ice-blue: #e8f7f5;
+  --color-cyan-glow: #2dd4bf;
+  --color-error: #f87171;
+  --color-success: #34d399;
+  --font-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --radius-pill: 50px;
+}
+
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body.signup-page {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: var(--font-base);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 110px 20px 40px;
+  position: relative;
+  /* Deep Surgical Operation Room Backdrop */
+  background: 
+    radial-gradient(circle at 75% 25%, rgba(18, 181, 166, 0.28) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(14, 27, 43, 0.92) 0%, rgba(8, 16, 26, 0.96) 100%),
+    url("https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat fixed;
+  color: #ffffff;
+}
+
+/* 2. Header & Go Back Navigation */
+.auth-header {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 36px;
+  z-index: 100;
+  box-sizing: border-box;
+}
+
+.auth-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.brand-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brand-text {
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+}
+
+.brand-text span {
+  color: var(--color-cyan-glow);
+}
+
+.auth-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.auth-back-btn i {
+  font-size: 0.85rem;
+  transition: transform 0.3s ease;
+}
+
+.auth-back-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--color-cyan-glow);
+  color: var(--color-cyan-glow);
+  box-shadow: 0 0 16px rgba(45, 212, 191, 0.4);
+}
+
+.auth-back-btn:hover i {
+  transform: translateX(-4px);
+}
+
+/* 3. Main Grid Layout */
+.signup-main-container {
+  width: 100%;
+  max-width: 1100px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.signup-dual-grid {
+  width: 100%;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1.1fr 0.95fr;
+  align-items: center;
+  gap: 3.5rem;
+}
+
+/* Left Narrative Column */
+.signup-narrative {
+  width: 100%;
+}
+
+.narrative-tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-cyan-glow);
+  margin-bottom: 0.75rem;
+}
+
+.narrative-title {
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.highlight-cyan {
+  color: var(--color-cyan-glow);
+  text-shadow: 0 0 20px rgba(45, 212, 191, 0.55);
+}
+
+.narrative-desc {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 2rem;
+  max-width: 480px;
+}
+
+.narrative-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.badge-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.badge-item i {
+  color: var(--color-cyan-glow);
+}
+
+/* Right Glassmorphism Card */
+.signup-glass-card {
+  width: 100%;
+  max-width: 100%;
+  background: rgba(14, 27, 43, 0.8);
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 24px;
+  padding: 2.5rem 2.25rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.form-title {
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin-bottom: 1.35rem;
+}
+
+/* Custom Role Buttons (No select tag used) */
+.custom-role-container {
+  margin-bottom: 1.35rem;
+}
+
+.custom-role-label {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.45rem;
+  opacity: 0.85;
+}
+
+.role-pills-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 4px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.role-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 9px 12px;
+  font-family: inherit;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.role-pill-btn.active {
+  background: linear-gradient(135deg, #18c2b2 0%, #0d7f74 100%);
+  color: #ffffff;
+  box-shadow: 0 2px 10px rgba(18, 181, 166, 0.5);
+}
+
+/* Inputs & Validation */
+.field-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form-input:focus {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: var(--color-cyan-glow);
+  box-shadow: 0 0 16px rgba(45, 212, 191, 0.4);
+}
+
+.pass-field-group {
+  position: relative;
+}
+
+.pass-field-group .form-input {
+  padding-right: 48px;
+}
+
+.eye-toggle-btn {
+  position: absolute;
+  right: 14px;
+  top: 13px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.eye-toggle-btn:hover {
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.field-error {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--color-error);
+  margin-top: 4px;
+  min-height: 16px;
+  display: block;
+}
+
+.field-group.shake-error .form-input {
+  border-color: var(--color-error) !important;
+  animation: fieldShake 0.4s ease;
+}
+
+@keyframes fieldShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+.btn-signup-submit {
+  width: 100%;
+  padding: 13px 20px;
+  border-radius: var(--radius-pill);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: linear-gradient(135deg, #18c2b2 0%, #0d7f74 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 18px rgba(18, 181, 166, 0.5);
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.btn-signup-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(18, 181, 166, 0.75);
+}
+
+.status-banner-slot {
+  min-height: 24px;
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.status-msg-success {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.25);
+  color: #6ee7b7;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  padding: 6px 14px;
+  border-radius: 8px;
+}
+
+.switch-link-footer {
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 1.25rem;
+  opacity: 0.85;
+}
+
+.accent-link {
+  color: var(--color-cyan-glow);
+  text-decoration: underline;
+  font-weight: 700;
+  margin-left: 4px;
+}
+
+/* 4. Responsive Media Query (<= 768px) */
+@media (max-width: 768px) {
+  body.signup-page {
+    padding: 85px 16px 30px;
+    justify-content: flex-start;
+  }
+
+  .auth-header {
+    top: 16px;
+    padding: 0 16px;
+  }
+
+  .brand-text {
+    font-size: 0.95rem;
+  }
+
+  .brand-img {
+    height: 32px;
+  }
+
+  .auth-back-btn {
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    gap: 6px;
+  }
+
+  .signup-dual-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .narrative-title {
+    font-size: 2rem;
+    line-height: 1.15;
+  }
+
+  .narrative-desc {
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .signup-glass-card {
+    padding: 1.85rem 1.35rem;
+    border-radius: 20px;
+  }
+
+  .form-title {
+    font-size: 1.4rem;
+  }
+}

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up &bull; Stackly Medixen</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="signup.css" />
+  
+<link rel="icon" href="./assets/logo.webp" />
+
+
+</head>
+<body class="signup-page">
+
+  <!-- ==================== AUTH HEADER WITH GO BACK ==================== -->
+<header class="auth-header">
+  <div class="auth-header-container">
+    
+    <!-- Brand Logo Link -->
+    <a href="index.html" class="brand-link">
+      <img src="./assets/logo 12.webp" alt="Stackly Medixen Logo" class="brand-img" onerror="this.style.display='none'" />
+      <!-- <span class="brand-text">STACKLY <span>MEDIXEN</span></span> -->
+    </a>
+
+    <!-- Go Back Button -->
+    <a href="index.html" class="auth-back-btn" id="authBackBtn" aria-label="Go Back">
+      <i class="fa-solid fa-arrow-left"></i>
+      <span>Go Back</span>
+    </a>
+
+  </div>
+</header>
+
+  <main class="signup-main-container">
+    <div class="signup-dual-grid">
+      
+      <!-- Left Narrative Column -->
+      <div class="signup-narrative">
+        <span class="narrative-tag">STACKLY PORTAL</span>
+        <h1 class="narrative-title">
+          SIGN <span class="highlight-cyan">UP</span><br>
+          FIND YOUR OWN WAY
+        </h1>
+        <p class="narrative-desc">
+          Schedule, explore clinical plant inventories in just a few clicks. Interactive layer seamlessly connecting hospital wards and diagnostic devices directly to your workflow.
+        </p>
+        <div class="narrative-badges">
+          <div class="badge-item"><i class="fa-solid fa-shield-halved"></i> ISO 13485 Encrypted System</div>
+          <div class="badge-item"><i class="fa-solid fa-bolt"></i> Real-time Telemetry Dashboard</div>
+        </div>
+      </div>
+
+      <!-- Right Signup Glass Card -->
+      <div class="signup-glass-card">
+        <h2 class="form-title">SIGNUP</h2>
+
+        <!-- Custom Role Selector (No <select> / <option> tags) -->
+        <div class="custom-role-container">
+          <label class="custom-role-label">Choose Role*</label>
+          <div class="role-pills-row" id="signupRoleSelector">
+            <button type="button" class="role-pill-btn active" data-role="client">
+              <i class="fa-solid fa-user-doctor"></i>
+              <span>Client</span>
+            </button>
+            <button type="button" class="role-pill-btn" data-role="admin">
+              <i class="fa-solid fa-user-shield"></i>
+              <span>Admin</span>
+            </button>
+          </div>
+          <input type="hidden" id="signupRoleInput" value="client" />
+        </div>
+
+        <form id="standaloneSignupForm" novalidate>
+          
+          <!-- Full Name (Letters Only) -->
+          <div class="field-group" id="groupSignupName">
+            <input type="text" id="signupName" class="form-input" placeholder="Full Name (Alphabets only)" autocomplete="off" />
+            <span class="field-error" id="errSignupName"></span>
+          </div>
+
+          <!-- Email Address -->
+          <div class="field-group" id="groupSignupEmail">
+            <input type="email" id="signupEmail" class="form-input" placeholder="Email Address" autocomplete="off" />
+            <span class="field-error" id="errSignupEmail"></span>
+          </div>
+
+          <!-- Password with Eye Toggle -->
+          <div class="field-group pass-field-group" id="groupSignupPass">
+            <input type="password" id="signupPass" class="form-input" placeholder="Password (Min 6 digits/chars)" autocomplete="off" />
+            <button type="button" class="eye-toggle-btn" data-target="signupPass" aria-label="Toggle password">
+              <i class="fa-solid fa-eye-slash"></i>
+            </button>
+            <span class="field-error" id="errSignupPass"></span>
+          </div>
+
+          <!-- Confirm Password with Eye Toggle -->
+          <div class="field-group pass-field-group" id="groupSignupConfirmPass">
+            <input type="password" id="signupConfirmPass" class="form-input" placeholder="Confirm Password" autocomplete="off" />
+            <button type="button" class="eye-toggle-btn" data-target="signupConfirmPass" aria-label="Toggle confirm password">
+              <i class="fa-solid fa-eye-slash"></i>
+            </button>
+            <span class="field-error" id="errSignupConfirmPass"></span>
+          </div>
+
+          <!-- Live Feedback Slot -->
+          <div class="status-banner-slot" id="signupStatusBanner"></div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn-signup-submit" id="btnSubmitSignup">
+            <span>Sign Up</span>
+          </button>
+
+          <div class="switch-link-footer">
+            <span>Already have an account?</span>
+            <a href="login.html" class="accent-link">Log In</a>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+
+/* ==========================================================================
+   STANDALONE SIGNUP VALIDATION & PERSISTENCE
+   ========================================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("standaloneSignupForm");
+  const nameInput = document.getElementById("signupName");
+  const errName = document.getElementById("errSignupName");
+  const emailInput = document.getElementById("signupEmail");
+  const errEmail = document.getElementById("errSignupEmail");
+  const passInput = document.getElementById("signupPass");
+  const errPass = document.getElementById("errSignupPass");
+  const confirmPassInput = document.getElementById("signupConfirmPass");
+  const errConfirmPass = document.getElementById("errSignupConfirmPass");
+  const roleButtons = document.querySelectorAll(".role-pill-btn");
+  const roleHiddenInput = document.getElementById("signupRoleInput");
+  const statusBanner = document.getElementById("signupStatusBanner");
+  const eyeToggles = document.querySelectorAll(".eye-toggle-btn");
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  // 1. Custom Role Selector (No <select> tag used)
+  roleButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      roleButtons.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      const selectedRole = btn.getAttribute("data-role");
+      if (roleHiddenInput) {
+        roleHiddenInput.value = selectedRole;
+      }
+    });
+  });
+
+  // 2. Strict Alphabets-Only Input for Name (Blocks numbers and symbols live)
+  if (nameInput) {
+    nameInput.addEventListener("input", () => {
+      const sanitized = nameInput.value.replace(/[^a-zA-Z\s]/g, "");
+      if (nameInput.value !== sanitized) {
+        nameInput.value = sanitized;
+      }
+      clearError(nameInput, errName);
+    });
+
+    nameInput.addEventListener("keydown", (e) => {
+      const allowed = ["Backspace", "Tab", "ArrowLeft", "ArrowRight", "Delete", "Escape", "Enter"];
+      if (allowed.includes(e.key) || e.ctrlKey || e.metaKey) return;
+      if (!/^[a-zA-Z\s]$/.test(e.key)) {
+        e.preventDefault();
+      }
+    });
+  }
+
+  // 3. Eye Password Visibility Toggles
+  eyeToggles.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const targetId = btn.getAttribute("data-target");
+      const targetInput = document.getElementById(targetId);
+      const icon = btn.querySelector("i");
+
+      if (!targetInput) return;
+      if (targetInput.type === "password") {
+        targetInput.type = "text";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+      } else {
+        targetInput.type = "password";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+      }
+    });
+  });
+
+  // Helpers
+  function setError(inputEl, errorEl, message) {
+    const parent = inputEl.closest(".field-group");
+    if (parent) {
+      parent.classList.remove("shake-error");
+      void parent.offsetWidth;
+      parent.classList.add("shake-error");
+    }
+    if (errorEl) errorEl.textContent = message;
+  }
+
+  function clearError(inputEl, errorEl) {
+    const parent = inputEl.closest(".field-group");
+    if (parent) parent.classList.remove("shake-error");
+    if (errorEl) errorEl.textContent = "";
+  }
+
+  [
+    { el: emailInput, err: errEmail },
+    { el: passInput, err: errPass },
+    { el: confirmPassInput, err: errConfirmPass }
+  ].forEach(({ el, err }) => {
+    if (el) el.addEventListener("input", () => clearError(el, err));
+  });
+
+  // 4. Form Submission & Redirection to login.html
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let isValid = true;
+      statusBanner.innerHTML = "";
+
+      // Validate Name (Alphabets only, min 2)
+      const nameVal = nameInput.value.trim();
+      if (!nameVal || nameVal.length < 2 || !/^[a-zA-Z\s]+$/.test(nameVal)) {
+        setError(nameInput, errName, "Name must contain alphabets only (min 2 characters).");
+        isValid = false;
+      } else {
+        clearError(nameInput, errName);
+      }
+
+      // Validate Email
+      const emailVal = emailInput.value.trim().toLowerCase();
+      if (!emailVal || !emailRegex.test(emailVal)) {
+        setError(emailInput, errEmail, "Please enter a valid email address (e.g. user@domain.com).");
+        isValid = false;
+      } else {
+        clearError(emailInput, errEmail);
+      }
+
+      // Validate Password (min 6 digits/chars)
+      const passVal = passInput.value;
+      if (!passVal || passVal.length < 6) {
+        setError(passInput, errPass, "Password must contain a minimum of 6 characters/digits.");
+        isValid = false;
+      } else {
+        clearError(passInput, errPass);
+      }
+
+      // Confirm Password
+      const confirmVal = confirmPassInput.value;
+      if (confirmVal !== passVal) {
+        setError(confirmPassInput, errConfirmPass, "Passwords do not match.");
+        isValid = false;
+      } else {
+        clearError(confirmPassInput, errConfirmPass);
+      }
+
+      if (!isValid) return;
+
+      // Save user credentials and selected role
+      const chosenRole = roleHiddenInput ? roleHiddenInput.value : "client";
+      const userRecord = {
+        name: nameVal,
+        email: emailVal,
+        password: passVal,
+        role: chosenRole
+      };
+
+      localStorage.setItem("medixen_user_" + emailVal, JSON.stringify(userRecord));
+      localStorage.setItem("medixen_registered_email_for_login", emailVal);
+
+      // Display success message and redirect to login.html
+      statusBanner.innerHTML = `
+        <div class="status-msg-success">
+          <i class="fa-solid fa-circle-check"></i>
+          Account created successfully! Redirecting to login...
+        </div>
+      `;
+
+      setTimeout(() => {
+        window.location.href = `login.html?email=${encodeURIComponent(emailVal)}&role=${encodeURIComponent(chosenRole)}`;
+      }, 1200);
+    });
+  }
+});
+
+  </script>
+
+
+
+</body>
+</html>

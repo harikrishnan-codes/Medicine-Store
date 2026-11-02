@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login &bull; Stackly Medixen</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="login.css" />
+<link rel="icon" href="./assets/logo.webp" />
+
+</head>
+<body class="login-page">
+
+  <!-- Top Brand Navigation Bar -->
+  <!-- ==================== AUTH HEADER WITH GO BACK ==================== -->
+<header class="auth-header">
+  <div class="auth-header-container">
+    
+    <!-- Brand Logo Link -->
+    <a href="index.html" class="brand-link">
+      <img src="./assets/logo 12.webp" alt="Stackly Medixen Logo" class="brand-img" onerror="this.style.display='none'" />
+      <!-- <span class="brand-text">STACKLY <span>MEDIXEN</span></span> -->
+    </a>
+
+    <!-- Go Back Button -->
+    <a href="index.html" class="auth-back-btn" id="authBackBtn" aria-label="Go Back">
+      <i class="fa-solid fa-arrow-left"></i>
+      <span>Go Back</span>
+    </a>
+
+  </div>
+</header>
+
+  <main class="login-main-container">
+    <div class="login-glass-card">
+      <h1 class="card-title text-center">LOGIN TO YOUR ACCOUNT</h1>
+
+      <!-- Custom Role Selector (No <select> / <option> tags) -->
+      <div class="custom-role-container">
+        <label class="custom-role-label">Login As*</label>
+        <div class="role-pills-row" id="loginRoleSelector">
+          <button type="button" class="role-pill-btn active" data-role="client">
+            <i class="fa-solid fa-user-doctor"></i>
+            <span>Client</span>
+          </button>
+          <button type="button" class="role-pill-btn" data-role="admin">
+            <i class="fa-solid fa-user-shield"></i>
+            <span>Admin</span>
+          </button>
+        </div>
+        <input type="hidden" id="loginRoleInput" value="client" />
+      </div>
+
+      <form id="standaloneLoginForm" novalidate>
+        
+        <!-- Full Name (Strict Alphabets Only) -->
+        <div class="field-group" id="groupLoginName">
+          <input type="text" id="loginName" class="form-input" placeholder="User Name (Alphabets only)" autocomplete="off" />
+          <span class="field-error" id="errLoginName"></span>
+        </div>
+
+        <!-- Email Address -->
+        <div class="field-group" id="groupLoginEmail">
+          <input type="email" id="loginEmail" class="form-input" placeholder="Email Address" autocomplete="off" />
+          <span class="field-error" id="errLoginEmail"></span>
+        </div>
+
+        <!-- Password with Eye Toggle -->
+        <div class="field-group pass-field-group" id="groupLoginPass">
+          <input type="password" id="loginPass" class="form-input" placeholder="Password (Min 6 digits/chars)" autocomplete="off" />
+          <button type="button" class="eye-toggle-btn" data-target="loginPass" aria-label="Toggle password">
+            <i class="fa-solid fa-eye-slash"></i>
+          </button>
+          <span class="field-error" id="errLoginPass"></span>
+        </div>
+
+        <!-- Remember Me & Forgot Password -->
+        <div class="login-extra-row">
+          <label class="custom-check-label">
+            <input type="checkbox" id="rememberMeCheck" />
+            <span class="check-box-indicator"><i class="fa-solid fa-check"></i></span>
+            <span>Remember me</span>
+          </label>
+          <a href="error.html?action=forgot_password" class="accent-link">Forgot password?</a>
+        </div>
+
+        <!-- Live Feedback Slot -->
+        <div class="status-banner-slot" id="loginStatusBanner"></div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn-login-submit" id="btnSubmitLogin">
+          <span>Log In</span>
+        </button>
+
+        <!-- Instant Login Separator -->
+        <div class="auth-divider">
+          <span>Instant Login</span>
+        </div>
+
+        <div class="social-auth-column">
+          <a href="error.html" class="social-login-btn">
+            <i class="fa-brands fa-google"></i>
+            <span>Continue with Google</span>
+          </a>
+          <a href="error.html" class="social-login-btn">
+            <i class="fa-brands fa-microsoft"></i>
+            <span>Continue with Microsoft</span>
+          </a>
+        </div>
+
+        <div class="switch-link-footer">
+          <span>Don't have an account?</span>
+          <a href="signup.html" class="accent-link">Sign up</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script>
+
+/* ==========================================================================
+   STANDALONE LOGIN VALIDATION & ROLE-BASED DASHBOARD ROUTING
+   ========================================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("standaloneLoginForm");
+  const nameInput = document.getElementById("loginName");
+  const errName = document.getElementById("errLoginName");
+  const emailInput = document.getElementById("loginEmail");
+  const errEmail = document.getElementById("errLoginEmail");
+  const passInput = document.getElementById("loginPass");
+  const errPass = document.getElementById("errLoginPass");
+  const roleButtons = document.querySelectorAll(".role-pill-btn");
+  const roleHiddenInput = document.getElementById("loginRoleInput");
+  const statusBanner = document.getElementById("loginStatusBanner");
+  const eyeToggles = document.querySelectorAll(".eye-toggle-btn");
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  // 1. Auto-fill from URL parameters (if forwarded after signup)
+  const urlParams = new URLSearchParams(window.location.search);
+  const emailParam = urlParams.get("email");
+  const roleParam = urlParams.get("role");
+
+  if (emailParam && emailInput) {
+    emailInput.value = decodeURIComponent(emailParam);
+  }
+
+  // 2. Custom Role Switcher (No <select> tag used)
+  function setActiveRole(role) {
+    roleButtons.forEach((btn) => {
+      if (btn.getAttribute("data-role") === role) {
+        btn.classList.add("active");
+      } else {
+        btn.classList.remove("active");
+      }
+    });
+    if (roleHiddenInput) roleHiddenInput.value = role;
+  }
+
+  if (roleParam) {
+    setActiveRole(roleParam);
+  }
+
+  roleButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const selected = btn.getAttribute("data-role");
+      setActiveRole(selected);
+    });
+  });
+
+  // 3. Strict Alphabets-Only Guard for Login Name
+  if (nameInput) {
+    nameInput.addEventListener("input", () => {
+      const sanitized = nameInput.value.replace(/[^a-zA-Z\s]/g, "");
+      if (nameInput.value !== sanitized) {
+        nameInput.value = sanitized;
+      }
+      clearError(nameInput, errName);
+    });
+
+    nameInput.addEventListener("keydown", (e) => {
+      const allowed = ["Backspace", "Tab", "ArrowLeft", "ArrowRight", "Delete", "Escape", "Enter"];
+      if (allowed.includes(e.key) || e.ctrlKey || e.metaKey) return;
+      if (!/^[a-zA-Z\s]$/.test(e.key)) {
+        e.preventDefault();
+      }
+    });
+  }
+
+  // 4. Eye Toggle for Password Visibility
+  eyeToggles.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const targetId = btn.getAttribute("data-target");
+      const targetInput = document.getElementById(targetId);
+      const icon = btn.querySelector("i");
+
+      if (!targetInput) return;
+      if (targetInput.type === "password") {
+        targetInput.type = "text";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+      } else {
+        targetInput.type = "password";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+      }
+    });
+  });
+
+  function setError(inputEl, errorEl, message) {
+    const parent = inputEl.closest(".field-group");
+    if (parent) {
+      parent.classList.remove("shake-error");
+      void parent.offsetWidth;
+      parent.classList.add("shake-error");
+    }
+    if (errorEl) errorEl.textContent = message;
+  }
+
+  function clearError(inputEl, errorEl) {
+    const parent = inputEl.closest(".field-group");
+    if (parent) parent.classList.remove("shake-error");
+    if (errorEl) errorEl.textContent = "";
+  }
+
+  [
+    { el: emailInput, err: errEmail },
+    { el: passInput, err: errPass }
+  ].forEach(({ el, err }) => {
+    if (el) el.addEventListener("input", () => clearError(el, err));
+  });
+
+  // 5. Login Submission & Respective Dashboard Redirection
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let isValid = true;
+      statusBanner.innerHTML = "";
+
+      // Validate Name (Alphabets only)
+      const nameVal = nameInput.value.trim();
+      if (!nameVal || nameVal.length < 2 || !/^[a-zA-Z\s]+$/.test(nameVal)) {
+        setError(nameInput, errName, "Enter alphabets only (min 2 characters).");
+        isValid = false;
+      } else {
+        clearError(nameInput, errName);
+      }
+
+      // Validate Email
+      const emailVal = emailInput.value.trim().toLowerCase();
+      if (!emailVal || !emailRegex.test(emailVal)) {
+        setError(emailInput, errEmail, "Enter a valid email address.");
+        isValid = false;
+      } else {
+        clearError(emailInput, errEmail);
+      }
+
+      // Validate Password (min 6 digits/chars)
+      const passVal = passInput.value;
+      if (!passVal || passVal.length < 6) {
+        setError(passInput, errPass, "Password must contain at least 6 characters.");
+        isValid = false;
+      } else {
+        clearError(passInput, errPass);
+      }
+
+      if (!isValid) return;
+
+      // Determine active role: Prioritize selection pill, then verify with stored registration data
+      let activeRole = roleHiddenInput ? roleHiddenInput.value : "client";
+      const storedRaw = localStorage.getItem("medixen_user_" + emailVal);
+
+      if (storedRaw) {
+        try {
+          const storedUser = JSON.parse(storedRaw);
+          if (storedUser.password !== passVal) {
+            setError(passInput, errPass, "Incorrect password. Please verify.");
+            return;
+          }
+          activeRole = storedUser.role || activeRole;
+        } catch (err) {
+          console.warn("Storage read error:", err);
+        }
+      }
+
+      // Store current session details for display in dashboards
+      localStorage.setItem("medixen_current_user_email", emailVal);
+      localStorage.setItem("medixen_current_user_name", nameVal);
+      localStorage.setItem("medixen_current_user_role", activeRole);
+
+      statusBanner.innerHTML = `
+        <div class="status-msg-success">
+          <i class="fa-solid fa-circle-check"></i>
+          Authentication verified. Loading ${activeRole.toUpperCase()} Dashboard...
+        </div>
+      `;
+
+      // Redirect directly to the respective dashboard
+      setTimeout(() => {
+        if (activeRole === "admin") {
+          window.location.href = `admin.html?email=${encodeURIComponent(emailVal)}`;
+        } else {
+          window.location.href = `client.html?email=${encodeURIComponent(emailVal)}`;
+        }
+      }, 1200);
+    });
+  }
+});
+
+  </script>
+
+
+
+
+</body>
+</html>
