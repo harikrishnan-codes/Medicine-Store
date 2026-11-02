@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medical Equipment Store</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <link rel="icon" href="./assets/logo.webp" />
+    <link rel="stylesheet" href="root.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="contact.css" />
+
+</head>
+
+<body class="is-loading">
+
+    <!-- ==================== PRELOADER ==================== -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-pulse-box">
+                <div class="pulse-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                <svg class="ecg-svg" viewBox="0 0 300 100" fill="none">
+                    <path class="ecg-path" d="M0,50 L70,50 L85,20 L100,80 L115,30 L130,65 L145,50 L300,50" />
+                </svg>
+            </div>
+            <div class="preloader-brand">STACKLY</div>
+            <div class="preloader-status">Preparing medical equipment catalog...</div>
+        </div>
+    </div>
+
+    <!-- ==================== HEADER NAVBAR ==================== -->
+    <header class="site-header" id="header">
+        <div class="container header-container">
+            <!-- Logo -->
+            <a href="index.html" class="brand-logo">
+                <img src="./assets/logo 12.webp" alt="logo" width="150px" height="50px">
+            </a>
+
+            <!-- Desktop Navigation Menu -->
+            <nav class="desktop-nav" aria-label="Main Navigation">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="shop.html" class="nav-link">Shop</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Right Header Actions -->
+            <div class="header-actions">
+                <button class="icon-btn search-toggle" aria-label="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <div class="header-auth-btns">
+                    <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+                    <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+                </div>
+
+                <!-- Hamburger Button -->
+                <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="bar line-1"></span>
+                    <span class="bar line-2"></span>
+                    <span class="bar line-3"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Overlay -->
+    <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+
+    <!-- Mobile Drawer Menu -->
+    <aside class="mobile-drawer" id="mobileDrawer">
+        <div class="mobile-drawer-header">
+            <a href="index.html" class="brand-logo">
+                <img src="./assets/logo 12.webp" alt="logo" width="150px" height="50px">
+            </a>
+            <button class="close-drawer-btn" id="closeDrawerBtn" aria-label="Close menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- Scrollable middle list area -->
+        <div class="mobile-drawer-body">
+            <nav class="mobile-nav">
+                <ul class="mobile-nav-list">
+                    <li><a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li><a href="about.html" class="mobile-nav-link"><i class="fa-solid fa-circle-info"></i> About</a>
+                    </li>
+                    <li><a href="services.html" class="mobile-nav-link"><i class="fa-solid fa-stethoscope"></i>
+                            Services</a></li>
+                    <li><a href="shop.html" class="mobile-nav-link"><i class="fa-solid fa-store"></i> Shop</a></li>
+                    <li><a href="contact.html" class="mobile-nav-link"><i class="fa-solid fa-envelope"></i> Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Fixed/Pinned Login & Sign Up Actions -->
+        <div class="mobile-drawer-footer">
+            <a href="login.html" class="btn btn-secondary w-full">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i> Login
+            </a>
+            <a href="signup.html" class="btn btn-primary w-full">
+                <i class="fa-solid fa-user-plus"></i> Sign Up
+            </a>
+        </div>
+    </aside>
+
+
+
+
+
+
+
+    <!-- ==================== CONTACT HERO SECTION ==================== -->
+<section class="contact-hero-section" id="contact-hero">
+  <div class="container contact-hero-container">
+    
+    <!-- Left Column: Typography & CTAs -->
+    <div class="contact-hero-content contact-hero-reveal">
+      <h1 class="contact-hero-title">
+        QUESTIONS ABOUT <br>
+        EQUIPMENT? <br>
+        LET'S TALK.
+      </h1>
+
+      <p class="contact-hero-desc">
+        Whether you're furnishing a new clinic or replacing a single device, our team will help you find what fits your patients, your space and your budget.
+      </p>
+
+      <div class="contact-hero-actions">
+        <a href="#visit-form" class="btn btn-primary contact-btn-solid">
+          <span>Send message</span>
+        </a>
+        <a href="error.html" class="btn btn-outline contact-btn-ghost">
+          <i class="fa-solid fa-phone"></i>
+          <span>Call now</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right Column: Interactive Chat Conversation Simulation -->
+    <div class="contact-hero-chat-col contact-hero-reveal">
+      <div class="contact-chat-stage">
+        
+        <!-- Ambient Radial Backlight Glow -->
+        <div class="chat-ambient-glow" aria-hidden="true"></div>
+
+        <!-- Chat Bubble 1 (User Query) -->
+        <div class="chat-bubble user-bubble bubble-1">
+          <div class="bubble-sender">You</div>
+          <p class="bubble-text">We need monitors for a ten-bed ward. Where do we start?</p>
+          <span class="bubble-time">10:14 AM</span>
+        </div>
+
+        <!-- Chat Bubble 2 (Medixen Specialist Reply) -->
+        <div class="chat-bubble specialist-bubble bubble-2">
+          <div class="specialist-avatar">
+            <i class="fa-solid fa-user-doctor"></i>
+          </div>
+          <div class="specialist-msg-body">
+            <div class="bubble-sender sender-specialist">
+              <span>Stackly specialist</span>
+              <span class="active-badge"><span class="active-dot"></span> Active</span>
+            </div>
+            <p class="bubble-text">Happy to help. Tell us your budget and we'll suggest two or three options.</p>
+            <span class="bubble-time">10:15 AM</span>
+          </div>
+        </div>
+
+        <!-- Chat Bubble 3 (User Follow-up) -->
+        <div class="chat-bubble user-bubble bubble-3">
+          <div class="bubble-sender">You</div>
+          <p class="bubble-text">Can you also train our nurses?</p>
+          <span class="bubble-time">10:16 AM</span>
+        </div>
+
+        <!-- Floating Live Response Indicator -->
+        <div class="chat-typing-indicator" aria-hidden="true">
+          <span class="typing-dot"></span>
+          <span class="typing-dot"></span>
+          <span class="typing-dot"></span>
+          <span class="typing-label">Specialist is typing...</span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ==================== CONTACT: RESERVE YOUR VISIT & GLOBAL NETWORK ==================== -->
+<section class="contact-visit-section" id="visit-form">
+  <div class="container contact-visit-container">
+    
+    <!-- Left Column: Form Card with Validation -->
+    <div class="visit-form-card visit-reveal">
+      <div class="form-header">
+        <h2 class="form-title">RESERVE YOUR VISIT</h2>
+        <p class="form-privacy-note">Your email address will not be published.</p>
+      </div>
+
+      <form class="visit-booking-form" id="visitBookingForm" novalidate>
+        <!-- Row 1: First Name & Last Name -->
+        <div class="form-row-dual">
+          <div class="form-group" id="groupFirstName">
+            <label for="firstName" class="form-label">Name*</label>
+            <input type="text" id="firstName" class="form-control-input" placeholder="First Name" autocomplete="off" />
+            <span class="field-error-msg" id="errFirstName"></span>
+          </div>
+
+          <div class="form-group" id="groupLastName">
+            <label for="lastName" class="form-label">Last Name*</label>
+            <input type="text" id="lastName" class="form-control-input" placeholder="Last Name" autocomplete="off" />
+            <span class="field-error-msg" id="errLastName"></span>
+          </div>
+        </div>
+
+        <!-- Row 2: Phone & Email -->
+        <div class="form-row-dual">
+          <div class="form-group" id="groupPhone">
+            <label for="phoneNumber" class="form-label">Phone Number*</label>
+            <input type="tel" id="phoneNumber" class="form-control-input" placeholder="+1 (555) 000-0000" autocomplete="off" />
+            <span class="field-error-msg" id="errPhone"></span>
+          </div>
+
+          <div class="form-group" id="groupEmail">
+            <label for="emailAddress" class="form-label">Email Address*</label>
+            <input type="email" id="emailAddress" class="form-control-input" placeholder="name@clinic.com" autocomplete="off" />
+            <span class="field-error-msg" id="errEmail"></span>
+          </div>
+        </div>
+
+        <!-- Row 3: Comment / Requirements -->
+        <div class="form-group" id="groupComment">
+          <label for="visitComment" class="form-label">Comment*</label>
+          <textarea id="visitComment" class="form-control-textarea" rows="4" placeholder="Tell us about your facility and requirements..."></textarea>
+          <span class="field-error-msg" id="errComment"></span>
+        </div>
+
+        <p class="form-consent-text">We'll only use your info to respond to your inquiry.</p>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary form-submit-btn" id="submitVisitBtn">
+          <span>Submit message</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+        <!-- Dynamic Overall Status Message -->
+        <div class="form-status-banner" id="formStatusBanner" aria-live="polite"></div>
+      </form>
+    </div>
+
+    <!-- Right Column: Support Network Info & Map Visual -->
+    <div class="network-info-col visit-reveal">
+      <div class="network-header">
+        <h3 class="network-heading">GLOBAL AI AUTOMATION SUPPORT NETWORK</h3>
+        <p class="network-desc">
+          Our team supports businesses worldwide with scalable AI automation solutions and enterprise-grade cloud technology.
+        </p>
+      </div>
+
+      <!-- Map Showcase Frame with Interactive Pins -->
+      <div class="network-map-card">
+        <div class="map-image-wrapper">
+          <img 
+            src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80" 
+            alt="Global Biomedical Engineering Logistics Map" 
+            class="map-display-img"
+          />
+          <div class="map-vignette-overlay"></div>
+
+          <!-- Pulsing Map Hub Pins -->
+          <div class="map-pin pin-1" title="Primary Dispatch Hub">
+            <span class="pin-radar"></span>
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+
+          <div class="map-pin pin-2" title="Bio-Calibration Center">
+            <span class="pin-radar"></span>
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+
+          <div class="map-pin pin-3" title="Regional Rapid Response">
+            <span class="pin-radar"></span>
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+
+          <!-- Floating Status Badge -->
+          <div class="map-floating-tag">
+            <span class="hub-pulse-dot"></span>
+            <span>24/7 Global Dispatch Center</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ==================== CONTACT: FOUR CALM STEPS SECTION ==================== -->
+<section class="contact-steps-section" id="appointment-process">
+  <div class="container">
+    
+    <!-- Section Eyebrow & Title -->
+    <div class="steps-header steps-reveal">
+      <span class="steps-badge-pill">Appointment process</span>
+      <h2 class="steps-heading">FOUR CALM STEPS</h2>
+    </div>
+
+    <!-- 4 Calm Steps Pipeline Grid -->
+    <div class="steps-grid-container steps-reveal">
+      
+      <!-- Continuous Glowing Connector Bar behind cards -->
+      <div class="steps-connector-bar" aria-hidden="true">
+        <div class="steps-progress-beam"></div>
+      </div>
+
+      <!-- Step 01 -->
+      <article class="calm-step-card" data-step="1">
+        <div class="step-card-glass-glow" aria-hidden="true"></div>
+        <div class="step-index-circle">
+          <span>1</span>
+          <div class="step-pulse-halo"></div>
+        </div>
+        <div class="step-body-content">
+          <h3 class="step-card-title">Choose Treatment</h3>
+          <p class="step-card-desc">
+            Pick what interests you, or tell us your space requirements and patient volume goals.
+          </p>
+        </div>
+        <div class="step-card-edge-shimmer" aria-hidden="true"></div>
+      </article>
+
+      <!-- Step 02 -->
+      <article class="calm-step-card" data-step="2">
+        <div class="step-card-glass-glow" aria-hidden="true"></div>
+        <div class="step-index-circle">
+          <span>2</span>
+          <div class="step-pulse-halo"></div>
+        </div>
+        <div class="step-body-content">
+          <h3 class="step-card-title">Select Date</h3>
+          <p class="step-card-desc">
+            Choose a day and time that suits your clinical operations schedule seamlessly.
+          </p>
+        </div>
+        <div class="step-card-edge-shimmer" aria-hidden="true"></div>
+      </article>
+
+      <!-- Step 03 -->
+      <article class="calm-step-card" data-step="3">
+        <div class="step-card-glass-glow" aria-hidden="true"></div>
+        <div class="step-index-circle">
+          <span>3</span>
+          <div class="step-pulse-halo"></div>
+        </div>
+        <div class="step-body-content">
+          <h3 class="step-card-title">Consultation</h3>
+          <p class="step-card-desc">
+            We listen, analyze your site specifications, and explore verified equipment packages.
+          </p>
+        </div>
+        <div class="step-card-edge-shimmer" aria-hidden="true"></div>
+      </article>
+
+      <!-- Step 04 -->
+      <article class="calm-step-card" data-step="4">
+        <div class="step-card-glass-glow" aria-hidden="true"></div>
+        <div class="step-index-circle">
+          <span>4</span>
+          <div class="step-pulse-halo"></div>
+        </div>
+        <div class="step-body-content">
+          <h3 class="step-card-title">Personalized Care</h3>
+          <p class="step-card-desc">
+            You receive a plan and scheduled delivery shaped precisely around your team.
+          </p>
+        </div>
+        <div class="step-card-edge-shimmer" aria-hidden="true"></div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ==================== CONTACT: WHAT WOULD YOU LIKE TO EXPLORE? SECTION ==================== -->
+<section class="contact-explore-section" id="explore-faq">
+  <div class="container">
+    
+    <!-- Section Header[cite: 3] -->
+    <div class="explore-header explore-reveal">
+      <h2 class="explore-heading">WHAT WOULD YOU LIKE TO EXPLORE?</h2>
+      <p class="explore-subtext">
+        Go with subscription or choose a project-based equation: 2 subscriptions plan, fixed plans web &amp; app session to identify exactly which design improvements drive the most growth.[cite: 3]
+      </p>
+    </div>
+
+    <!-- Main Grid: Left Medical Stethoscope Visual & Right Interactive FAQ Accordion[cite: 3] -->
+    <div class="explore-grid-container explore-reveal">
+      
+      <!-- Left Column: Medical Portrait with Live SVG Pulse Monitor -->
+      <div class="explore-visual-col">
+        <div class="doctor-card-wrapper" id="doctorCardWrap">
+          
+          <!-- Stethoscope Medical Portrait[cite: 3] -->
+          <img 
+            src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80" 
+            alt="Doctor in Clinical Coat with Stethoscope" 
+            class="doctor-portrait-img"
+          />
+          <div class="doctor-card-overlay"></div>
+
+          <!-- Classy SVG Heartbeat Wave Animation Overlay -->
+          <div class="svg-ecg-monitor-badge">
+            <div class="ecg-status-head">
+              <span class="live-dot"></span>
+              <span>Telemetry Live</span>
+            </div>
+            <svg class="ecg-svg-chart" viewBox="0 0 280 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path class="ecg-track-path" d="M0 30 L50 30 L60 30 L70 15 L78 48 L86 10 L94 40 L102 30 L150 30 L160 30 L170 15 L178 48 L186 10 L194 40 L202 30 L280 30" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path class="ecg-pulse-glow" d="M0 30 L50 30 L60 30 L70 15 L78 48 L86 10 L94 40 L102 30 L150 30 L160 30 L170 15 L178 48 L186 10 L194 40 L202 30 L280 30" stroke="#12b5a6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Consultation FAQ List[cite: 3] -->
+      <div class="explore-faq-col">
+        <div class="explore-accordion-list">
+          
+          <!-- Question 1[cite: 3] -->
+          <div class="explore-faq-item">
+            <button type="button" class="explore-faq-trigger" aria-expanded="false">
+              <span class="faq-query-text">What services does your consultancy firm offer?</span> <!--[cite: 3] -->
+              <span class="faq-icon-svg-wrap">
+                <svg class="chevron-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 8 16 12 12 16"></polyline>
+                  <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
+              </span>
+            </button>
+            <div class="explore-faq-panel">
+              <div class="explore-faq-content">
+                <p>We provide comprehensive medical device planning, site load verification, certified biomedical engineering procurement, preventative maintenance, and equipment life-cycle training.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 2[cite: 3] -->
+          <div class="explore-faq-item">
+            <button type="button" class="explore-faq-trigger" aria-expanded="false">
+              <span class="faq-query-text">How do you tailor solutions for each client?</span> <!--[cite: 3] -->
+              <span class="faq-icon-svg-wrap">
+                <svg class="chevron-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 8 16 12 12 16"></polyline>
+                  <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
+              </span>
+            </button>
+            <div class="explore-faq-panel">
+              <div class="explore-faq-content">
+                <p>We review your outpatient metrics, patient volume projections, floor plans, and electrical infrastructures to tailor dedicated medical equipment tiers.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 3[cite: 3] -->
+          <div class="explore-faq-item">
+            <button type="button" class="explore-faq-trigger" aria-expanded="false">
+              <span class="faq-query-text">What industries do you specialize in?</span> <!--[cite: 3] -->
+              <span class="faq-icon-svg-wrap">
+                <svg class="chevron-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 8 16 12 12 16"></polyline>
+                  <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
+              </span>
+            </button>
+            <div class="explore-faq-panel">
+              <div class="explore-faq-content">
+                <p>Acute hospitals, multi-specialty surgical suites, diagnostic laboratories, ambulatory clinics, and home eldercare healthcare networks.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 4[cite: 3] -->
+          <div class="explore-faq-item">
+            <button type="button" class="explore-faq-trigger" aria-expanded="false">
+              <span class="faq-query-text">How long does a typical consulting project take?</span> <!--[cite: 3] -->
+              <span class="faq-icon-svg-wrap">
+                <svg class="chevron-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 8 16 12 12 16"></polyline>
+                  <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
+              </span>
+            </button>
+            <div class="explore-faq-panel">
+              <div class="explore-faq-content">
+                <p>Preliminary consultations and device auditing take 48 to 72 hours, while turnkey medical suite procurement packages complete within 14 business days.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 5[cite: 3] -->
+          <div class="explore-faq-item">
+            <button type="button" class="explore-faq-trigger" aria-expanded="false">
+              <span class="faq-query-text">What makes your consultancy different from others?</span> <!--[cite: 3] -->
+              <span class="faq-icon-svg-wrap">
+                <svg class="chevron-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 8 16 12 12 16"></polyline>
+                  <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
+              </span>
+            </button>
+            <div class="explore-faq-panel">
+              <div class="explore-faq-content">
+                <p>We combine bio-medical engineering support with direct OEM supply partnerships and guaranteed 4-hour rapid technical emergency SLAs.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 6[cite: 3] -->
+          <div class="explore-faq-item">
+            <button type="button" class="explore-faq-trigger" aria-expanded="false">
+              <span class="faq-query-text">Do you offer support after project completion?</span> <!--[cite: 3] -->
+              <span class="faq-icon-svg-wrap">
+                <svg class="chevron-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 8 16 12 12 16"></polyline>
+                  <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
+              </span>
+            </button>
+            <div class="explore-faq-panel">
+              <div class="explore-faq-content">
+                <p>Yes. Every deployed package comes with scheduled quarterly calibration maintenance, genuine replacement parts pipelines, and dedicated engineer assistance.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ==================== CONTACT: DIRECT REGIONAL HUBS & RAPID DISPATCH ==================== -->
+<section class="contact-hubs-section" id="regional-hubs">
+  <div class="container">
+
+    <!-- Section Header -->
+    <div class="hubs-header hubs-reveal">
+      <span class="hubs-badge-pill">On-Site Rapid Response</span>
+      <h2 class="hubs-heading">DIRECT REGIONAL HUBS &amp; SERVICE STATIONS</h2>
+      <p class="hubs-subtext">
+        Immediate access to certified biomedical engineers, calibrated loaner units, and emergency response teams across critical medical zones.
+      </p>
+    </div>
+
+    <!-- 3-Card Interactive Hub Grid -->
+    <div class="hubs-grid-track hubs-reveal">
+
+      <!-- Hub Card 1 -->
+      <article class="hub-station-card">
+        <div class="hub-card-aura" aria-hidden="true"></div>
+        <div class="hub-header-line">
+          <span class="hub-tier-badge">Primary Depot</span>
+          <span class="hub-live-ping"><span class="ping-circle"></span> Online</span>
+        </div>
+        
+        <div class="hub-icon-shield">
+          <i class="fa-solid fa-hospital-user"></i>
+        </div>
+
+        <h3 class="hub-city-name">Metro Acute Hub</h3>
+        <p class="hub-service-scope">Centralized equipment stockpiles, sterile packaging pipelines, and multi-tier hospital installations.</p>
+
+        <ul class="hub-metrics-list">
+          <li>
+            <i class="fa-solid fa-stopwatch"></i>
+            <span>Average Dispatch: <strong>Under 2 Hours</strong></span>
+          </li>
+          <li>
+            <i class="fa-solid fa-box-open"></i>
+            <span>Inventory Capacity: <strong>500+ ICU Modules</strong></span>
+          </li>
+          <li>
+            <i class="fa-solid fa-wrench"></i>
+            <span>On-Duty Engineers: <strong>24 Biomedical Staff</strong></span>
+          </li>
+        </ul>
+
+        <a href="error.html" class="hub-connect-btn">
+          <span>Route Emergency Unit</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </article>
+
+      <!-- Hub Card 2 -->
+      <article class="hub-station-card featured-hub">
+        <div class="hub-card-aura" aria-hidden="true"></div>
+        <div class="hub-header-line">
+          <span class="hub-tier-badge accent">Calibration Lab</span>
+          <span class="hub-live-ping"><span class="ping-circle active"></span> Operational</span>
+        </div>
+        
+        <div class="hub-icon-shield">
+          <i class="fa-solid fa-microchip"></i>
+        </div>
+
+        <h3 class="hub-city-name">Regional Calibration Lab</h3>
+        <p class="hub-service-scope">Cleanroom testing benches, ISO-traceable certificate validation, and digital sensor recalibration suites.</p>
+
+        <ul class="hub-metrics-list">
+          <li>
+            <i class="fa-solid fa-stopwatch"></i>
+            <span>Turnaround Time: <strong>24-Hour Bench Pass</strong></span>
+          </li>
+          <li>
+            <i class="fa-solid fa-certificate"></i>
+            <span>Compliance: <strong>ISO 13485 &amp; NABL Tier</strong></span>
+          </li>
+          <li>
+            <i class="fa-solid fa-arrows-spin"></i>
+            <span>Loaner Availability: <strong>Immediate Handover</strong></span>
+          </li>
+        </ul>
+
+        <a href="error.html" class="hub-connect-btn">
+          <span>Schedule Lab Inspection</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </article>
+
+      <!-- Hub Card 3 -->
+      <article class="hub-station-card">
+        <div class="hub-card-aura" aria-hidden="true"></div>
+        <div class="hub-header-line">
+          <span class="hub-tier-badge">Field Logistics</span>
+          <span class="hub-live-ping"><span class="ping-circle"></span> Online</span>
+        </div>
+        
+        <div class="hub-icon-shield">
+          <i class="fa-solid fa-truck-medical"></i>
+        </div>
+
+        <h3 class="hub-city-name">Ambulatory Field Unit</h3>
+        <p class="hub-service-scope">Mobile preventative maintenance vehicles delivering doorstep clinical upgrades and emergency oxygen systems.</p>
+
+        <ul class="hub-metrics-list">
+          <li>
+            <i class="fa-solid fa-stopwatch"></i>
+            <span>Coverage Radius: <strong>150km Regional Reach</strong></span>
+          </li>
+          <li>
+            <i class="fa-solid fa-toolbox"></i>
+            <span>Mobile Testing: <strong>Full Digital Telemetry</strong></span>
+          </li>
+          <li>
+            <i class="fa-solid fa-shield-heart"></i>
+            <span>Preventative SLAs: <strong>Zero Ward Downtime</strong></span>
+          </li>
+        </ul>
+
+        <a href="error.html" class="hub-connect-btn">
+          <span>Request Mobile Fleet</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </article>
+
+    </div>
+
+    <!-- Interactive Contact Strip -->
+    <div class="hub-bottom-banner hubs-reveal">
+      <div class="banner-left-info">
+        <i class="fa-solid fa-phone-volume banner-phone-icon"></i>
+        <div>
+          <strong class="banner-title">Need Urgent Surgical Suite Backup?</strong>
+          <span class="banner-subtitle">Our emergency biomedical hotlines operate uninterrupted 24/7/365.</span>
+        </div>
+      </div>
+      <div class="banner-right-action">
+        <a href="error.html" class="btn btn-primary banner-action-btn">
+          <span>Direct Hotline Dispatch</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+    <!-- ==================== FOOTER SECTION ==================== -->
+    <footer class="site-footer" id="siteFooter">
+        <div class="container footer-container">
+
+            <!-- Brand & Socials -->
+            <div class="footer-col footer-col-brand">
+                <a href="index.html" class="footer-logo">
+                    <img src="./assets/logo 23.webp" alt="logo" width="150px" height="50px">
+                </a>
+                <p class="footer-bio">
+                    Premium medical equipment and supplies for hospitals, clinics, and home healthcare.
+                </p>
+                <div class="footer-socials">
+                    <a href="error.html" class="social-link" aria-label="LinkedIn"><i
+                            class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="error.html" class="social-link" aria-label="Twitter"><i
+                            class="fa-brands fa-x-twitter"></i></a>
+                    <a href="error.html" class="social-link" aria-label="Facebook"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="error.html" class="social-link" aria-label="YouTube"><i
+                            class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-col">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-nav-list">
+                    <li><a href="index.html" class="footer-nav-link">Home</a></li>
+                    <li><a href="about.html" class="footer-nav-link">About</a></li>
+                    <li><a href="services.html" class="footer-nav-link">Services</a></li>
+                    <li><a href="shop.html" class="footer-nav-link">Shop</a></li>
+                    <li><a href="contact.html" class="footer-nav-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Categories -->
+            <div class="footer-col">
+                <h4 class="footer-heading">Categories</h4>
+                <ul class="footer-links-list">
+                    <li><a href="shop.html">Diagnostics</a></li>
+                    <li><a href="shop.html">Surgical Units</a></li>
+                    <li><a href="shop.html">Patient Monitor</a></li>
+                    <li><a href="shop.html">Hospital Beds</a></li>
+                    <li><a href="shop.html">Consumables</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-col">
+                <h4 class="footer-heading">Contact Us</h4>
+                <ul class="footer-contact-list">
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>450 Innovation Parkway, Healthcare Hub, NY 10001</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+1 (800) 456-7890</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>support@medixen.com</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p class="copyright">&copy; 2026 MEDIXEN Healthcare. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="error.html">Privacy Policy</a>
+                    <span>&bull;</span>
+                    <a href="error.html">Terms of Service</a>
+                </div>
+            </div>
+            <div class="footer-watermark" aria-hidden="true">STACKLY</div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="script.js"></script>
+<script src="contact.js"></script>
+
+
+</body>
+
+</html>

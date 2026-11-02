@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medical Equipment Store</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <link rel="icon" href="./assets/logo.webp" />
+    <link rel="stylesheet" href="root.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="shop.css" />
+
+</head>
+
+<body class="is-loading">
+
+    <!-- ==================== PRELOADER ==================== -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-pulse-box">
+                <div class="pulse-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                <svg class="ecg-svg" viewBox="0 0 300 100" fill="none">
+                    <path class="ecg-path" d="M0,50 L70,50 L85,20 L100,80 L115,30 L130,65 L145,50 L300,50" />
+                </svg>
+            </div>
+            <div class="preloader-brand">STACKLY</div>
+            <div class="preloader-status">Preparing medical equipment catalog...</div>
+        </div>
+    </div>
+
+    <!-- ==================== HEADER NAVBAR ==================== -->
+    <header class="site-header" id="header">
+        <div class="container header-container">
+            <!-- Logo -->
+            <a href="index.html" class="brand-logo">
+                <img src="./assets/logo 12.webp" alt="logo" width="150px" height="50px">
+            </a>
+
+            <!-- Desktop Navigation Menu -->
+            <nav class="desktop-nav" aria-label="Main Navigation">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="shop.html" class="nav-link">Shop</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Right Header Actions -->
+            <div class="header-actions">
+                <button class="icon-btn search-toggle" aria-label="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <div class="header-auth-btns">
+                    <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+                    <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+                </div>
+
+                <!-- Hamburger Button -->
+                <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="bar line-1"></span>
+                    <span class="bar line-2"></span>
+                    <span class="bar line-3"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Overlay -->
+    <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+
+    <!-- Mobile Drawer Menu -->
+    <aside class="mobile-drawer" id="mobileDrawer">
+        <div class="mobile-drawer-header">
+            <a href="index.html" class="brand-logo">
+                <img src="./assets/logo 12.webp" alt="logo" width="150px" height="50px">
+            </a>
+            <button class="close-drawer-btn" id="closeDrawerBtn" aria-label="Close menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- Scrollable middle list area -->
+        <div class="mobile-drawer-body">
+            <nav class="mobile-nav">
+                <ul class="mobile-nav-list">
+                    <li><a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li><a href="about.html" class="mobile-nav-link"><i class="fa-solid fa-circle-info"></i> About</a>
+                    </li>
+                    <li><a href="services.html" class="mobile-nav-link"><i class="fa-solid fa-stethoscope"></i>
+                            Services</a></li>
+                    <li><a href="shop.html" class="mobile-nav-link"><i class="fa-solid fa-store"></i> Shop</a></li>
+                    <li><a href="contact.html" class="mobile-nav-link"><i class="fa-solid fa-envelope"></i> Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Fixed/Pinned Login & Sign Up Actions -->
+        <div class="mobile-drawer-footer">
+            <a href="login.html" class="btn btn-secondary w-full">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i> Login
+            </a>
+            <a href="signup.html" class="btn btn-primary w-full">
+                <i class="fa-solid fa-user-plus"></i> Sign Up
+            </a>
+        </div>
+    </aside>
+
+
+
+
+
+
+
+    <!-- ==================== SHOP / JOURNAL HERO SECTION ==================== -->
+<section class="shop-hero-section" id="shop-hero">
+  <!-- Right-Side Hero Visual (IV Drip Infusion matching shared image) -->
+  <div class="shop-hero-image-wrap" aria-hidden="true">
+    <img 
+      src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80" 
+      alt="Clinical IV Infusion Setup" 
+      class="shop-hero-bg-img"
+    />
+    <div class="shop-hero-blend-mask"></div>
+  </div>
+
+  <div class="container shop-hero-container">
+    <div class="shop-hero-content shop-hero-reveal">
+      
+      <!-- Eyebrow Tag -->
+      <span class="shop-eyebrow">THE MEDIXEN JOURNAL</span>
+
+      <!-- Main Headline with Auto-Typing Effect -->
+      <h1 class="shop-hero-title">
+        INSIGHTS FOR <br>
+        <span class="autotype-wrapper">
+          <span class="typed-text" id="typedText">SMARTER</span>
+          <span class="type-cursor">|</span>
+        </span> <br>
+        HEALTHCARE
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="shop-hero-desc">
+        Equipment guides, buying advice and practical know-how for clinics, hospitals and home care.
+      </p>
+
+      <!-- Interactive Validated Search Form -->
+      <div class="shop-search-wrapper">
+        <form class="shop-search-form" id="shopSearchForm" novalidate>
+          <div class="search-input-group">
+            <i class="fa-solid fa-magnifying-glass search-field-icon"></i>
+            <input 
+              type="text" 
+              class="shop-search-input" 
+              id="shopSearchInput" 
+              placeholder="Search equipment guides, models, or topics..." 
+              autocomplete="off"
+            />
+            <button type="submit" class="btn btn-primary shop-search-btn">
+              <span>Search</span>
+            </button>
+          </div>
+        </form>
+
+        <!-- Dynamic Validation Messages -->
+        <div class="search-feedback-box" id="searchFeedback" aria-live="polite"></div>
+      </div>
+
+      <!-- Popular Query Pills matching image -->
+      <div class="shop-popular-row">
+        <span class="popular-label">Popular:</span>
+        <div class="popular-pills-list">
+          <button type="button" class="popular-pill" data-query="Patient monitors">Patient monitors</button>
+          <button type="button" class="popular-pill" data-query="Maintenance">Maintenance</button>
+          <button type="button" class="popular-pill" data-query="Rent vs buy">Rent vs buy</button>
+          <button type="button" class="popular-pill" data-query="Home care">Home care</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ==================== SHOP / JOURNAL: FEATURED GUIDE ==================== -->
+<section class="shop-featured-section" id="featured-guide">
+  <div class="container">
+    
+    <!-- Master Rounded White Card matching the image -->
+    <article class="featured-guide-card shop-featured-reveal">
+      
+      <!-- Left Column: Image with 3D Tilt & Lens Hover -->
+      <div class="guide-image-col">
+        <div class="guide-image-wrap" id="guideImageWrap">
+          <img 
+            src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1000&q=80" 
+            alt="Doctor preparing clinical nitrile gloves" 
+            class="guide-photo"
+          />
+          <div class="guide-photo-overlay" aria-hidden="true"></div>
+          <span class="guide-badge-floating">
+            <i class="fa-solid fa-bookmark"></i> Most Recommended
+          </span>
+        </div>
+      </div>
+
+      <!-- Right Column: Editorial Article Information -->
+      <div class="guide-content-col">
+        
+        <!-- Category Eyebrow Pill -->
+        <div class="guide-category-badge">
+          <span>Featured &bull; Practice</span>
+        </div>
+
+        <!-- Headline -->
+        <h2 class="guide-headline">
+          THE COMPLETE GUIDE TO CHOOSING PATIENT MONITORING EQUIPMENT
+        </h2>
+
+        <!-- Lead Paragraph -->
+        <p class="guide-lead-text">
+          Many clinical practices don't need another device; they need a stronger backup. Run diagnostics before you scale, look for robust tech, and learn to calibrate.
+        </p>
+
+        <!-- Key Takeaway Callout Box from Image -->
+        <div class="guide-callout-box">
+          <strong class="callout-title">Key takeaways:</strong>
+          <ul class="callout-list">
+            <li>Protect the basics before you invest in extras.</li>
+            <li>Add one new product at a time.</li>
+            <li>Judge any change over four to six weeks.</li>
+          </ul>
+        </div>
+
+        <!-- Author Meta & Read CTA -->
+        <div class="guide-footer-row">
+          <div class="author-profile">
+            <img 
+              src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=200&q=80" 
+              alt="Dr. Ananya Roy" 
+              class="author-avatar"
+            />
+            <div class="author-details">
+              <strong class="author-name">Dr. Ananya Roy</strong>
+              <span class="publish-date">12 Oct 2026 &bull; 8 min read</span>
+            </div>
+          </div>
+
+          <a href="error.html" class="guide-read-btn">
+            <span>Read Guide</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </article>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ==================== SHOP: SMALL HABITS, BIG DIFFERENCE ==================== -->
+<section class="shop-habits-section" id="habits">
+  <div class="container">
+    
+    <!-- Top Header Strip -->
+    <div class="habits-header habits-reveal">
+      <span class="habits-badge-pill">Medical tips</span>
+      <h2 class="habits-title">SMALL HABITS, BIG DIFFERENCE</h2>
+      <p class="habits-subtext">Short, practical reads. Pick a topic.</p>
+
+      <!-- Category Filter Pills -->
+      <div class="habits-filter-pills" id="habitsFilterList">
+        <button type="button" class="habit-filter-btn active" data-filter="all">All</button>
+        <button type="button" class="habit-filter-btn" data-filter="cleaning">Cleaning</button>
+        <button type="button" class="habit-filter-btn" data-filter="first-aid">First-aid</button>
+        <button type="button" class="habit-filter-btn" data-filter="sterilize">Sterilize</button>
+        <button type="button" class="habit-filter-btn" data-filter="equipment">Equipment</button>
+      </div>
+    </div>
+
+    <!-- Filterable Cards Grid -->
+    <div class="habits-cards-grid" id="habitsCardsGrid">
+      
+      <!-- Card 1: Cleaning -->
+      <article class="habit-card" data-category="cleaning">
+        <div class="habit-card-thumb-wrap">
+          <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=400&q=80" alt="Doctor reviewing lab logs" class="habit-thumb-img">
+        </div>
+        <div class="habit-card-content">
+          <span class="habit-topic-tag">Cleaning</span>
+          <h3 class="habit-article-title">Do You Need to Double Glove?</h3>
+          <p class="habit-author-meta">Dr. Alex Ward &bull; 3 min read</p>
+          <a href="error.html" class="habit-arrow-btn" aria-label="Read article">
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 2: Cleaning -->
+      <article class="habit-card" data-category="cleaning">
+        <div class="habit-card-thumb-wrap">
+          <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=400&q=80" alt="Stethoscope hygiene" class="habit-thumb-img">
+        </div>
+        <div class="habit-card-content">
+          <span class="habit-topic-tag">Cleaning</span>
+          <h3 class="habit-article-title">Why Your Cleaner Shouldn't Touch</h3>
+          <p class="habit-author-meta">Tech team &bull; 4 min read</p>
+          <a href="error.html" class="habit-arrow-btn" aria-label="Read article">
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 3: First-Aid -->
+      <article class="habit-card" data-category="first-aid">
+        <div class="habit-card-thumb-wrap">
+          <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80" alt="Emergency first aid kit" class="habit-thumb-img">
+        </div>
+        <div class="habit-card-content">
+          <span class="habit-topic-tag">First-aid</span>
+          <h3 class="habit-article-title">Emergency Resuscitation Protocol Checklist</h3>
+          <p class="habit-author-meta">Trauma Lead &bull; 5 min read</p>
+          <a href="error.html" class="habit-arrow-btn" aria-label="Read article">
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 4: Sterilize -->
+      <article class="habit-card" data-category="sterilize">
+        <div class="habit-card-thumb-wrap">
+          <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=400&q=80" alt="Autoclave sterilization chambers" class="habit-thumb-img">
+        </div>
+        <div class="habit-card-content">
+          <span class="habit-topic-tag">Sterilize</span>
+          <h3 class="habit-article-title">Autoclave Cycle Best Practices</h3>
+          <p class="habit-author-meta">Bio-Engineering &bull; 4 min read</p>
+          <a href="error.html" class="habit-arrow-btn" aria-label="Read article">
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 5: Equipment -->
+      <article class="habit-card" data-category="equipment">
+        <div class="habit-card-thumb-wrap">
+          <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=400&q=80" alt="Telemetry monitor sensors" class="habit-thumb-img">
+        </div>
+        <div class="habit-card-content">
+          <span class="habit-topic-tag">Equipment</span>
+          <h3 class="habit-article-title">Sensor Calibration: How Often is Enough?</h3>
+          <p class="habit-author-meta">Clinical Support &bull; 3 min read</p>
+          <a href="error.html" class="habit-arrow-btn" aria-label="Read article">
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </article>
+
+<!-- Card 6: Equipment -->
+<article class="habit-card" data-category="equipment">
+  <div class="habit-card-thumb-wrap">
+    <img 
+      src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=400&q=80" 
+      alt="Biomedical technician testing patient monitor leads" 
+      class="habit-thumb-img"
+    />
+  </div>
+  <div class="habit-card-content">
+    <span class="habit-topic-tag">Equipment</span>
+    <h3 class="habit-article-title">Extending Battery Lifespan on Portable Monitors</h3>
+    <p class="habit-author-meta">Bio-Tech Lead &bull; 4 min read</p>
+    <a href="error.html" class="habit-arrow-btn" aria-label="Read article on extending battery lifespan">
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+</article>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+<!-- ==================== SHOP: IN-DEPTH GUIDES SPOTLIGHT ==================== -->
+<section class="shop-guides-section" id="buying-guides">
+  <div class="container">
+    
+    <!-- Section Top Header with Nav Arrows -->
+    <div class="guides-header-row guides-reveal">
+      <div class="guides-header-text">
+        <span class="guides-eyebrow">Buying Guides Spotlight</span>
+        <h2 class="guides-heading">IN-DEPTH GUIDES FOR CONFIDENT DECISIONS</h2>
+      </div>
+
+      <div class="guides-nav-arrows">
+        <button type="button" class="guide-nav-btn prev" id="guidePrevBtn" aria-label="Previous guides">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <button type="button" class="guide-nav-btn next" id="guideNextBtn" aria-label="Next guides">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- 4 Spotlight Cards Carousel Track -->
+    <div class="guides-cards-track guides-reveal" id="guidesTrack">
+      
+      <!-- Card 1: Patient Monitors -->
+      <article class="guide-spotlight-card">
+        <div class="spotlight-image-holder">
+          <img 
+            src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80" 
+            alt="ECG Patient Telemetry Monitors" 
+            class="spotlight-card-img"
+          />
+          <div class="spotlight-image-vignette"></div>
+        </div>
+
+        <div class="spotlight-content-drawer">
+          <div class="spotlight-content-inner">
+            <span class="spotlight-category">Monitoring Systems</span>
+            <h3 class="spotlight-title">Buyer's guide: patient monitors</h3>
+            <p class="spotlight-hover-desc">
+              Essential display parameters, arrhythmia telemetry, multi-lead cable configurations, and clinical alarm thresholds.
+            </p>
+            <a href="error.html" class="spotlight-read-link">
+              <span>Read the guide</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2: Hospital Beds -->
+      <article class="guide-spotlight-card">
+        <div class="spotlight-image-holder">
+          <img 
+            src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80" 
+            alt="Modern Hospital Recovery Beds" 
+            class="spotlight-card-img"
+          />
+          <div class="spotlight-image-vignette"></div>
+        </div>
+
+        <div class="spotlight-content-drawer">
+          <div class="spotlight-content-inner">
+            <span class="spotlight-category">Ward Furniture</span>
+            <h3 class="spotlight-title">Buyer's guide: hospital beds</h3>
+            <p class="spotlight-hover-desc">
+              5-function electric controls, bariatric safety weight thresholds, pressure-relief mattresses, and emergency CPR levers.
+            </p>
+            <a href="error.html" class="spotlight-read-link">
+              <span>Read the guide</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3: Respiratory Care -->
+      <article class="guide-spotlight-card">
+        <div class="spotlight-image-holder">
+          <img 
+            src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80" 
+            alt="Respiratory Lung Anatomy and Ventilators" 
+            class="spotlight-card-img"
+          />
+          <div class="spotlight-image-vignette"></div>
+        </div>
+
+        <div class="spotlight-content-drawer">
+          <div class="spotlight-content-inner">
+            <span class="spotlight-category">Pulmonary Care</span>
+            <h3 class="spotlight-title">Buyer's guide: respiratory care</h3>
+            <p class="spotlight-hover-desc">
+              Continuous 10L oxygen concentrators, CPAP/BiPAP algorithms, nebulizer chambers, and bacterial inline filters.
+            </p>
+            <a href="error.html" class="spotlight-read-link">
+              <span>Read the guide</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4: Diagnostic Devices -->
+      <article class="guide-spotlight-card">
+        <div class="spotlight-image-holder">
+          <img 
+            src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80" 
+            alt="Digital Diagnostic Ultrasound Tablet" 
+            class="spotlight-card-img"
+          />
+          <div class="spotlight-image-vignette"></div>
+        </div>
+
+        <div class="spotlight-content-drawer">
+          <div class="spotlight-content-inner">
+            <span class="spotlight-category">Digital Diagnostics</span>
+            <h3 class="spotlight-title">Buyer's guide: diagnostic devices</h3>
+            <p class="spotlight-hover-desc">
+              Digital stethoscopes, handheld ultrasound probes, wireless vital hubs, and HIPAA-secure cloud transmission.
+            </p>
+            <a href="error.html" class="spotlight-read-link">
+              <span>Read the guide</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ==================== SHOP: MOST READ THIS MONTH & EXPLORE TOPICS ==================== -->
+<section class="shop-trending-section" id="popular-posts">
+  <div class="container">
+    <div class="shop-trending-grid shop-trending-reveal">
+      
+      <!-- Left Column: Most Read Ranked Feed -->
+      <div class="trending-feed-col">
+        <span class="trending-eyebrow">Popular Posts</span>
+        <h2 class="trending-heading">MOST READ THIS MONTH</h2>
+
+        <div class="ranked-articles-list">
+          
+          <!-- Article 1 -->
+          <a href="error.html" class="ranked-article-item">
+            <span class="rank-index">1</span>
+            <div class="rank-icon-box">
+              <i class="fa-solid fa-notes-medical"></i>
+            </div>
+            <div class="rank-details">
+              <h3 class="rank-title">How to Choose a Patient Monitor for a Growing Clinic</h3>
+              <span class="rank-meta">Equipment Guides &bull; 6 min read</span>
+            </div>
+            <span class="rank-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+
+          <!-- Article 2 -->
+          <a href="error.html" class="ranked-article-item">
+            <span class="rank-index">2</span>
+            <div class="rank-icon-box">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+            <div class="rank-details">
+              <h3 class="rank-title">Rent, Lease or Buy? A Decision Framework</h3>
+              <span class="rank-meta">Buying Advice &bull; 8 min read</span>
+            </div>
+            <span class="rank-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+
+          <!-- Article 3 -->
+          <a href="error.html" class="ranked-article-item">
+            <span class="rank-index">3</span>
+            <div class="rank-icon-box">
+              <i class="fa-solid fa-temperature-half"></i>
+            </div>
+            <div class="rank-details">
+              <h3 class="rank-title">Pulse Oximetry: What the Waveforms Really Mean</h3>
+              <span class="rank-meta">Equipment Guides &bull; 5 min read</span>
+            </div>
+            <span class="rank-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+
+          <!-- Article 4 -->
+          <a href="error.html" class="ranked-article-item">
+            <span class="rank-index">4</span>
+            <div class="rank-icon-box">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            <div class="rank-details">
+              <h3 class="rank-title">Five Questions to Ask Any Equipment Supplier</h3>
+              <span class="rank-meta">Buying Advice &bull; 4 min read</span>
+            </div>
+            <span class="rank-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+
+          <!-- Article 5 -->
+          <a href="error.html" class="ranked-article-item">
+            <span class="rank-index">5</span>
+            <div class="rank-icon-box">
+              <i class="fa-solid fa-house-chimney-medical"></i>
+            </div>
+            <div class="rank-details">
+              <h3 class="rank-title">Setting Up a Safe Recovery Space at Home</h3>
+              <span class="rank-meta">Home Care &bull; 6 min read</span>
+            </div>
+            <span class="rank-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Right Column: Explore by Topic Tag Matrix -->
+      <div class="trending-topics-col">
+        <span class="trending-eyebrow">Trending Topics</span>
+        <h2 class="trending-heading">EXPLORE BY TOPIC</h2>
+
+        <div class="topics-tags-matrix">
+          <a href="error.html" class="topic-tag-pill active">Patient monitors</a>
+          <a href="error.html" class="topic-tag-pill">Maintenance</a>
+          <a href="error.html" class="topic-tag-pill">Rent vs buy</a>
+          <a href="error.html" class="topic-tag-pill">Home care</a>
+          <a href="error.html" class="topic-tag-pill">Calibration</a>
+          <a href="error.html" class="topic-tag-pill">Oxygen</a>
+          <a href="error.html" class="topic-tag-pill">Procurement</a>
+          <a href="error.html" class="topic-tag-pill">Wheelchairs</a>
+          <a href="error.html" class="topic-tag-pill">Pulse oximeters</a>
+          <a href="error.html" class="topic-tag-pill">Warranty</a>
+          <a href="error.html" class="topic-tag-pill">Training</a>
+          <a href="error.html" class="topic-tag-pill">Safety</a>
+        </div>
+
+        <!-- Bio-Technical Support Card -->
+        <div class="trending-advisory-card">
+          <div class="advisory-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="advisory-text">
+            <strong>Need dedicated procurement assistance?</strong>
+            <p>Our bio-engineers are available for hospital and outpatient consultations.</p>
+          </div>
+          <a href="error.html" class="advisory-link"><i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ==================== SHOP / JOURNAL: FINAL CTA SECTION ==================== -->
+<section class="shop-final-cta-section" id="shop-cta">
+  <div class="container">
+    
+    <div class="shop-cta-banner shop-cta-reveal">
+      <!-- Full Bleed Background Image -->
+      <img 
+        src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1600&q=80" 
+        alt="Modern Hospital Intensive Care Environment" 
+        class="shop-cta-bg-img"
+      />
+
+      <!-- Atmospheric Cinematic Glass Overlay -->
+      <div class="shop-cta-overlay-mask" aria-hidden="true"></div>
+      <div class="shop-cta-ambient-glow" aria-hidden="true"></div>
+
+      <!-- Text Overlay Content -->
+      <div class="shop-cta-content">
+        <span class="shop-cta-badge">
+          <i class="fa-solid fa-book-medical"></i> Verified Procurement Intelligence
+        </span>
+
+        <h2 class="shop-cta-title">
+          EQUIPPING YOUR FACILITY <br>
+          SHOULDN'T BE GUESSWORK.
+        </h2>
+
+        <p class="shop-cta-desc">
+          Subscribe to the Medixen Journal digest or speak directly with our clinical bio-engineers for custom equipment tenders, batch calibration SLAs, and volume hospital contracts.
+        </p>
+
+        <!-- Newsletter / Direct Action Bar -->
+        <div class="shop-cta-action-box">
+          <form class="shop-cta-subscribe-form" id="shopCtaForm" novalidate>
+            <div class="cta-input-group">
+              <i class="fa-solid fa-envelope cta-input-icon"></i>
+              <input 
+                type="email" 
+                class="cta-email-input" 
+                id="ctaEmailInput" 
+                placeholder="Enter hospital or procurement email..." 
+                autocomplete="off"
+              />
+              <button type="submit" class="btn btn-primary cta-submit-btn">
+                <span>Join Journal</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </form>
+
+          <!-- Real-Time Feedback -->
+          <div class="cta-feedback-slot" id="ctaFeedback"></div>
+        </div>
+
+        <!-- Trust Badges Row -->
+        <div class="shop-cta-trust-row">
+          <div class="trust-badge-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Quarterly Clinical Review</span>
+          </div>
+          <div class="trust-badge-item">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>ISO 13485 Verified Sources</span>
+          </div>
+          <div class="trust-badge-item">
+            <i class="fa-solid fa-lock"></i>
+            <span>Strict Zero-Spam Policy</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+    <!-- ==================== FOOTER SECTION ==================== -->
+    <footer class="site-footer" id="siteFooter">
+        <div class="container footer-container">
+
+            <!-- Brand & Socials -->
+            <div class="footer-col footer-col-brand">
+                <a href="index.html" class="footer-logo">
+                    <img src="./assets/logo 23.webp" alt="logo" width="150px" height="50px">
+                </a>
+                <p class="footer-bio">
+                    Premium medical equipment and supplies for hospitals, clinics, and home healthcare.
+                </p>
+                <div class="footer-socials">
+                    <a href="error.html" class="social-link" aria-label="LinkedIn"><i
+                            class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="error.html" class="social-link" aria-label="Twitter"><i
+                            class="fa-brands fa-x-twitter"></i></a>
+                    <a href="error.html" class="social-link" aria-label="Facebook"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="error.html" class="social-link" aria-label="YouTube"><i
+                            class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-col">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-nav-list">
+                    <li><a href="index.html" class="footer-nav-link">Home</a></li>
+                    <li><a href="about.html" class="footer-nav-link">About</a></li>
+                    <li><a href="services.html" class="footer-nav-link">Services</a></li>
+                    <li><a href="shop.html" class="footer-nav-link">Shop</a></li>
+                    <li><a href="contact.html" class="footer-nav-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Categories -->
+            <div class="footer-col">
+                <h4 class="footer-heading">Categories</h4>
+                <ul class="footer-links-list">
+                    <li><a href="shop.html">Diagnostics</a></li>
+                    <li><a href="shop.html">Surgical Units</a></li>
+                    <li><a href="shop.html">Patient Monitor</a></li>
+                    <li><a href="shop.html">Hospital Beds</a></li>
+                    <li><a href="shop.html">Consumables</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-col">
+                <h4 class="footer-heading">Contact Us</h4>
+                <ul class="footer-contact-list">
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>450 Innovation Parkway, Healthcare Hub, NY 10001</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+1 (800) 456-7890</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>support@medixen.com</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p class="copyright">&copy; 2026 MEDIXEN Healthcare. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="error.html">Privacy Policy</a>
+                    <span>&bull;</span>
+                    <a href="error.html">Terms of Service</a>
+                </div>
+            </div>
+            <div class="footer-watermark" aria-hidden="true">STACKLY</div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="script.js"></script>
+    <script src="shop.js"></script>
+
+
+
+</body>
+
+</html>

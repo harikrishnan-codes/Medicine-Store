@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medical Equipment Store</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <link rel="icon" href="./assets/logo.webp" />
+    <link rel="stylesheet" href="root.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="services.css" />
+
+</head>
+
+<body class="is-loading">
+
+    <!-- ==================== PRELOADER ==================== -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-pulse-box">
+                <div class="pulse-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                <svg class="ecg-svg" viewBox="0 0 300 100" fill="none">
+                    <path class="ecg-path" d="M0,50 L70,50 L85,20 L100,80 L115,30 L130,65 L145,50 L300,50" />
+                </svg>
+            </div>
+            <div class="preloader-brand">STACKLY</div>
+            <div class="preloader-status">Preparing medical equipment catalog...</div>
+        </div>
+    </div>
+
+    <!-- ==================== HEADER NAVBAR ==================== -->
+    <header class="site-header" id="header">
+        <div class="container header-container">
+            <!-- Logo -->
+            <a href="index.html" class="brand-logo">
+                <img src="./assets/logo 12.webp" alt="logo" width="150px" height="50px">
+            </a>
+
+            <!-- Desktop Navigation Menu -->
+            <nav class="desktop-nav" aria-label="Main Navigation">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="shop.html" class="nav-link">Shop</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Right Header Actions -->
+            <div class="header-actions">
+                <button class="icon-btn search-toggle" aria-label="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <div class="header-auth-btns">
+                    <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+                    <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+                </div>
+
+                <!-- Hamburger Button -->
+                <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="bar line-1"></span>
+                    <span class="bar line-2"></span>
+                    <span class="bar line-3"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Overlay -->
+    <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+
+    <!-- Mobile Drawer Menu -->
+    <aside class="mobile-drawer" id="mobileDrawer">
+        <div class="mobile-drawer-header">
+            <a href="index.html" class="brand-logo">
+                <img src="./assets/logo 12.webp" alt="logo" width="150px" height="50px">
+            </a>
+            <button class="close-drawer-btn" id="closeDrawerBtn" aria-label="Close menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- Scrollable middle list area -->
+        <div class="mobile-drawer-body">
+            <nav class="mobile-nav">
+                <ul class="mobile-nav-list">
+                    <li><a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li><a href="about.html" class="mobile-nav-link"><i class="fa-solid fa-circle-info"></i> About</a>
+                    </li>
+                    <li><a href="services.html" class="mobile-nav-link"><i class="fa-solid fa-stethoscope"></i>
+                            Services</a></li>
+                    <li><a href="shop.html" class="mobile-nav-link"><i class="fa-solid fa-store"></i> Shop</a></li>
+                    <li><a href="contact.html" class="mobile-nav-link"><i class="fa-solid fa-envelope"></i> Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Fixed/Pinned Login & Sign Up Actions -->
+        <div class="mobile-drawer-footer">
+            <a href="login.html" class="btn btn-secondary w-full">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i> Login
+            </a>
+            <a href="signup.html" class="btn btn-primary w-full">
+                <i class="fa-solid fa-user-plus"></i> Sign Up
+            </a>
+        </div>
+    </aside>
+
+
+
+
+
+
+
+    <!-- ==================== SERVICES HERO SECTION ==================== -->
+<section class="services-hero-section" id="overview">
+  <div class="container">
+    
+    <!-- Hero Card Container matching image -->
+    <div class="services-hero-card services-hero-reveal">
+      <div class="services-ambient-glow" aria-hidden="true"></div>
+
+      <div class="services-hero-content">
+        <h1 class="services-hero-title">
+          COMPLETE MEDICAL <br>
+          EQUIPMENT SOLUTIONS
+        </h1>
+
+        <p class="services-hero-desc">
+          From supply and installation to maintenance, rental and training — one partner for the full lifecycle of your equipment.
+        </p>
+
+        <!-- Quick Anchor Filter / Navigation Pills from Image -->
+        <div class="services-nav-pills">
+          <a href="#overview" class="service-pill-btn active">Overview</a>
+          <a href="#procurement" class="service-pill-btn">Supply</a>
+          <a href="#maintenance" class="service-pill-btn">Installation</a>
+          <a href="error.html" class="service-pill-btn">Rental</a>
+          <a href="#process" class="service-pill-btn">Process</a>
+          <a href="#industries" class="service-pill-btn">Industries</a>
+          <a href="error.html" class="service-pill-btn pill-btn-cta">Get A Quote</a>
+        </div>
+      </div>
+
+    </div>
+</div>
+</section>
+
+
+
+
+
+
+
+<!-- ==================== SERVICES: PROCUREMENT SECTION ==================== -->
+<section class="services-procurement-section" id="procurement">
+  <div class="container">
+    
+    <div class="procurement-card-wrapper procurement-reveal">
+      
+      <!-- Top Tag & Headline -->
+      <div class="procurement-header">
+        <span class="procurement-tag">01 Equipment Supply &amp; Procurement</span>
+        <h2 class="procurement-heading">PROCUREMENT THAT SCALES WITH YOU.</h2>
+      </div>
+
+      <!-- Main Split: Auto-Changing Image Left & Bulk Ordering Content Right -->
+      <div class="procurement-grid">
+        
+        <!-- Left Column: Auto-changing Image with Classy Hover Animation -->
+        <div class="procurement-image-stage" id="procurementStage">
+          <div class="stage-ambient-glow" aria-hidden="true"></div>
+          
+          <div class="stage-slides-container">
+            <!-- Slide 1 -->
+            <div class="stage-slide active">
+              <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80" alt="Clinical Supply Specialist" class="stage-img">
+            </div>
+            <!-- Slide 2 -->
+            <div class="stage-slide">
+              <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80" alt="Surgical Device Verification" class="stage-img">
+            </div>
+            <!-- Slide 3 -->
+            <div class="stage-slide">
+              <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80" alt="Depot Equipment Inspection" class="stage-img">
+            </div>
+            <!-- Slide 4 -->
+            <div class="stage-slide">
+              <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80" alt="Biomedical Instruments Logistics" class="stage-img">
+            </div>
+          </div>
+
+          <!-- Floating Glass Badge -->
+          <div class="stage-live-badge">
+            <span class="stage-pulse-dot"></span>
+            <span>Batch Calibration Active</span>
+          </div>
+
+          <!-- Carousel Indicator Dots -->
+          <div class="stage-nav-dots" id="stageDots">
+            <button class="s-dot active" aria-label="Slide 1" data-slide="0"></button>
+            <button class="s-dot" aria-label="Slide 2" data-slide="1"></button>
+            <button class="s-dot" aria-label="Slide 3" data-slide="2"></button>
+            <button class="s-dot" aria-label="Slide 4" data-slide="3"></button>
+          </div>
+        </div>
+
+        <!-- Right Column: Bulk Ordering & Checklist -->
+        <div class="procurement-info-col">
+          <h3 class="bulk-title">BULK ORDERING</h3>
+          <p class="bulk-subtext">
+            Order in volume with centralized supply chains, retaining synchronized delivery across regional hospital branches.
+          </p>
+
+          <ul class="bulk-checklist">
+            <li>
+              <div class="check-icon-circle"><i class="fa-solid fa-check"></i></div>
+              <span>Volume-tiered pricing models for clinics &amp; hospitals</span>
+            </li>
+            <li>
+              <div class="check-icon-circle"><i class="fa-solid fa-check"></i></div>
+              <span>Scheduled and repeat replenishment orders</span>
+            </li>
+            <li>
+              <div class="check-icon-circle"><i class="fa-solid fa-check"></i></div>
+              <span>Single point of contact biomedical manager</span>
+            </li>
+          </ul>
+
+          <div class="procurement-action-row">
+            <a href="error.html" class="btn btn-primary procurement-cta-btn">
+              <span>Request Volume Quote</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ==================== SERVICES: INSTALLATION & MAINTENANCE SECTION ==================== -->
+<section class="services-maintenance-section" id="maintenance">
+  <div class="container">
+    
+    <div class="maintenance-card-wrapper maintenance-reveal">
+      
+      <!-- Section Header -->
+      <div class="maintenance-header">
+        <span class="maintenance-tag">02 Installation &amp; Maintenance</span>
+        <h2 class="maintenance-heading">SET UP RIGHT. KEPT RUNNING.</h2>
+      </div>
+
+      <!-- 2-Card Operational Grid matching Image -->
+      <div class="maintenance-grid">
+        
+        <!-- Left Panel: Installation Checklist -->
+        <div class="m-card checklist-panel">
+          <div class="m-card-glow" aria-hidden="true"></div>
+          
+          <div class="m-panel-head">
+            <h3 class="panel-heading-title">INSTALLATION CHECKLIST</h3>
+            <span class="panel-status-pill">Standard Procedure</span>
+          </div>
+
+          <ul class="m-checklist">
+            <li>
+              <span class="m-check-circle"><i class="fa-solid fa-check"></i></span>
+              <span class="m-check-label">Site and power assessment</span>
+            </li>
+            <li>
+              <span class="m-check-circle"><i class="fa-solid fa-check"></i></span>
+              <span class="m-check-label">Delivery and unpacking</span>
+            </li>
+            <li>
+              <span class="m-check-circle"><i class="fa-solid fa-check"></i></span>
+              <span class="m-check-label">Installation and configuration</span>
+            </li>
+            <li>
+              <span class="m-check-circle"><i class="fa-solid fa-check"></i></span>
+              <span class="m-check-label">Safety and performance testing</span>
+            </li>
+            <li>
+              <span class="m-check-circle"><i class="fa-solid fa-check"></i></span>
+              <span class="m-check-label">Staff handover and quick-start guide</span>
+            </li>
+            <li>
+              <span class="m-check-circle"><i class="fa-solid fa-check"></i></span>
+              <span class="m-check-label">Documentation and warranty registration</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right Panel: Response-Time Highlights & Live Countdown -->
+        <div class="m-card response-panel">
+          <div class="m-card-glow" aria-hidden="true"></div>
+
+          <div class="m-panel-head">
+            <h3 class="panel-heading-title">RESPONSE-TIME HIGHLIGHTS</h3>
+            <span class="panel-sla-tag">Guaranteed SLAs</span>
+          </div>
+
+          <p class="response-note">Targets to confirm before publishing:</p>
+
+          <!-- 4 Digit Countdown Display matching Image -->
+          <div class="m-countdown-box" id="maintenanceTimer">
+            <div class="time-tile">
+              <span class="time-digit" id="mDays">09</span>
+              <span class="time-text">DAYS</span>
+            </div>
+            <div class="time-tile">
+              <span class="time-digit" id="mHours">04</span>
+              <span class="time-text">HOURS</span>
+            </div>
+            <div class="time-tile">
+              <span class="time-digit" id="mMins">06</span>
+              <span class="time-text">MINS</span>
+            </div>
+            <div class="time-tile">
+              <span class="time-digit" id="mSecs">54</span>
+              <span class="time-text">SECS</span>
+            </div>
+          </div>
+
+          <!-- Claim Button from Image -->
+          <div class="response-action-wrap">
+            <a href="error.html" class="btn btn-primary m-claim-btn">
+              <span>Claim for bundle</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ==================== SERVICES: 4-STEP PROCESS SECTION ==================== -->
+<section class="services-process-section" id="process">
+  <div class="container">
+    
+    <div class="process-card-wrapper process-reveal">
+      
+      <!-- Section Header -->
+      <div class="process-header">
+        <span class="process-tag">03 How It Works</span>
+        <h2 class="process-heading">FOUR STEPS FROM FIRST CALL TO ONGOING CARE.</h2>
+      </div>
+
+      <!-- Ongoing Flow Pipeline -->
+      <div class="process-flow-container">
+        
+        <!-- Animated Connecting Track with Flowing Energy Beam -->
+        <div class="process-track-line" aria-hidden="true">
+          <div class="process-energy-stream"></div>
+        </div>
+
+        <!-- 4 Process Nodes -->
+        <div class="process-nodes-grid">
+          
+          <!-- Node 01 -->
+          <div class="process-node-card">
+            <div class="node-badge-wrapper">
+              <span class="node-digit">01</span>
+              <div class="node-ring-pulse"></div>
+            </div>
+            <div class="node-details">
+              <h3 class="node-name">Supplier Sourcing</h3>
+              <p class="node-explanation">
+                We audit manufacturers for reliability and compliance before sourcing their products.
+              </p>
+            </div>
+          </div>
+
+          <!-- Node 02 -->
+          <div class="process-node-card">
+            <div class="node-badge-wrapper">
+              <span class="node-digit">02</span>
+              <div class="node-ring-pulse"></div>
+            </div>
+            <div class="node-details">
+              <h3 class="node-name">Quality Checks</h3>
+              <p class="node-explanation">
+                Multi-point checks ensure peak operational condition before reaching your facility.
+              </p>
+            </div>
+          </div>
+
+          <!-- Node 03 -->
+          <div class="process-node-card">
+            <div class="node-badge-wrapper">
+              <span class="node-digit">03</span>
+              <div class="node-ring-pulse"></div>
+            </div>
+            <div class="node-details">
+              <h3 class="node-name">Traceability &amp; Warranty</h3>
+              <p class="node-explanation">
+                Serial-level tracking ensures fast repair response and authentic replacement parts.
+              </p>
+            </div>
+          </div>
+
+          <!-- Node 04 -->
+          <div class="process-node-card">
+            <div class="node-badge-wrapper">
+              <span class="node-digit">04</span>
+              <div class="node-ring-pulse"></div>
+            </div>
+            <div class="node-details">
+              <h3 class="node-name">Regulatory Compliance</h3>
+              <p class="node-explanation">
+                Documentation aligned with hospital standards and biomedical regulatory bodies.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<!-- ==================== SERVICES: FAQ SECTION ==================== -->
+<section class="services-faq-section" id="faq">
+  <div class="container">
+    
+    <div class="faq-card-wrapper faq-reveal">
+      
+      <!-- Left Column: Title & Subtext matching Image -->
+      <div class="faq-headline-col">
+        <span class="faq-eyebrow-tag">04 Knowledge Base</span>
+        <h2 class="faq-main-title">
+          FREQUENTLY <br>
+          ASKED QUESTIONS
+        </h2>
+        <p class="faq-subtext">Answers and direct guidance.</p>
+        
+        <div class="faq-support-footnote">
+          <i class="fa-solid fa-headset"></i>
+          <span>Need custom SLA specifications? <a href="error.html">Speak to bio-engineering</a></span>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Accordion List -->
+      <div class="faq-accordion-col">
+        
+        <!-- Item 1 -->
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span class="faq-question">What services does your consultancy firm offer?</span>
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>We provide full-lifecycle biomedical equipment procurement, cold-chain hospital logistics, on-site certified engineering installation, preventative maintenance contracts, and regulatory ISO 13485 compliance audits.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span class="faq-question">How do you tailor solutions for each client?</span>
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>Our bio-engineers assess your patient load, surgical room dimensions, and power backup setup to formulate an equipment package tailored precisely to your clinical tier and budget.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span class="faq-question">What industries do you specialize in?</span>
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>We outfit multi-specialty acute care hospitals, diagnostic testing facilities, specialty outpatient clinics, ambulatory surgery centers, and home healthcare provider networks.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span class="faq-question">How long does a typical consulting project take?</span>
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>Turnkey clinic deployments take 7 to 14 business days from sign-off to clinical handover, while complete multi-ward hospital wings operate on synchronized 30-day staggered delivery milestones.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span class="faq-question">What makes your consultancy different from others?</span>
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>Unlike standard medical supply brokers, every serial number we deliver is factory-tested, calibrated in ISO cleanroom environments, and accompanied by a guaranteed 4-hour rapid technical emergency SLA.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span class="faq-question">Do you offer support after project completion?</span>
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>Yes. Every installation package includes scheduled quarterly calibration reviews, genuine OEM replacement part pipelines, and around-the-clock telephone and on-site biomedical engineer coverage.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<!-- ==================== SERVICES: INDUSTRIES & FINAL CTA ==================== -->
+<section class="services-industries-section" id="industries">
+  <div class="container">
+    
+    <!-- Industries Header -->
+    <div class="industries-header industries-reveal">
+      <span class="industries-eyebrow">05 Industries We Serve</span>
+      <h2 class="industries-heading">BUILT FOR EVERY CARE SETTING.</h2>
+      <p class="industries-subtext">
+        Hover across any sector card to reveal clinical outfitting specifications and tailored supply workflows.
+      </p>
+    </div>
+
+    <!-- Expanding Industry Cards Track -->
+    <div class="industries-expand-track industries-reveal">
+      
+      <!-- Card 1: Hospital (Active by Default) -->
+      <div class="industry-card active" data-industry="hospital">
+        <div class="industry-card-overlay"></div>
+        <div class="industry-collapsed-view">
+          <div class="industry-icon-wrap">
+            <i class="fa-solid fa-hospital"></i>
+          </div>
+          <span class="industry-short-title">Hospital</span>
+        </div>
+        <div class="industry-expanded-view">
+          <span class="industry-tier-tag">Tier-1 Acute Care</span>
+          <h3 class="industry-full-title">HOSPITAL</h3>
+          <p class="industry-desc">
+            Complete ICU outfitting, multi-lead telemetry integration, surgical theater lighting, and 24/7 bio-engineer rapid response.
+          </p>
+          <ul class="industry-specs">
+            <li><i class="fa-solid fa-check"></i> 5-Function electric motorized ICU beds</li>
+            <li><i class="fa-solid fa-check"></i> Centralized oxygen manifold plumbing</li>
+          </ul>
+          <a href="error.html" class="industry-card-btn">
+            <span>Explore Hospital Outfitting</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: Clinic -->
+      <div class="industry-card" data-industry="clinic">
+        <div class="industry-card-overlay"></div>
+        <div class="industry-collapsed-view">
+          <div class="industry-icon-wrap">
+            <i class="fa-solid fa-heart-pulse"></i>
+          </div>
+          <span class="industry-short-title">Clinic</span>
+        </div>
+        <div class="industry-expanded-view">
+          <span class="industry-tier-tag">Outpatient Specialists</span>
+          <h3 class="industry-full-title">CLINIC</h3>
+          <p class="industry-desc">
+            Space-efficient wall diagnostics, multi-purpose treatment couches, digital autoclaves, and preventative maintenance coverage.
+          </p>
+          <ul class="industry-specs">
+            <li><i class="fa-solid fa-check"></i> Compact non-contact diagnostic centers</li>
+            <li><i class="fa-solid fa-check"></i> Standard 48H replenishment pipeline</li>
+          </ul>
+          <a href="error.html" class="industry-card-btn">
+            <span>Explore Clinic Bundles</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3: Laboratories -->
+      <div class="industry-card" data-industry="laboratories">
+        <div class="industry-card-overlay"></div>
+        <div class="industry-collapsed-view">
+          <div class="industry-icon-wrap">
+            <i class="fa-solid fa-flask-vial"></i>
+          </div>
+          <span class="industry-short-title">Laboratories</span>
+        </div>
+        <div class="industry-expanded-view">
+          <span class="industry-tier-tag">Diagnostics &amp; Research</span>
+          <h3 class="industry-full-title">LABORATORIES</h3>
+          <p class="industry-desc">
+            Microscopes, hematology analyzers, automated sample centrifuges, and specimen cold-chain temperature monitoring units.
+          </p>
+          <ul class="industry-specs">
+            <li><i class="fa-solid fa-check"></i> ISO 15189 compliance calibration</li>
+            <li><i class="fa-solid fa-check"></i> Real-time digital test telemetry</li>
+          </ul>
+          <a href="error.html" class="industry-card-btn">
+            <span>Explore Lab Technology</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 4: Elder Care -->
+      <div class="industry-card" data-industry="eldercare">
+        <div class="industry-card-overlay"></div>
+        <div class="industry-collapsed-view">
+          <div class="industry-icon-wrap">
+            <i class="fa-solid fa-house-medical"></i>
+          </div>
+          <span class="industry-short-title">Elder Care</span>
+        </div>
+        <div class="industry-expanded-view">
+          <span class="industry-tier-tag">Assisted Living Facilities</span>
+          <h3 class="industry-full-title">ELDER CARE</h3>
+          <p class="industry-desc">
+            Ergonomic mobility equipment, fall-prevention low beds, oxygen concentrators, and non-slip clinical hygiene facilities.
+          </p>
+          <ul class="industry-specs">
+            <li><i class="fa-solid fa-check"></i> Ultra-quiet continuous oxygen delivery</li>
+            <li><i class="fa-solid fa-check"></i> Pressure-relieving dynamic mattresses</li>
+          </ul>
+          <a href="error.html" class="industry-card-btn">
+            <span>Explore Care Systems</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 5: Home Care -->
+      <div class="industry-card" data-industry="homecare">
+        <div class="industry-card-overlay"></div>
+        <div class="industry-collapsed-view">
+          <div class="industry-icon-wrap">
+            <i class="fa-solid fa-user-doctor"></i>
+          </div>
+          <span class="industry-short-title">Home Care</span>
+        </div>
+        <div class="industry-expanded-view">
+          <span class="industry-tier-tag">Residential Healthcare</span>
+          <h3 class="industry-full-title">HOME CARE</h3>
+          <p class="industry-desc">
+            Portable nebulizers, assistive rehabilitation gear, direct-to-doorstep patient dispatch, and family caregiver operation setup.
+          </p>
+          <ul class="industry-specs">
+            <li><i class="fa-solid fa-check"></i> Portable 5L/10L oxygen units</li>
+            <li><i class="fa-solid fa-check"></i> Direct technician home handover</li>
+          </ul>
+          <a href="error.html" class="industry-card-btn">
+            <span>Explore Home Support</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Integrated Final Conversion CTA Capsule -->
+    <div class="services-final-cta-capsule industries-reveal">
+      <div class="cta-capsule-glow glow-left" aria-hidden="true"></div>
+      <div class="cta-capsule-glow glow-right" aria-hidden="true"></div>
+
+      <div class="cta-content-wrapper">
+        <span class="cta-eyebrow-pill">
+          <i class="fa-solid fa-bolt"></i> Fast-Track Facility Onboarding
+        </span>
+        <h3 class="cta-headline">READY TO EQUIP YOUR FACILITY?</h3>
+        <p class="cta-subtext">
+          Speak with our certified bio-engineers to finalize volume supply pricing, regulatory certifications, and turnkey setup schedules.
+        </p>
+
+        <div class="cta-button-group">
+          <a href="error.html" class="btn btn-primary cta-solid-btn">
+            <span>Request Full Facility Proposal</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="error.html" class="btn btn-outline cta-outline-btn">
+            <i class="fa-solid fa-headset"></i>
+            <span>Speak With a Specialist</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+    <!-- ==================== FOOTER SECTION ==================== -->
+    <footer class="site-footer" id="siteFooter">
+        <div class="container footer-container">
+
+            <!-- Brand & Socials -->
+            <div class="footer-col footer-col-brand">
+                <a href="index.html" class="footer-logo">
+                    <img src="./assets/logo 23.webp" alt="logo" width="150px" height="50px">
+                </a>
+                <p class="footer-bio">
+                    Premium medical equipment and supplies for hospitals, clinics, and home healthcare.
+                </p>
+                <div class="footer-socials">
+                    <a href="error.html" class="social-link" aria-label="LinkedIn"><i
+                            class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="error.html" class="social-link" aria-label="Twitter"><i
+                            class="fa-brands fa-x-twitter"></i></a>
+                    <a href="error.html" class="social-link" aria-label="Facebook"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="error.html" class="social-link" aria-label="YouTube"><i
+                            class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-col">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-nav-list">
+                    <li><a href="index.html" class="footer-nav-link">Home</a></li>
+                    <li><a href="about.html" class="footer-nav-link">About</a></li>
+                    <li><a href="services.html" class="footer-nav-link">Services</a></li>
+                    <li><a href="shop.html" class="footer-nav-link">Shop</a></li>
+                    <li><a href="contact.html" class="footer-nav-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Categories -->
+            <div class="footer-col">
+                <h4 class="footer-heading">Categories</h4>
+                <ul class="footer-links-list">
+                    <li><a href="shop.html">Diagnostics</a></li>
+                    <li><a href="shop.html">Surgical Units</a></li>
+                    <li><a href="shop.html">Patient Monitor</a></li>
+                    <li><a href="shop.html">Hospital Beds</a></li>
+                    <li><a href="shop.html">Consumables</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-col">
+                <h4 class="footer-heading">Contact Us</h4>
+                <ul class="footer-contact-list">
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>450 Innovation Parkway, Healthcare Hub, NY 10001</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+1 (800) 456-7890</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>support@medixen.com</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p class="copyright">&copy; 2026 MEDIXEN Healthcare. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="error.html">Privacy Policy</a>
+                    <span>&bull;</span>
+                    <a href="error.html">Terms of Service</a>
+                </div>
+            </div>
+            <div class="footer-watermark" aria-hidden="true">STACKLY</div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="script.js"></script>
+    <script src="services.js"></script>
+
+
+
+</body>
+
+</html>

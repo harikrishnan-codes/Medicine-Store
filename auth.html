@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MEDIXEN &bull; Authentication Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="auth.css" />
+</head>
+<body class="auth-body signup-theme" id="authBody">
+
+  <!-- Floating Brand Header -->
+  <header class="auth-top-brand">
+    <div class="brand-logo">
+      <i class="fa-solid fa-notes-medical brand-icon"></i>
+      <span class="brand-name">STACKLY <span>MEDIXEN</span></span>
+    </div>
+  </header>
+
+  <!-- ===================================================================
+       CONTAINER 1: SIGNUP SECTION (Initially Visible)
+       Themed around Surgical Operation Theater Backdrop
+       =================================================================== -->
+  <main class="auth-section active" id="signupSection">
+    <div class="auth-dual-wrapper">
+      
+      <!-- Left Narrative Column -->
+      <div class="auth-narrative-col">
+        <span class="narrative-tag">MEDIXEN ACCESS</span>
+        <h1 class="narrative-heading">
+          SIGN <span class="highlight-cyan">UP</span><br>
+          FIND YOUR OWN WAY
+        </h1>
+        <p class="narrative-desc">
+          Schedule, explore clinical plant inventories in just a few clicks. Interactive layer seamlessly connecting hospital wards and diagnostic devices directly to your workflow.
+        </p>
+        <div class="narrative-features">
+          <div class="feat-item"><i class="fa-solid fa-shield-halved"></i> ISO 13485 Encrypted Hub</div>
+          <div class="feat-item"><i class="fa-solid fa-bolt"></i> Instant Bio-Portal Access</div>
+        </div>
+      </div>
+
+      <!-- Right Form Glass Card -->
+      <div class="auth-card-glass">
+        <h2 class="card-title">SIGNUP</h2>
+
+        <!-- Custom Role Switcher (No select/option tags used) -->
+        <div class="custom-role-selector">
+          <label class="role-field-label">Select Account Role*</label>
+          <div class="role-pill-group" id="rolePillGroup">
+            <button type="button" class="role-pill-btn active" data-role="client">
+              <i class="fa-solid fa-user-doctor"></i>
+              <span>Client User</span>
+            </button>
+            <button type="button" class="role-pill-btn" data-role="admin">
+              <i class="fa-solid fa-user-shield"></i>
+              <span>Admin Specialist</span>
+            </button>
+          </div>
+          <input type="hidden" id="signupRole" value="client" />
+        </div>
+
+        <form class="auth-form" id="signupForm" novalidate>
+          
+          <!-- Full Name -->
+          <div class="auth-input-group" id="groupSignupName">
+            <input type="text" id="signupName" class="auth-input" placeholder="Full Name" autocomplete="off" />
+            <span class="auth-error-text" id="errSignupName"></span>
+          </div>
+
+          <!-- Email Address -->
+          <div class="auth-input-group" id="groupSignupEmail">
+            <input type="email" id="signupEmail" class="auth-input" placeholder="Email Address" autocomplete="off" />
+            <span class="auth-error-text" id="errSignupEmail"></span>
+          </div>
+
+          <!-- Password with Toggle Eye -->
+          <div class="auth-input-group password-group" id="groupSignupPass">
+            <input type="password" id="signupPass" class="auth-input" placeholder="Password (Min 6 chars)" autocomplete="off" />
+            <button type="button" class="eye-toggle-btn" data-target="signupPass" aria-label="Toggle password visibility">
+              <i class="fa-solid fa-eye-slash"></i>
+            </button>
+            <span class="auth-error-text" id="errSignupPass"></span>
+          </div>
+
+          <!-- Confirm Password with Toggle Eye -->
+          <div class="auth-input-group password-group" id="groupSignupConfirmPass">
+            <input type="password" id="signupConfirmPass" class="auth-input" placeholder="Confirm Password" autocomplete="off" />
+            <button type="button" class="eye-toggle-btn" data-target="signupConfirmPass" aria-label="Toggle confirm password visibility">
+              <i class="fa-solid fa-eye-slash"></i>
+            </button>
+            <span class="auth-error-text" id="errSignupConfirmPass"></span>
+          </div>
+
+          <!-- Status Message -->
+          <div class="auth-status-slot" id="signupStatus"></div>
+
+          <!-- Action Buttons -->
+          <button type="submit" class="btn btn-teal-submit" id="btnSubmitSignup">
+            <span>Sign Up</span>
+          </button>
+
+          <div class="auth-switch-prompt">
+            <span>Already have an account?</span>
+            <button type="button" class="link-switch" id="toLoginBtn">Log In</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+
+  <!-- ===================================================================
+       CONTAINER 2: LOGIN SECTION
+       Themed around Ambient Clinical Mint/Ice Surface Backdrop
+       =================================================================== -->
+  <main class="auth-section" id="loginSection">
+    <div class="auth-card-glass login-card">
+      <h2 class="card-title text-center">LOGIN TO YOUR ACCOUNT</h2>
+
+      <form class="auth-form" id="loginForm" novalidate>
+        
+        <!-- Full Name (Strict Alphabets Validation) -->
+        <div class="auth-input-group" id="groupLoginName">
+          <input type="text" id="loginName" class="auth-input" placeholder="User Name (Alphabets only)" autocomplete="off" />
+          <span class="auth-error-text" id="errLoginName"></span>
+        </div>
+
+        <!-- Email Address -->
+        <div class="auth-input-group" id="groupLoginEmail">
+          <input type="email" id="loginEmail" class="auth-input" placeholder="Email Address" autocomplete="off" />
+          <span class="auth-error-text" id="errLoginEmail"></span>
+        </div>
+
+        <!-- Password with Toggle Eye -->
+        <div class="auth-input-group password-group" id="groupLoginPass">
+          <input type="password" id="loginPass" class="auth-input" placeholder="Password (Min 6 chars)" autocomplete="off" />
+          <button type="button" class="eye-toggle-btn" data-target="loginPass" aria-label="Toggle password visibility">
+            <i class="fa-solid fa-eye-slash"></i>
+          </button>
+          <span class="auth-error-text" id="errLoginPass"></span>
+        </div>
+
+        <!-- Options: Remember Me & Forgot Password -->
+        <div class="auth-extra-row">
+          <label class="custom-checkbox-wrap">
+            <input type="checkbox" id="rememberMeCheckbox" />
+            <span class="checkbox-box"><i class="fa-solid fa-check"></i></span>
+            <span class="checkbox-label">Remember me</span>
+          </label>
+          <button type="button" class="link-switch forgot-link" id="toForgotBtn">Forgot password?</button>
+        </div>
+
+        <!-- Status Message -->
+        <div class="auth-status-slot" id="loginStatus"></div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-navy-submit" id="btnSubmitLogin">
+          <span>Log In</span>
+        </button>
+
+        <!-- Alternative Auth Separator -->
+        <div class="auth-divider">
+          <span>Instant Login</span>
+        </div>
+
+        <div class="social-login-group">
+          <a href="error.html" class="social-auth-btn">
+            <i class="fa-brands fa-google"></i>
+            <span>Continue with Google</span>
+          </a>
+          <a href="error.html" class="social-auth-btn">
+            <i class="fa-brands fa-microsoft"></i>
+            <span>Continue with Microsoft</span>
+          </a>
+        </div>
+
+        <div class="auth-switch-prompt">
+          <span>Don't have an account?</span>
+          <button type="button" class="link-switch" id="toSignupBtn">Sign up</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+
+  <!-- ===================================================================
+       CONTAINER 3: FORGOT PASSWORD SECTION
+       Validates proper email, then redirects to existing error.html
+       =================================================================== -->
+  <main class="auth-section" id="forgotSection">
+    <div class="auth-card-glass login-card">
+      <h2 class="card-title text-center">RESET PASSWORD</h2>
+      <p class="forgot-instructions">
+        Enter the registered hospital or staff email address associated with your Medixen account. We will dispatch an OTP reset link.
+      </p>
+
+      <form class="auth-form" id="forgotForm" novalidate>
+        
+        <!-- Registered Email -->
+        <div class="auth-input-group" id="groupForgotEmail">
+          <input type="email" id="forgotEmail" class="auth-input" placeholder="Registered Email Address" autocomplete="off" />
+          <span class="auth-error-text" id="errForgotEmail"></span>
+        </div>
+
+        <!-- Status Message -->
+        <div class="auth-status-slot" id="forgotStatus"></div>
+
+        <button type="submit" class="btn btn-navy-submit" id="btnSubmitForgot">
+          <span>Send Reset Instructions</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+        <div class="auth-switch-prompt text-center">
+          <button type="button" class="link-switch" id="backToLoginFromForgot">
+            <i class="fa-solid fa-arrow-left"></i> Back to Log In
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <script>
+
+/* ==========================================================================
+   MEDIXEN PORTAL: SIGNUP, LOGIN, FORGOT PASSWORD & ROLE PERSISTENCE
+   ========================================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.getElementById("authBody");
+
+  // Sections
+  const signupSection = document.getElementById("signupSection");
+  const loginSection = document.getElementById("loginSection");
+  const forgotSection = document.getElementById("forgotSection");
+
+  // Switch Links
+  const toLoginBtn = document.getElementById("toLoginBtn");
+  const toSignupBtn = document.getElementById("toSignupBtn");
+  const toForgotBtn = document.getElementById("toForgotBtn");
+  const backToLoginFromForgot = document.getElementById("backToLoginFromForgot");
+
+  // Custom Role Selector (Signup)
+  const rolePillBtns = document.querySelectorAll(".role-pill-btn");
+  const signupRoleInput = document.getElementById("signupRole");
+
+  // Eye Toggles
+  const eyeToggleBtns = document.querySelectorAll(".eye-toggle-btn");
+
+  // Forms
+  const signupForm = document.getElementById("signupForm");
+  const loginForm = document.getElementById("loginForm");
+  const forgotForm = document.getElementById("forgotForm");
+
+  /* =======================================================================
+     1. VIEW SWITCHING & DYNAMIC THEMES
+     - Signup: Surgical OT dark background
+     - Login / Forgot: Mint/Ice Blue clinical surface
+     ======================================================================= */
+  function showSection(targetSection) {
+    [signupSection, loginSection, forgotSection].forEach((sec) => {
+      sec.classList.remove("active");
+    });
+
+    targetSection.classList.add("active");
+
+    if (targetSection === signupSection) {
+      body.classList.remove("login-theme");
+      body.classList.add("signup-theme");
+    } else {
+      body.classList.remove("signup-theme");
+      body.classList.add("login-theme");
+    }
+  }
+
+  if (toLoginBtn) {
+    toLoginBtn.addEventListener("click", () => showSection(loginSection));
+  }
+  if (toSignupBtn) {
+    toSignupBtn.addEventListener("click", () => showSection(signupSection));
+  }
+  if (toForgotBtn) {
+    toForgotBtn.addEventListener("click", () => showSection(forgotSection));
+  }
+  if (backToLoginFromForgot) {
+    backToLoginFromForgot.addEventListener("click", () => showSection(loginSection));
+  }
+
+  /* =======================================================================
+     2. CUSTOM ROLE SELECTOR (NO SELECT TAGS)
+     ======================================================================= */
+  rolePillBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      rolePillBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      const selectedRole = btn.getAttribute("data-role");
+      if (signupRoleInput) {
+        signupRoleInput.value = selectedRole;
+      }
+    });
+  });
+
+  /* =======================================================================
+     3. PASSWORD VISIBILITY TOGGLE (EYE SYMBOL)
+     ======================================================================= */
+  eyeToggleBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const targetId = btn.getAttribute("data-target");
+      const inputEl = document.getElementById(targetId);
+      const icon = btn.querySelector("i");
+
+      if (!inputEl) return;
+
+      if (inputEl.type === "password") {
+        inputEl.type = "text";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+      } else {
+        inputEl.type = "password";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+      }
+    });
+  });
+
+  /* =======================================================================
+     4. INPUT FILTERS & ERROR UTILITIES
+     ======================================================================= */
+  function setInputError(inputEl, errorTextEl, message) {
+    const parentGroup = inputEl.closest(".auth-input-group");
+    if (parentGroup) {
+      parentGroup.classList.remove("shake-error");
+      void parentGroup.offsetWidth; // Reflow for shake
+      parentGroup.classList.add("shake-error");
+    }
+    if (errorTextEl) {
+      errorTextEl.textContent = message;
+    }
+  }
+
+  function clearInputError(inputEl, errorTextEl) {
+    const parentGroup = inputEl.closest(".auth-input-group");
+    if (parentGroup) parentGroup.classList.remove("shake-error");
+    if (errorTextEl) errorTextEl.textContent = "";
+  }
+
+  // Strict Alphabet-Only Input Restriction (Blocks numbers & symbols)
+  function attachAlphabetOnlyGuard(inputEl, errorTextEl) {
+    if (!inputEl) return;
+
+    inputEl.addEventListener("input", () => {
+      const sanitized = inputEl.value.replace(/[^a-zA-Z\s]/g, "");
+      if (inputEl.value !== sanitized) {
+        inputEl.value = sanitized;
+      }
+      clearInputError(inputEl, errorTextEl);
+    });
+
+    inputEl.addEventListener("keydown", (e) => {
+      const allowed = ["Backspace", "Tab", "ArrowLeft", "ArrowRight", "Delete", "Escape", "Enter"];
+      if (allowed.includes(e.key) || e.ctrlKey || e.metaKey) return;
+      if (!/^[a-zA-Z\s]$/.test(e.key)) {
+        e.preventDefault();
+      }
+    });
+  }
+
+  // Attach guards to name fields
+  const signupName = document.getElementById("signupName");
+  const errSignupName = document.getElementById("errSignupName");
+  attachAlphabetOnlyGuard(signupName, errSignupName);
+
+  const loginName = document.getElementById("loginName");
+  const errLoginName = document.getElementById("errLoginName");
+  attachAlphabetOnlyGuard(loginName, errLoginName);
+
+  // Email format regex
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  /* =======================================================================
+     5. SIGNUP FORM VALIDATION
+     On success: saves credentials & role to localStorage -> switches to Login
+     ======================================================================= */
+  const signupEmail = document.getElementById("signupEmail");
+  const errSignupEmail = document.getElementById("errSignupEmail");
+  const signupPass = document.getElementById("signupPass");
+  const errSignupPass = document.getElementById("errSignupPass");
+  const signupConfirmPass = document.getElementById("signupConfirmPass");
+  const errSignupConfirmPass = document.getElementById("errSignupConfirmPass");
+  const signupStatus = document.getElementById("signupStatus");
+
+  // Live clear on input
+  [
+    { el: signupEmail, err: errSignupEmail },
+    { el: signupPass, err: errSignupPass },
+    { el: signupConfirmPass, err: errSignupConfirmPass }
+  ].forEach(({ el, err }) => {
+    if (el) {
+      el.addEventListener("input", () => clearInputError(el, err));
+    }
+  });
+
+  if (signupForm) {
+    signupForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let isValid = true;
+      signupStatus.innerHTML = "";
+
+      // 1. Name Check (Alphabets, min 2)
+      const nameVal = signupName.value.trim();
+      if (!nameVal || nameVal.length < 2 || !/^[a-zA-Z\s]+$/.test(nameVal)) {
+        setInputError(signupName, errSignupName, "Name must contain alphabets only (min 2 chars).");
+        isValid = false;
+      } else {
+        clearInputError(signupName, errSignupName);
+      }
+
+      // 2. Email Check
+      const emailVal = signupEmail.value.trim();
+      if (!emailVal || !emailRegex.test(emailVal)) {
+        setInputError(signupEmail, errSignupEmail, "Enter a valid email address format (e.g. name@domain.com).");
+        isValid = false;
+      } else {
+        clearInputError(signupEmail, errSignupEmail);
+      }
+
+      // 3. Password Check (Minimum 6 digits/characters)
+      const passVal = signupPass.value;
+      if (!passVal || passVal.length < 6) {
+        setInputError(signupPass, errSignupPass, "Password must be at least 6 characters long.");
+        isValid = false;
+      } else {
+        clearInputError(signupPass, errSignupPass);
+      }
+
+      // 4. Confirm Password Match
+      const confirmPassVal = signupConfirmPass.value;
+      if (confirmPassVal !== passVal) {
+        setInputError(signupConfirmPass, errSignupConfirmPass, "Passwords do not match.");
+        isValid = false;
+      } else {
+        clearInputError(signupConfirmPass, errSignupConfirmPass);
+      }
+
+      if (!isValid) return;
+
+      // Persist registered user into localStorage for login verification
+      const role = signupRoleInput ? signupRoleInput.value : "client";
+      const userData = {
+        name: nameVal,
+        email: emailVal.toLowerCase(),
+        password: passVal,
+        role: role
+      };
+
+      localStorage.setItem("medixen_user_" + emailVal.toLowerCase(), JSON.stringify(userData));
+      localStorage.setItem("medixen_last_registered_email", emailVal.toLowerCase());
+
+      // Show success message and redirect to login page section
+      signupStatus.innerHTML = `
+        <div class="status-feedback success">
+          <i class="fa-solid fa-circle-check"></i>
+          Account registered! Switching to Login...
+        </div>
+      `;
+
+      setTimeout(() => {
+        // Pre-fill Login Email
+        if (loginEmail) loginEmail.value = emailVal;
+        if (loginName) loginName.value = nameVal;
+        signupStatus.innerHTML = "";
+        showSection(loginSection);
+      }, 1200);
+    });
+  }
+
+  /* =======================================================================
+     6. LOGIN FORM VALIDATION & DASHBOARD ROUTING
+     Routes to:
+       - admin-dashboard.html (if role === 'admin')
+       - client-dashboard.html (if role === 'client')
+     Stores logged-in user email into localStorage("medixen_current_user_email")
+     ======================================================================= */
+  const loginPass = document.getElementById("loginPass");
+  const errLoginPass = document.getElementById("errLoginPass");
+  const loginStatus = document.getElementById("loginStatus");
+
+  [
+    { el: loginEmail, err: errLoginEmail },
+    { el: loginPass, err: errLoginPass }
+  ].forEach(({ el, err }) => {
+    if (el) {
+      el.addEventListener("input", () => clearInputError(el, err));
+    }
+  });
+
+  if (loginForm) {
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let isValid = true;
+      loginStatus.innerHTML = "";
+
+      // 1. Name Validation (Alphabets only)
+      const nameVal = loginName.value.trim();
+      if (!nameVal || nameVal.length < 2 || !/^[a-zA-Z\s]+$/.test(nameVal)) {
+        setInputError(loginName, errLoginName, "Enter alphabets only (min 2 chars).");
+        isValid = false;
+      } else {
+        clearInputError(loginName, errLoginName);
+      }
+
+      // 2. Email Validation
+      const emailVal = loginEmail.value.trim().toLowerCase();
+      if (!emailVal || !emailRegex.test(emailVal)) {
+        setInputError(loginEmail, errLoginEmail, "Enter a valid email address.");
+        isValid = false;
+      } else {
+        clearInputError(loginEmail, errLoginEmail);
+      }
+
+      // 3. Password Validation (Min 6 chars)
+      const passVal = loginPass.value;
+      if (!passVal || passVal.length < 6) {
+        setInputError(loginPass, errLoginPass, "Password must be at least 6 characters.");
+        isValid = false;
+      } else {
+        clearInputError(loginPass, errLoginPass);
+      }
+
+      if (!isValid) return;
+
+      // Check registered profile from localStorage
+      const storedRaw = localStorage.getItem("medixen_user_" + emailVal);
+      let assignedRole = "client";
+
+      if (storedRaw) {
+        const storedUser = JSON.parse(storedRaw);
+        if (storedUser.password !== passVal) {
+          setInputError(loginPass, errLoginPass, "Incorrect password. Please verify.");
+          return;
+        }
+        assignedRole = storedUser.role || "client";
+      } else {
+        // If not registered in current session, check admin keywords in email
+        if (emailVal.includes("admin")) {
+          assignedRole = "admin";
+        }
+      }
+
+      // Store active session email and display name for dashboard pages
+      localStorage.setItem("medixen_current_user_email", emailVal);
+      localStorage.setItem("medixen_current_user_name", nameVal);
+      localStorage.setItem("medixen_current_user_role", assignedRole);
+
+      loginStatus.innerHTML = `
+        <div class="status-feedback success">
+          <i class="fa-solid fa-circle-check"></i>
+          Authentication verified. Redirecting to ${assignedRole.toUpperCase()} Dashboard...
+        </div>
+      `;
+
+      // Redirect to respective dashboard page after validation
+      setTimeout(() => {
+        if (assignedRole === "admin") {
+          window.location.href = `admin-dashboard.html?email=${encodeURIComponent(emailVal)}`;
+        } else {
+          window.location.href = `client-dashboard.html?email=${encodeURIComponent(emailVal)}`;
+        }
+      }, 1200);
+    });
+  }
+
+  /* =======================================================================
+     7. FORGOT PASSWORD VALIDATION -> REDIRECT TO ERROR.HTML
+     ======================================================================= */
+  const forgotEmail = document.getElementById("forgotEmail");
+  const errForgotEmail = document.getElementById("errForgotEmail");
+  const forgotStatus = document.getElementById("forgotStatus");
+
+  if (forgotEmail) {
+    forgotEmail.addEventListener("input", () => clearInputError(forgotEmail, errForgotEmail));
+  }
+
+  if (forgotForm) {
+    forgotForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const val = forgotEmail.value.trim();
+
+      if (!val || !emailRegex.test(val)) {
+        setInputError(forgotEmail, errForgotEmail, "Enter a valid registered email address.");
+        return;
+      }
+
+      clearInputError(forgotEmail, errForgotEmail);
+
+      forgotStatus.innerHTML = `
+        <div class="status-feedback success">
+          <i class="fa-solid fa-circle-check"></i>
+          Reset link dispatched! Redirecting...
+        </div>
+      `;
+
+      // Redirect to existing error.html page after validation
+      setTimeout(() => {
+        window.location.href = `error.html?action=reset_password&email=${encodeURIComponent(val)}`;
+      }, 1200);
+    });
+  }
+});
+
+  </script>
+
+
+
+</body>
+</html>

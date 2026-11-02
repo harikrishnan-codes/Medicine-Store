@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medical Equipment Store</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <link rel="icon" href="./assets/logo.webp" />
+    <link rel="stylesheet" href="root.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="about.css" />
+
+</head>
+
+<body class="is-loading">
+
+    <!-- ==================== PRELOADER ==================== -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-pulse-box">
+                <div class="pulse-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                <svg class="ecg-svg" viewBox="0 0 300 100" fill="none">
+                    <path class="ecg-path" d="M0,50 L70,50 L85,20 L100,80 L115,30 L130,65 L145,50 L300,50" />
+                </svg>
+            </div>
+            <div class="preloader-brand">STACKLY</div>
+            <div class="preloader-status">Preparing medical equipment catalog...</div>
+        </div>
+    </div>
+
+    <!-- ==================== HEADER NAVBAR ==================== -->
+    <header class="site-header" id="header">
+        <div class="container header-container">
+            <!-- Logo -->
+            <a href="index.html" class="brand-logo">
+                <img src="./assets/logo 12.webp" alt="logo" width="150px" height="50px">
+            </a>
+
+            <!-- Desktop Navigation Menu -->
+            <nav class="desktop-nav" aria-label="Main Navigation">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="shop.html" class="nav-link">Shop</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Right Header Actions -->
+            <div class="header-actions">
+                <button class="icon-btn search-toggle" aria-label="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <div class="header-auth-btns">
+                    <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+                    <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+                </div>
+
+                <!-- Hamburger Button -->
+                <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="bar line-1"></span>
+                    <span class="bar line-2"></span>
+                    <span class="bar line-3"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Overlay -->
+    <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+
+    <!-- Mobile Drawer Menu -->
+    <aside class="mobile-drawer" id="mobileDrawer">
+        <div class="mobile-drawer-header">
+            <a href="index.html" class="brand-logo">
+                <img src="./assets/logo 12.webp" alt="logo" width="150px" height="50px">
+            </a>
+            <button class="close-drawer-btn" id="closeDrawerBtn" aria-label="Close menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- Scrollable middle list area -->
+        <div class="mobile-drawer-body">
+            <nav class="mobile-nav">
+                <ul class="mobile-nav-list">
+                    <li><a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li><a href="about.html" class="mobile-nav-link"><i class="fa-solid fa-circle-info"></i> About</a>
+                    </li>
+                    <li><a href="services.html" class="mobile-nav-link"><i class="fa-solid fa-stethoscope"></i>
+                            Services</a></li>
+                    <li><a href="shop.html" class="mobile-nav-link"><i class="fa-solid fa-store"></i> Shop</a></li>
+                    <li><a href="contact.html" class="mobile-nav-link"><i class="fa-solid fa-envelope"></i> Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Fixed/Pinned Login & Sign Up Actions -->
+        <div class="mobile-drawer-footer">
+            <a href="login.html" class="btn btn-secondary w-full">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i> Login
+            </a>
+            <a href="signup.html" class="btn btn-primary w-full">
+                <i class="fa-solid fa-user-plus"></i> Sign Up
+            </a>
+        </div>
+    </aside>
+
+
+
+
+
+
+
+<!-- ==================== ABOUT PAGE HERO SECTION ==================== -->
+<section class="about-hero-section" id="about-hero">
+  <!-- Ambient Gradient Glow Effects matching the image -->
+  <div class="hero-radial-glow glow-cyan" aria-hidden="true"></div>
+  <div class="hero-radial-glow glow-blue" aria-hidden="true"></div>
+
+  <div class="container about-hero-container">
+    
+    <!-- Top Main Headline -->
+    <div class="about-hero-header">
+      <h1 class="about-hero-title">
+        EQUIPPING CARE <br>
+        WITH <span class="highlight-cyan">PRECISION</span> <br>
+        AND TRUST
+      </h1>
+    </div>
+
+    <!-- Thin Divider Line from Image -->
+    <div class="about-hero-divider"></div>
+
+    <!-- Bottom Split Row: Description on Left & Action Buttons on Right -->
+    <div class="about-hero-bottom-row">
+      
+      <div class="about-hero-text-col">
+        <p class="about-hero-desc">
+          Delivering reliable medical equipment and innovative healthcare solutions that empower professionals to provide exceptional patient care.
+        </p>
+        <span class="about-hero-caption">
+          Precision engineering for clinics, hospitals, and surgical theaters.
+        </span>
+      </div>
+
+      <div class="about-hero-actions-col">
+        <a href="error.html" class="btn btn-primary hero-glow-btn">
+          <span>Explore Products</span>
+        </a>
+        <a href="error.html" class="btn btn-outline hero-ghost-btn">
+          <span>Contact Our Team</span>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ==================== ABOUT: OUR STORY SECTION ==================== -->
+<section class="about-story-section" id="story">
+  <div class="container about-story-container">
+    
+    <!-- Left Column: Story Content -->
+    <div class="story-content-col story-reveal">
+      <span class="story-eyebrow">&bull; OUR STORY</span>
+      
+      <h2 class="story-heading">
+        BUILT ON TRUST. <br>
+        DRIVEN BY BETTER <br>
+        HEALTHCARE.
+      </h2>
+
+      <p class="story-desc">
+        Stackly is committed to outfitting dependable medical equipment, scalability logistics for clinical suites, and responsive bio-technical support. We stand behind every serial number we deliver.
+      </p>
+
+      <!-- 3 Pill Badges from Image -->
+      <div class="story-badges-row">
+        <div class="story-pill-badge">
+          <i class="fa-solid fa-medal"></i>
+          <span>Medical Quality</span>
+        </div>
+        <div class="story-pill-badge">
+          <i class="fa-solid fa-boxes-packing"></i>
+          <span>Scalable Supply</span>
+        </div>
+        <div class="story-pill-badge">
+          <i class="fa-solid fa-stethoscope"></i>
+          <span>Direct Bio-Bio Support</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Interactive Collage Gallery with Focus Hover Effect -->
+    <div class="story-gallery-col story-reveal">
+      <div class="story-collage-wrapper" id="storyCollage">
+        
+        <!-- Image Card 1: Operating Doctor -->
+        <div class="collage-card card-doctor">
+          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=700&q=80" alt="Specialist Doctor in Surgery" class="collage-img">
+        </div>
+
+        <!-- Image Card 2: Medical Specialists Group -->
+        <div class="collage-card card-team">
+          <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=700&q=80" alt="Clinical Diagnostics Team" class="collage-img">
+        </div>
+
+        <!-- Image Card 3: Surgical Stainless Instruments -->
+        <div class="collage-card card-instruments">
+          <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80" alt="Sterile Surgical Instruments" class="collage-img">
+        </div>
+
+        <!-- Floating Stat Badge 1: 75+ Partner Clinics -->
+        <div class="collage-stat-badge stat-top-right">
+          <strong class="stat-number">75+</strong>
+          <span class="stat-label">Partner Clinics</span>
+        </div>
+
+        <!-- Floating Stat Badge 2: 80% Standard Delivery -->
+        <div class="collage-stat-badge stat-center-left">
+          <strong class="stat-number">80%</strong>
+          <span class="stat-label">Standard Delivery</span>
+        </div>
+
+        <!-- Floating Stat Badge 3: 24/7 Hotline -->
+        <div class="collage-stat-badge stat-bottom-right">
+          <strong class="stat-number">24/7</strong>
+          <span class="stat-label">Service Hotline</span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ==================== ABOUT: CORE VALUES SECTION ==================== -->
+<section class="about-values-section" id="values">
+  <div class="container">
+    
+    <!-- Section Heading -->
+    <div class="values-header values-reveal">
+      <span class="values-eyebrow">&bull; CORE VALUES</span>
+      <h2 class="values-heading">THE VALUES BEHIND EVERY SOLUTION</h2>
+    </div>
+
+    <!-- 4 Core Values Grid -->
+    <div class="values-grid">
+      
+      <!-- Value 01: Quality -->
+      <div class="value-card values-reveal">
+        <div class="value-watermark-num">01</div>
+        <div class="value-icon-box">
+          <i class="fa-solid fa-ribbon"></i>
+        </div>
+        <div class="value-body">
+          <h3 class="value-title">Quality</h3>
+          <p class="value-desc">
+            Procuring only verified products with traceable certification standards.
+          </p>
+        </div>
+        <div class="value-accent-line" aria-hidden="true"></div>
+      </div>
+
+      <!-- Value 02: Integrity -->
+      <div class="value-card values-reveal">
+        <div class="value-watermark-num">02</div>
+        <div class="value-icon-box">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <div class="value-body">
+          <h3 class="value-title">Integrity</h3>
+          <p class="value-desc">
+            Building relationships through transparency and reliable execution.
+          </p>
+        </div>
+        <div class="value-accent-line" aria-hidden="true"></div>
+      </div>
+
+      <!-- Value 03: Care -->
+      <div class="value-card values-reveal">
+        <div class="value-watermark-num">03</div>
+        <div class="value-icon-box">
+          <i class="fa-solid fa-heart-pulse"></i>
+        </div>
+        <div class="value-body">
+          <h3 class="value-title">Care</h3>
+          <p class="value-desc">
+            Understanding the real-world needs of healthcare providers and patients.
+          </p>
+        </div>
+        <div class="value-accent-line" aria-hidden="true"></div>
+      </div>
+
+      <!-- Value 04: Reliability -->
+      <div class="value-card values-reveal">
+        <div class="value-watermark-num">04</div>
+        <div class="value-icon-box">
+          <i class="fa-solid fa-headset"></i>
+        </div>
+        <div class="value-body">
+          <h3 class="value-title">Reliability</h3>
+          <p class="value-desc">
+            Providing dependable solutions with continuous responsive support.
+          </p>
+        </div>
+        <div class="value-accent-line" aria-hidden="true"></div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ==================== ABOUT: QUALITY & CERTIFICATION SECTION ==================== -->
+<section class="about-quality-section" id="compliance">
+  <div class="container">
+    
+    <!-- Section Header -->
+    <div class="quality-header quality-reveal">
+      <span class="quality-eyebrow">&bull; QUALITY &amp; CERTIFICATION</span>
+      <h2 class="quality-heading">QUALITY YOU CAN DEPEND ON</h2>
+      <p class="quality-subtext">
+        We prioritize product reliability, clinical suitability, and absolute regulatory compliance to support reliable patient care environments.
+      </p>
+    </div>
+
+    <!-- 5 Circular Proof Photos from Shared Image -->
+    <div class="quality-circles-gallery quality-reveal">
+      <div class="circle-item">
+        <div class="circle-img-wrap">
+          <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=400&q=80" alt="Biomedical Factory Inspection" class="circle-img">
+        </div>
+      </div>
+
+      <div class="circle-item">
+        <div class="circle-img-wrap">
+          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80" alt="Clinical Documentation Pass" class="circle-img">
+        </div>
+      </div>
+
+      <div class="circle-item">
+        <div class="circle-img-wrap">
+          <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=400&q=80" alt="Stethoscope & Diagnosis Tools" class="circle-img">
+        </div>
+      </div>
+
+      <div class="circle-item">
+        <div class="circle-img-wrap">
+          <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=400&q=80" alt="Framed ISO Certificates" class="circle-img">
+        </div>
+      </div>
+
+      <div class="circle-item">
+        <div class="circle-img-wrap">
+          <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80" alt="Staff Accreditation Handover" class="circle-img">
+        </div>
+      </div>
+    </div>
+
+    <!-- Thin Divider Text Note -->
+    <div class="quality-cert-note quality-reveal">
+      <span>Every item from our inventory passes rigorous multi-point validation to ensure strict hospital safety.</span>
+    </div>
+
+    <!-- 4-Step Animated Flow Process (01 -> 04) -->
+    <div class="flow-pipeline-container quality-reveal">
+      
+      <!-- Flow Connecting Pipeline Track -->
+      <div class="flow-track-line" aria-hidden="true">
+        <div class="flow-progress-fill" id="flowProgressLine"></div>
+      </div>
+
+      <!-- 4 Process Nodes -->
+      <div class="flow-steps-grid">
+        
+        <!-- Step 01 -->
+        <div class="flow-step-node" data-step="1">
+          <div class="node-circle-badge">
+            <span class="node-num">01</span>
+            <div class="node-pulse-ring"></div>
+          </div>
+          <div class="node-content">
+            <h4 class="node-title">Supplier Sourcing</h4>
+            <p class="node-desc">
+              Rigorous manufacturer audits to guarantee only verified, certified medical-grade supply lines.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 02 -->
+        <div class="flow-step-node" data-step="2">
+          <div class="node-circle-badge">
+            <span class="node-num">02</span>
+            <div class="node-pulse-ring"></div>
+          </div>
+          <div class="node-content">
+            <h4 class="node-title">Quality Checks</h4>
+            <p class="node-desc">
+              Pre-dispatch calibration checks ensuring all electronic components meet peak precision.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 03 -->
+        <div class="flow-step-node" data-step="3">
+          <div class="node-circle-badge">
+            <span class="node-num">03</span>
+            <div class="node-pulse-ring"></div>
+          </div>
+          <div class="node-content">
+            <h4 class="node-title">Traceability &amp; Warranty</h4>
+            <p class="node-desc">
+              Unique digital batch tracking, full calibration logs, and comprehensive warranty registration.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 04 -->
+        <div class="flow-step-node" data-step="4">
+          <div class="node-circle-badge">
+            <span class="node-num">04</span>
+            <div class="node-pulse-ring"></div>
+          </div>
+          <div class="node-content">
+            <h4 class="node-title">Regulatory Compliance</h4>
+            <p class="node-desc">
+              Complete adherence to local and international bio-engineering and hospital health guidelines.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ==================== ABOUT: PARTNERSHIPS SECTION ==================== -->
+<section class="about-partners-section" id="partners">
+  <div class="container">
+    
+    <!-- Section Header -->
+    <div class="partners-header partner-reveal">
+      <span class="partners-eyebrow">&bull; PARTNERSHIPS</span>
+      <h2 class="partners-heading">TRUSTED PARTNERSHIPS. <br>BETTER HEALTHCARE.</h2>
+      <p class="partners-subtext">
+        Collaborating with verified healthcare institutions, accredited clinics, and bio-engineering facilities nationwide.
+      </p>
+    </div>
+
+    <!-- 6 Partner Logo Grid Cards -->
+    <div class="partners-grid partner-reveal">
+      
+      <!-- Partner Card 1 -->
+      <div class="partner-card" data-tilt>
+        <div class="partner-card-glow"></div>
+        <div class="partner-badge-top">
+          <span class="pulse-dot"></span>
+          <span>Verified Network</span>
+        </div>
+        <div class="partner-brand-content">
+          <i class="fa-solid fa-hospital-user partner-icon"></i>
+          <span class="partner-name">Apex Trauma Care</span>
+        </div>
+        <span class="partner-tag">Level 1 Emergency</span>
+      </div>
+
+      <!-- Partner Card 2 -->
+      <div class="partner-card" data-tilt>
+        <div class="partner-card-glow"></div>
+        <div class="partner-badge-top">
+          <span class="pulse-dot"></span>
+          <span>Verified Network</span>
+        </div>
+        <div class="partner-brand-content">
+          <i class="fa-solid fa-heart-pulse partner-icon"></i>
+          <span class="partner-name">St. Jude Regional</span>
+        </div>
+        <span class="partner-tag">Cardiac Care Wing</span>
+      </div>
+
+      <!-- Partner Card 3 -->
+      <div class="partner-card" data-tilt>
+        <div class="partner-card-glow"></div>
+        <div class="partner-badge-top">
+          <span class="pulse-dot"></span>
+          <span>Verified Network</span>
+        </div>
+        <div class="partner-brand-content">
+          <i class="fa-solid fa-square-plus partner-icon"></i>
+          <span class="partner-name">Metro Health Lab</span>
+        </div>
+        <span class="partner-tag">Clinical Diagnostics</span>
+      </div>
+
+      <!-- Partner Card 4 -->
+      <div class="partner-card" data-tilt>
+        <div class="partner-card-glow"></div>
+        <div class="partner-badge-top">
+          <span class="pulse-dot"></span>
+          <span>Verified Network</span>
+        </div>
+        <div class="partner-brand-content">
+          <i class="fa-solid fa-dna partner-icon"></i>
+          <span class="partner-name">BioSphere Clinics</span>
+        </div>
+        <span class="partner-tag">Outpatient Network</span>
+      </div>
+
+      <!-- Partner Card 5 -->
+      <div class="partner-card" data-tilt>
+        <div class="partner-card-glow"></div>
+        <div class="partner-badge-top">
+          <span class="pulse-dot"></span>
+          <span>Verified Network</span>
+        </div>
+        <div class="partner-brand-content">
+          <i class="fa-solid fa-microscope partner-icon"></i>
+          <span class="partner-name">Nova Diagnostic</span>
+        </div>
+        <span class="partner-tag">Bio-Medical Research</span>
+      </div>
+
+      <!-- Partner Card 6 -->
+      <div class="partner-card" data-tilt>
+        <div class="partner-card-glow"></div>
+        <div class="partner-badge-top">
+          <span class="pulse-dot"></span>
+          <span>Verified Network</span>
+        </div>
+        <div class="partner-brand-content">
+          <i class="fa-solid fa-staff-snake partner-icon"></i>
+          <span class="partner-name">CareBridge Allied</span>
+        </div>
+        <span class="partner-tag">Rehabilitation Center</span>
+      </div>
+
+    </div>
+
+    <!-- Trust Summary Strip -->
+    <div class="partners-summary-strip partner-reveal">
+      <div class="summary-item">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>Direct OEM Factory Warranties</span>
+      </div>
+      <div class="summary-item">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>ISO 13485 Regulated Facilities</span>
+      </div>
+      <div class="summary-item">
+        <i class="fa-solid fa-truck-ramp-box"></i>
+        <span>Guaranteed 48H Restock Dispatch</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ==================== ABOUT: FINAL CTA CAPSULE ==================== -->
+<section class="about-final-cta-section" id="about-cta">
+  <div class="container">
+    
+    <div class="about-cta-capsule-card about-cta-reveal">
+      <!-- Ambient Radial Shimmer Layer -->
+      <div class="cta-capsule-glow glow-cyan-corner" aria-hidden="true"></div>
+      <div class="cta-capsule-glow glow-blue-corner" aria-hidden="true"></div>
+
+      <!-- Center Content -->
+      <div class="about-cta-inner">
+        <span class="about-cta-badge">
+          <i class="fa-solid fa-handshake-angle"></i> Direct Biomedical Procurement
+        </span>
+
+        <h2 class="about-cta-title">
+          LET'S BUILD BETTER <br>
+          HEALTHCARE TOGETHER
+        </h2>
+
+        <p class="about-cta-desc">
+          Ready to equip your facility with certified instrumentation? Connect with our biomedical specialist team today to explore custom procurement tiers.
+        </p>
+
+        <!-- Action Buttons -->
+        <div class="about-cta-actions">
+          <a href="error.html" class="btn btn-primary cta-pill-btn-solid">
+            <span>Request Bulk Quote</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="error.html" class="btn btn-outline cta-pill-btn-outline">
+            <span>Contact Us</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+    <!-- ==================== FOOTER SECTION ==================== -->
+    <footer class="site-footer" id="siteFooter">
+        <div class="container footer-container">
+
+            <!-- Brand & Socials -->
+            <div class="footer-col footer-col-brand">
+                <a href="index.html" class="footer-logo">
+                    <img src="./assets/logo 23.webp" alt="logo" width="150px" height="50px">
+                </a>
+                <p class="footer-bio">
+                    Premium medical equipment and supplies for hospitals, clinics, and home healthcare.
+                </p>
+                <div class="footer-socials">
+                    <a href="error.html" class="social-link" aria-label="LinkedIn"><i
+                            class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="error.html" class="social-link" aria-label="Twitter"><i
+                            class="fa-brands fa-x-twitter"></i></a>
+                    <a href="error.html" class="social-link" aria-label="Facebook"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="error.html" class="social-link" aria-label="YouTube"><i
+                            class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-col">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-nav-list">
+                    <li><a href="index.html" class="footer-nav-link">Home</a></li>
+                    <li><a href="about.html" class="footer-nav-link">About</a></li>
+                    <li><a href="services.html" class="footer-nav-link">Services</a></li>
+                    <li><a href="shop.html" class="footer-nav-link">Shop</a></li>
+                    <li><a href="contact.html" class="footer-nav-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Categories -->
+            <div class="footer-col">
+                <h4 class="footer-heading">Categories</h4>
+                <ul class="footer-links-list">
+                    <li><a href="shop.html">Diagnostics</a></li>
+                    <li><a href="shop.html">Surgical Units</a></li>
+                    <li><a href="shop.html">Patient Monitor</a></li>
+                    <li><a href="shop.html">Hospital Beds</a></li>
+                    <li><a href="shop.html">Consumables</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-col">
+                <h4 class="footer-heading">Contact Us</h4>
+                <ul class="footer-contact-list">
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>450 Innovation Parkway, Healthcare Hub, NY 10001</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+1 (800) 456-7890</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>support@medixen.com</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p class="copyright">&copy; 2026 MEDIXEN Healthcare. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="error.html">Privacy Policy</a>
+                    <span>&bull;</span>
+                    <a href="error.html">Terms of Service</a>
+                </div>
+            </div>
+            <div class="footer-watermark" aria-hidden="true">STACKLY</div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="script.js"></script>
+    <script src="about.js"></script>
+
+
+
+</body>
+
+</html>

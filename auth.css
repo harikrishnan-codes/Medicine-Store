@@ -1,0 +1,652 @@
+/* ==========================================================================
+   MEDIXEN AUTHENTICATION PORTAL (SIGNUP / LOGIN / FORGOT)
+   ========================================================================== */
+:root {
+  --color-primary: #12b5a6;
+  --color-dark-navy: #15263f;
+  --color-dark-slate: #1c324f;
+  --color-ice-blue: #e8f7f5;
+  --color-teal-bright: #2dd4bf;
+  --color-error: #f87171;
+  --color-success: #34d399;
+  --font-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --radius-pill: 50px;
+  --radius-xl: 24px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.auth-body {
+  font-family: var(--font-base);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px 40px;
+  position: relative;
+  overflow-x: hidden;
+  transition: background 0.6s ease;
+}
+
+/* Background Theme for Signup: Surgical OT Suite */
+body.auth-body.signup-theme {
+  background: 
+    radial-gradient(circle at 75% 25%, rgba(18, 181, 166, 0.3) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(14, 27, 43, 0.92) 0%, rgba(8, 16, 26, 0.96) 100%),
+    url("https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat fixed;
+  color: #ffffff;
+}
+
+/* Background Theme for Login & Forgot: Soft Clinical Ice/Mint Ambient */
+body.auth-body.login-theme {
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(18, 181, 166, 0.18) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(21, 38, 63, 0.08) 0%, transparent 40%),
+    linear-gradient(135deg, #d8f3ee 0%, #e8f7f5 60%, #ccefe9 100%);
+  color: var(--color-dark-navy);
+}
+
+/* Floating Brand Header */
+.auth-top-brand {
+  position: absolute;
+  top: 24px;
+  left: 36px;
+  z-index: 10;
+}
+
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.brand-icon {
+  font-size: 1.4rem;
+  color: var(--color-primary);
+}
+
+.brand-name {
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: inherit;
+}
+
+.brand-name span {
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   VIEW TOGGLING LOGIC
+   ========================================================================== */
+.auth-section {
+  display: none;
+  width: 100%;
+  max-width: 1100px;
+  animation: authFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.auth-section.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes authFadeIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ==========================================================================
+   SIGNUP SECTION: DUAL-COLUMN LAYOUT
+   ========================================================================== */
+.auth-dual-wrapper {
+  display: grid;
+  grid-template-columns: 1.1fr 0.95fr;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+}
+
+.narrative-tag {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-teal-bright);
+  margin-bottom: 0.75rem;
+}
+
+.narrative-heading {
+  font-size: clamp(2.4rem, 4.4vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 1.35rem;
+}
+
+.highlight-cyan {
+  color: var(--color-teal-bright);
+  text-shadow: 0 0 20px rgba(45, 212, 191, 0.5);
+}
+
+.narrative-desc {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 2rem;
+  max-width: 500px;
+}
+
+.narrative-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.feat-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.feat-item i {
+  color: var(--color-teal-bright);
+}
+
+/* ==========================================================================
+   GLASSMORPHISM CARD ARCHITECTURE
+   ========================================================================== */
+.auth-card-glass {
+  position: relative;
+  border-radius: var(--radius-xl);
+  padding: 2.75rem 2.5rem;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  transition: all 0.4s ease;
+}
+
+/* Signup Card (Dark Glass) */
+.signup-theme .auth-card-glass {
+  background: rgba(14, 27, 43, 0.75);
+  border: 1.5px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: #ffffff;
+}
+
+/* Login & Forgot Card (Light Frosted Mint Glass) */
+.login-theme .auth-card-glass {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1.5px solid rgba(18, 181, 166, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: var(--color-dark-navy);
+  box-shadow: 0 20px 50px rgba(18, 181, 166, 0.15);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.card-title {
+  font-size: 1.65rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.card-title.text-center {
+  text-align: center;
+}
+
+/* ==========================================================================
+   CUSTOM ROLE SELECTOR PILL TABS (NO SELECT TAGS)
+   ========================================================================== */
+.custom-role-selector {
+  margin-bottom: 1.5rem;
+}
+
+.role-field-label {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  opacity: 0.85;
+}
+
+.role-pill-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 4px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.role-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 8px 14px;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.role-pill-btn.active {
+  background: var(--gradient-btn-teal, linear-gradient(135deg, #18c2b2 0%, #0d7f74 100%));
+  color: #ffffff;
+  box-shadow: 0 2px 10px rgba(18, 181, 166, 0.45);
+}
+
+/* ==========================================================================
+   FORM INPUT CONTROLS & EYE TOGGLE
+   ========================================================================== */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.auth-input-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 500;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* Inputs in Dark Signup */
+.signup-theme .auth-input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.signup-theme .auth-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.signup-theme .auth-input:focus {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: var(--color-teal-bright);
+  box-shadow: 0 0 16px rgba(45, 212, 191, 0.4);
+}
+
+/* Inputs in Light Login */
+.login-theme .auth-input {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1.5px solid rgba(18, 181, 166, 0.3);
+  color: var(--color-dark-navy);
+}
+
+.login-theme .auth-input::placeholder {
+  color: rgba(21, 38, 63, 0.55);
+}
+
+.login-theme .auth-input:focus {
+  background: #ffffff;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 16px rgba(18, 181, 166, 0.3);
+}
+
+/* Eye Toggle Button */
+.password-group {
+  position: relative;
+}
+
+.password-group .auth-input {
+  padding-right: 46px;
+}
+
+.eye-toggle-btn {
+  position: absolute;
+  right: 14px;
+  top: 13px;
+  background: transparent;
+  border: none;
+  color: inherit;
+  opacity: 0.65;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.eye-toggle-btn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Error Message Under Input */
+.auth-error-text {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--color-error);
+  margin-top: 4px;
+  min-height: 16px;
+  display: block;
+}
+
+/* Error Shake Class */
+.auth-input-group.shake-error .auth-input {
+  border-color: var(--color-error) !important;
+  animation: inputShake 0.45s ease;
+}
+
+@keyframes inputShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+/* ==========================================================================
+   EXTRA CONTROLS: CHECKBOX & SWITCHES
+   ========================================================================== */
+.auth-extra-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+}
+
+.custom-checkbox-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.custom-checkbox-wrap input {
+  display: none;
+}
+
+.checkbox-box {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1.5px solid rgba(21, 38, 63, 0.4);
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  color: transparent;
+  transition: all 0.2s ease;
+}
+
+.custom-checkbox-wrap input:checked + .checkbox-box {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.checkbox-label {
+  font-weight: 600;
+}
+
+.link-switch {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 700;
+  color: var(--color-primary);
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.link-switch:hover {
+  color: #0d8377;
+}
+
+/* ==========================================================================
+   SUBMIT BUTTONS
+   ========================================================================== */
+.btn-teal-submit {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 13px 20px;
+  border-radius: var(--radius-pill);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--gradient-btn-teal, linear-gradient(135deg, #18c2b2 0%, #0d7f74 100%));
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 18px rgba(18, 181, 166, 0.5);
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.btn-teal-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(18, 181, 166, 0.75);
+}
+
+.btn-navy-submit {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 13px 20px;
+  border-radius: var(--radius-pill);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: linear-gradient(135deg, #1c3b5e 0%, #11263d 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 18px rgba(21, 38, 63, 0.35);
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.btn-navy-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(21, 38, 63, 0.55);
+}
+
+/* Status Slots */
+.auth-status-slot {
+  min-height: 24px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-feedback {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  animation: authFadeIn 0.3s ease;
+}
+
+.status-feedback.error {
+  background: rgba(239, 68, 68, 0.25);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.status-feedback.success {
+  background: rgba(16, 185, 129, 0.25);
+  color: #6ee7b7;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+/* ==========================================================================
+   SOCIAL LOGIN GROUP & FOOTER PROMPTS
+   ========================================================================== */
+.auth-divider {
+  position: relative;
+  text-align: center;
+  margin: 0.75rem 0;
+}
+
+.auth-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(21, 38, 63, 0.15);
+}
+
+.auth-divider span {
+  position: relative;
+  background: #e4f5f2;
+  padding: 0 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-dark-navy);
+  opacity: 0.7;
+}
+
+.social-login-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.social-auth-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: var(--radius-pill);
+  background: #ffffff;
+  border: 1.5px solid rgba(21, 38, 63, 0.12);
+  color: var(--color-dark-navy);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.social-auth-btn:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(18, 181, 166, 0.2);
+}
+
+.auth-switch-prompt {
+  font-size: 0.84rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.auth-switch-prompt span {
+  opacity: 0.8;
+  margin-right: 4px;
+}
+
+/* Forgot Instructions */
+.forgot-instructions {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--color-dark-navy);
+  opacity: 0.85;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   768PX MEDIA QUERY (MOBILE / TABLET)
+   ========================================================================== */
+@media (max-width: 768px) {
+  body.auth-body {
+    padding: 70px 16px 30px;
+    justify-content: flex-start;
+  }
+
+  .auth-top-brand {
+    top: 18px;
+    left: 20px;
+  }
+
+  .auth-dual-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .narrative-heading {
+    font-size: 2.1rem;
+    line-height: 1.15;
+  }
+
+  .narrative-desc {
+    font-size: 0.92rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .auth-card-glass {
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+  }
+
+  .card-title {
+    font-size: 1.45rem;
+  }
+
+  .auth-input {
+    padding: 10px 14px;
+    font-size: 0.88rem;
+  }
+
+  .btn-teal-submit,
+  .btn-navy-submit {
+    padding: 11px 18px;
+    font-size: 0.88rem;
+  }
+}
