@@ -2119,34 +2119,53 @@ body.no-scroll {
 }
 
 /* ==========================================================================
-   768PX MEDIA QUERY
+   PROMOTIONAL DEAL BANNER - RESPONSIVE 768PX MEDIA QUERY
+   Zero Horizontal Overflow & Mobile/Tablet Alignment
    ========================================================================== */
 @media (max-width: 768px) {
   .deal-banner {
     grid-template-columns: 1fr;
-    padding: 2.25rem 1.5rem;
     gap: 2.25rem;
-    border-radius: 20px;
+    padding: 2.25rem 1.5rem;
+    border-radius: var(--radius-lg, 20px);
     text-align: center;
   }
 
+  /* Reset position of ambient glow so it does not spill beyond screen width */
+  .deal-glow-aura {
+    width: 320px;
+    height: 320px;
+    top: -20%;
+    right: -10%;
+  }
+
+  /* Left column mobile adjustments */
   .deal-badge {
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 1rem;
+    font-size: 0.72rem;
+  }
+
+  .deal-title {
+    font-size: 1.85rem;
+    margin-bottom: 0.65rem;
   }
 
   .deal-discount-tag {
     justify-content: center;
+    font-size: 0.88rem;
+    margin-bottom: 0.85rem;
   }
 
   .deal-desc {
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     font-size: 0.88rem;
+    line-height: 1.55;
   }
 
+  /* Right column mobile adjustments */
   .deal-action-box {
     align-items: center;
+    gap: 1.5rem;
     width: 100%;
   }
 
@@ -2157,8 +2176,11 @@ body.no-scroll {
   }
 
   .time-block {
-    min-width: 60px;
-    padding: 8px 8px;
+    min-width: 58px;
+    padding: 10px 8px;
+    border-radius: 10px;
+    flex: 1 1 0;
+    max-width: 75px;
   }
 
   .time-num {
@@ -2171,18 +2193,22 @@ body.no-scroll {
 
   .time-divider {
     font-size: 1.25rem;
+    margin-top: -8px;
   }
 
+  /* CTA Button full-width alignment */
   .deal-btn-wrap {
     justify-content: center;
+    width: 100%;
   }
 
   .deal-cta-btn {
     width: 100% !important;
-    justify-content: center;
+    justify-content: center !important;
+    padding: 12px 20px !important;
+    font-size: 0.9rem !important;
   }
 }
-
 
 
 

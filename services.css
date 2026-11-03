@@ -1676,22 +1676,37 @@
 }
 
 /* ==========================================================================
-   768PX MEDIA QUERY (MOBILE / TABLET)
+   SERVICES: INDUSTRIES & FINAL CTA - RESPONSIVE 768PX MEDIA QUERY
+   Zero Horizontal Overflow & Vertical Accordion Stacking
    ========================================================================== */
 @media (max-width: 768px) {
+  /* 1. Section Padding & Header */
   .services-industries-section {
-    padding: 70px 0 80px;
+    padding: 60px 0 70px;
+    background-size: 200% 200%;
   }
 
   .industries-header {
     margin-bottom: 2.25rem;
   }
 
-  .industries-heading {
-    font-size: 2.1rem;
+  .industries-eyebrow {
+    font-size: 0.72rem;
+    margin-bottom: 0.65rem;
   }
 
-  /* Vertical Accordion on Mobile */
+  .industries-heading {
+    font-size: 1.85rem;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+
+  .industries-subtext {
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  /* 2. Convert Horizontal Expand Track into Vertical Stack */
   .industries-expand-track {
     flex-direction: column;
     height: auto;
@@ -1702,70 +1717,110 @@
   .industry-card {
     flex: none;
     width: 100%;
-    min-height: 90px;
-    padding: 1.5rem;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    min-height: auto;
+    padding: 1.5rem 1.25rem;
+    border-radius: var(--radius-lg, 18px);
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   }
 
-  .industry-card.active {
-    min-height: 380px;
-  }
-
+  /* Keep expanded details visible on mobile without relying on desktop flex hover */
   .industry-collapsed-view {
-    position: relative;
-    flex-direction: row;
-    justify-content: flex-start;
-    padding: 0;
-  }
-
-  .industry-icon-wrap {
-    width: 50px;
-    height: 50px;
-    font-size: 1.35rem;
-  }
-
-  .industry-card.active .industry-collapsed-view {
     display: none;
   }
 
   .industry-expanded-view {
+    opacity: 1;
+    visibility: visible;
     transform: none;
-    padding-top: 0.5rem;
+    height: auto;
+  }
+
+  .industry-card:hover,
+  .industry-card.active {
+    flex: none;
+    transform: none;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  .industry-card-overlay {
+    opacity: 0.4;
+  }
+
+  .industry-tier-tag {
+    font-size: 0.68rem;
+    padding: 3px 10px;
+    margin-bottom: 0.5rem;
   }
 
   .industry-full-title {
-    font-size: 1.45rem;
+    font-size: 1.35rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .industry-desc {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    max-width: 100%;
+  }
+
+  .industry-specs {
+    gap: 0.45rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .industry-specs li {
+    font-size: 0.8rem;
   }
 
   .industry-card-btn {
     width: 100%;
     justify-content: center;
+    padding: 10px 16px;
+    font-size: 0.85rem;
   }
 
-  /* CTA Adjustments */
+  /* 3. Final CTA Capsule Mobile Adjustments */
   .services-final-cta-capsule {
-    padding: 3rem 1.5rem 2.25rem;
-    border-radius: 22px;
+    padding: 2.75rem 1.25rem;
+    border-radius: var(--radius-lg, 20px);
+  }
+
+  .cta-capsule-glow {
+    width: 250px;
+    height: 250px;
+    filter: blur(60px);
+  }
+
+  .cta-eyebrow-pill {
+    font-size: 0.72rem;
+    padding: 5px 12px;
+    margin-bottom: 1rem;
   }
 
   .cta-headline {
-    font-size: 1.95rem;
+    font-size: 1.75rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
   }
 
   .cta-subtext {
-    font-size: 0.92rem;
-    margin-bottom: 2rem;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin-bottom: 1.75rem;
   }
 
   .cta-button-group {
     flex-direction: column;
+    gap: 0.75rem;
     width: 100%;
-    gap: 0.85rem;
   }
 
   .cta-solid-btn,
   .cta-outline-btn {
     width: 100% !important;
-    justify-content: center;
+    justify-content: center !important;
+    padding: 12px 20px !important;
+    font-size: 0.9rem !important;
   }
 }
